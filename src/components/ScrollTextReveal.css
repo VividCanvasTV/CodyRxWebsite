@@ -1,0 +1,118 @@
+.str-section {
+  position: relative;
+  height: 400vh;
+  background: #09090b;
+  z-index: 4;
+}
+
+.str-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.str-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+.str-side {
+  flex: 1;
+  max-width: 480px;
+}
+
+.str-left {
+  text-align: right;
+}
+
+.str-right {
+  text-align: left;
+}
+
+.str-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 4px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  perspective: 600px;
+}
+
+.str-char {
+  display: inline-block;
+  transition: none;
+  will-change: transform, opacity, filter;
+}
+
+.str-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+.str-divider {
+  width: 1px;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #E50914, transparent);
+  flex-shrink: 0;
+  transform-origin: center;
+  margin-top: 10px;
+}
+
+.str-brand {
+  margin-top: 60px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+.str-brand sub {
+  font-size: 0.55em;
+  color: #E50914;
+  font-style: italic;
+  vertical-align: baseline;
+  position: relative;
+  bottom: -0.1em;
+}
+
+@media (max-width: 768px) {
+  .str-container {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .str-left,
+  .str-right {
+    text-align: center;
+  }
+
+  .str-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #E50914, transparent);
+  }
+}

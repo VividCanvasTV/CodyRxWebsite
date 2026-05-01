@@ -1,0 +1,51 @@
+.dot-banner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  cursor: crosshair;
+  background: #09090b;
+}
+
+.dot-banner__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.dot-banner__text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+  user-select: none;
+}
+
+.dot-banner__text sub {
+  font-size: 0.55em;
+  color: #E50914;
+  font-style: italic;
+  vertical-align: baseline;
+  position: relative;
+  bottom: -0.15em;
+}
+
+.dot-banner__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .dot-banner {
+    height: 140px;
+  }
+}

@@ -1,0 +1,65 @@
+/* ══════════════════════════════════════════════════
+   SITE CURSOR — inverted-color circular cursor
+   Uses mix-blend-mode: difference on white so it
+   inverts whatever is behind it.
+══════════════════════════════════════════════════ */
+
+.site-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  mix-blend-mode: difference;
+  width: 34px;
+  height: 34px;
+  margin-left: -17px;
+  margin-top: -17px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 0;
+  transition: opacity 0.2s ease,
+              width 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+              height 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+              margin 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.site-cursor-ring.is-hover {
+  width: 64px;
+  height: 64px;
+  margin-left: -32px;
+  margin-top: -32px;
+}
+
+.site-cursor-ring.is-down {
+  width: 22px;
+  height: 22px;
+  margin-left: -11px;
+  margin-top: -11px;
+}
+
+/* Hide native cursor only when custom is active (desktop only) */
+html.has-custom-cursor,
+html.has-custom-cursor body,
+html.has-custom-cursor a,
+html.has-custom-cursor button,
+html.has-custom-cursor [role="button"],
+html.has-custom-cursor input,
+html.has-custom-cursor textarea,
+html.has-custom-cursor select,
+html.has-custom-cursor label,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+/* Touch / coarse pointer devices — disable entirely */
+@media (hover: none), (pointer: coarse) {
+  .site-cursor-dot,
+  .site-cursor-ring { display: none; }
+
+  html.has-custom-cursor,
+  html.has-custom-cursor *  {
+    cursor: auto !important;
+  }
+}

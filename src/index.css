@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@200..800&display=swap');
+
+:root {
+  --font-hero: 'Cormorant Garamond', Georgia, serif;
+  --accent: #E50914;
+  --accent-soft: #ff2a2a;
+  --bg: #0e0e11;
+  --bg-elevated: #151518;
+  --text-strong: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --font-display: 'Instrument Serif', serif;
+  --font-sans: 'Manrope', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background:
+    /* Subtle noise texture via SVG data URI */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
+    /* Red-to-black radial gradient — warm center bleed */
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(140, 10, 20, 0.18) 0%, transparent 70%),
+    /* Secondary red glow bottom-left */
+    radial-gradient(ellipse 50% 40% at 20% 75%, rgba(120, 8, 16, 0.10) 0%, transparent 70%),
+    /* Base color */
+    var(--bg);
+  color: var(--text-strong);
+  font-family: var(--font-sans);
+  margin: 0;
+  min-height: 100vh;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+picture,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: rgba(168, 12, 24, 0.5);
+  color: #fff;
+}
+
+#root {
+  min-height: 100vh;
+}

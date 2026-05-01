@@ -1,0 +1,89 @@
+.dot-matrix {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+/* Content behind the dots */
+.dot-matrix__content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 80px 60px;
+  z-index: 1;
+  align-content: center;
+}
+
+.dot-matrix__step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+}
+
+.dot-matrix__num {
+  font-family: 'Inter', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: rgba(229, 9, 20, 0.15);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -2px;
+}
+
+.dot-matrix__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  line-height: 1.15;
+}
+
+.dot-matrix__copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 280px;
+}
+
+/* Canvas overlays content */
+.dot-matrix__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* The container itself captures mouse events */
+.dot-matrix {
+  cursor: crosshair;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dot-matrix__content {
+    grid-template-columns: 1fr;
+    padding: 60px 30px;
+    gap: 1.5rem;
+  }
+
+  .dot-matrix__num {
+    font-size: 48px;
+  }
+
+  .dot-matrix__title {
+    font-size: 22px;
+  }
+
+  .dot-matrix {
+    min-height: 800px;
+  }
+}
