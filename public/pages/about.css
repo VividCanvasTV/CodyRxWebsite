@@ -87,9 +87,55 @@ a {
     outline: none;
 }
 
+.about-nav {
+    background: rgba(5, 5, 7, 0.82);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
+}
+
+.about-nav:hover {
+    border-bottom-color: rgba(216, 19, 36, 0.28);
+}
+
+.about-nav .cr-nav-logo,
+.about-nav .cr-nav-link,
+.about-nav .cr-nav-trigger {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.about-nav .cr-nav-logo {
+    color: var(--white);
+}
+
+.about-nav .cr-nav-link:hover,
+.about-nav .cr-nav-trigger:hover,
+.about-nav .cr-nav-item:hover .cr-nav-trigger,
+.about-nav .cr-nav-link.is-active,
+.about-nav .cr-nav-trigger.is-active {
+    color: #fff;
+}
+
+.about-nav .cr-nav-shortcut {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.about-nav .cr-nav-shortcut:hover {
+    border-color: rgba(216, 19, 36, 0.66);
+    color: #fff;
+}
+
+.about-nav .cr-nav-shortcut--primary {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+}
+
 .site-header {
     position: relative;
-    padding: 28px clamp(18px, 4vw, 70px) 34px;
+    padding: clamp(54px, 7vw, 86px) clamp(18px, 4vw, 70px) 34px;
     overflow: hidden;
 }
 

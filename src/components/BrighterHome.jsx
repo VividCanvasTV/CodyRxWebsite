@@ -28,6 +28,7 @@ const LIVE_RX_CONSULT_URL = '/pages/virtual-consult.html'
 const REFILL_URL = '#review'
 const ABOUT_PAGE_URL = '/pages/about.html'
 const SERVICES_PAGE_URL = '/pages/solutions.html'
+const COMPOUNDING_PAGE_URL = '/services/compounding/'
 const CAREERS_URL = '/pages/about.html#team'
 const LICENSES_URL = '/pages/about.html#licenses'
 const EVENTS_URL = '#resources'
@@ -56,7 +57,7 @@ const MEGA_MENU_CONTENT = {
       {
         title: 'Services',
         links: [
-          { href: SERVICES_PAGE_URL, label: 'Compounding' },
+          { href: COMPOUNDING_PAGE_URL, label: 'Compounding' },
           { href: SERVICES_PAGE_URL, label: 'Vaccines' },
           { href: SERVICES_PAGE_URL, label: 'Medicine' },
         ],
@@ -69,7 +70,7 @@ const MEGA_MENU_CONTENT = {
         title: 'Providers',
         links: [
           { href: PROVIDER_PORTAL_URL, label: 'Provider Portal', external: true },
-          { href: PROVIDERS_CONSULT_URL, label: 'Price List' },
+          { href: PROVIDERS_CONSULT_URL, label: 'Provider Inquiry' },
         ],
       },
     ],
@@ -80,7 +81,7 @@ const MEGA_MENU_CONTENT = {
         title: 'Products',
         links: [
           { href: PRODUCTS_URL, label: 'Supplements' },
-          { href: SERVICES_PAGE_URL, label: 'Compounds' },
+          { href: COMPOUNDING_PAGE_URL, label: 'Compounds' },
         ],
       },
     ],
@@ -137,10 +138,10 @@ function BrighterNavbar() {
 
   const primaryMenuSections = [
     { id: 'about-us', label: 'About Us', href: ABOUT_PAGE_URL },
-    { id: 'services', label: 'Services' },
-    { id: 'providers', label: 'Providers' },
+    { id: 'services', label: 'Services', href: SERVICES_PAGE_URL },
+    { id: 'providers', label: 'Providers', href: PROVIDERS_PAGE_URL },
   ]
-  const productSection = { id: 'products', label: 'Products' }
+  const productSection = { id: 'products', label: 'Products', href: PRODUCTS_URL }
   const sideSections = [
     {
       id: 'about-us',
@@ -160,7 +161,7 @@ function BrighterNavbar() {
       eyebrow: 'Service breakdown',
       description: 'This lane is now just the three service labels you asked for, with no extra filler links.',
       links: [
-        { href: SERVICES_PAGE_URL, label: 'Compounding' },
+        { href: COMPOUNDING_PAGE_URL, label: 'Compounding' },
         { href: SERVICES_PAGE_URL, label: 'Vaccines' },
         { href: SERVICES_PAGE_URL, label: 'Medicine' },
       ],
@@ -172,7 +173,7 @@ function BrighterNavbar() {
       description: 'Provider traffic now stays limited to the portal and the price list route.',
       links: [
         { href: PROVIDER_PORTAL_URL, label: 'Provider Portal', external: true },
-        { href: PROVIDERS_CONSULT_URL, label: 'Price List' },
+        { href: PROVIDERS_CONSULT_URL, label: 'Provider Inquiry' },
       ],
     },
     {
@@ -191,7 +192,7 @@ function BrighterNavbar() {
       description: 'Products is now just the two product lanes you called out.',
       links: [
         { href: PRODUCTS_URL, label: 'Supplements' },
-        { href: SERVICES_PAGE_URL, label: 'Compounds' },
+        { href: COMPOUNDING_PAGE_URL, label: 'Compounds' },
       ],
     },
     {
@@ -388,18 +389,17 @@ function BrighterNavbar() {
                 {link.label}
               </a>
             ))}
-            <button
-              type="button"
+            <a
+              href={productSection.href}
               className={`bh-nav-trigger ${openMenu === productSection.id ? 'is-open' : ''}`}
               onMouseEnter={(e) => open(productSection.id, e)}
-              onClick={(e) => open(productSection.id, e)}
               aria-expanded={openMenu === productSection.id}
             >
               {productSection.label}
               <svg className="bh-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
-            </button>
+            </a>
             <a
               href={CONTACT_URL}
               className="bh-nav-link"

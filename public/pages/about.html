@@ -7,25 +7,73 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared-nav.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="/shared-chat.css">
     <script src="/shared-chat.js" defer></script>
 </head>
 <body>
-    <header class="site-header" id="top">
-        <nav class="topbar" aria-label="Primary navigation">
-            <a class="brand" href="/pages/index.html" aria-label="Cody Drug Rx home">
-                <span>CodyDrug</span><strong>Rx</strong>
-            </a>
-            <div class="nav-links">
-                <a href="/pages/index.html">Home</a>
-                <a href="/pages/solutions.html">Services</a>
-                <a href="/pages/virtual-consult.html">Virtual Consults</a>
-                <a class="is-active" href="/pages/about.html">About</a>
+    <header class="cr-nav about-nav">
+        <div class="cr-nav-inner">
+            <a href="/" class="cr-nav-logo" aria-label="Cody Drug Rx home"><span class="cr-nav-logo-l">CODY</span><span>DRUG <span class="cr-nav-red">RX</span></span></a>
+            <nav aria-label="Primary">
+                <ul class="cr-nav-menu">
+                    <li class="cr-nav-item">
+                        <a href="/pages/about.html" class="cr-nav-trigger is-active">About Us<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+                        <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                            <div class="cr-nav-col">
+                                <p class="cr-nav-col-title">About Us</p>
+                                <a href="/pages/solutions.html" class="cr-nav-mlink">Services</a>
+                                <a href="/pages/about.html#team" class="cr-nav-mlink">Careers</a>
+                                <a href="/#resources" class="cr-nav-mlink">Events</a>
+                                <a href="/pages/about.html#licenses" class="cr-nav-mlink">Licenses</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr-nav-item">
+                        <a href="/pages/solutions.html" class="cr-nav-trigger">Services<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+                        <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                            <div class="cr-nav-col">
+                                <p class="cr-nav-col-title">Services</p>
+                                <a href="/services/compounding/" class="cr-nav-mlink">Compounding</a>
+                                <a href="/pages/solutions.html" class="cr-nav-mlink">Vaccines</a>
+                                <a href="/pages/solutions.html" class="cr-nav-mlink">Medicine</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr-nav-item">
+                        <a href="/pages/providers.html" class="cr-nav-trigger">Providers<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+                        <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                            <div class="cr-nav-col">
+                                <p class="cr-nav-col-title">Providers</p>
+                                <a href="https://portal.codydrugrx.com/" class="cr-nav-mlink" target="_blank" rel="noreferrer">Provider Portal</a>
+                                <a href="/pages/providers.html#consultation" class="cr-nav-mlink">Provider Inquiry</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr-nav-item"><a href="/#resources" class="cr-nav-link">Resources</a></li>
+                    <li class="cr-nav-item">
+                        <a href="/#products" class="cr-nav-trigger">Products<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+                        <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                            <div class="cr-nav-col">
+                                <p class="cr-nav-col-title">Products</p>
+                                <a href="/#products" class="cr-nav-mlink">Supplements</a>
+                                <a href="/services/compounding/" class="cr-nav-mlink">Compounds</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr-nav-item"><a href="/#contact" class="cr-nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cr-nav-actions">
+                <a href="https://portal.codydrugrx.com/" class="cr-nav-shortcut" target="_blank" rel="noreferrer">Provider Portal</a>
+                <a href="/pages/virtual-consult.html" class="cr-nav-shortcut">Live Rx Consult</a>
+                <a href="/#review" class="cr-nav-shortcut cr-nav-shortcut--primary">Refill</a>
             </div>
-            <a class="btn btn-red nav-cta" href="/#contact">Contact Us</a>
-        </nav>
+        </div>
+    </header>
 
+    <header class="site-header" id="top">
         <section class="hero-shell" aria-labelledby="about-title">
             <div class="hero-copy">
                 <p class="eyebrow">About Us</p>

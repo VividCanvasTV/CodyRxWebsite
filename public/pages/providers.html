@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="/shared-chat.css">
     <script src="/shared-chat.js" defer></script>
 </head>
-<body>
-    <header class="cr-nav">
+<body class="providers-page">
+    <header class="cr-nav providers-nav">
         <div class="cr-nav-inner">
-            <a href="/" class="cr-nav-logo"><span class="cr-nav-logo-l">CODY</span><span>DRUG <span class="cr-nav-red">RX</span></span></a>
+            <a href="/" class="cr-nav-logo" aria-label="Cody Drug Rx home"><span class="cr-nav-logo-l">CODY</span><span>DRUG <span class="cr-nav-red">RX</span></span></a>
             <nav aria-label="Primary">
                 <ul class="cr-nav-menu">
                     <li class="cr-nav-item">
-                        <a href="/pages/about.html" class="cr-nav-trigger">About Us<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg></a>
+                        <a href="/pages/about.html" class="cr-nav-trigger">About Us<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
                         <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
                             <div class="cr-nav-col">
                                 <p class="cr-nav-col-title">About Us</p>
@@ -31,34 +31,34 @@
                         </div>
                     </li>
                     <li class="cr-nav-item">
-                        <button type="button" class="cr-nav-trigger">Services<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        <a href="/pages/solutions.html" class="cr-nav-trigger">Services<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
                         <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
                             <div class="cr-nav-col">
                                 <p class="cr-nav-col-title">Services</p>
-                                <a href="/pages/solutions.html" class="cr-nav-mlink">Compounding</a>
+                                <a href="/services/compounding/" class="cr-nav-mlink">Compounding</a>
                                 <a href="/pages/solutions.html" class="cr-nav-mlink">Vaccines</a>
                                 <a href="/pages/solutions.html" class="cr-nav-mlink">Medicine</a>
                             </div>
                         </div>
                     </li>
                     <li class="cr-nav-item">
-                        <button type="button" class="cr-nav-trigger is-active">Providers<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        <a href="/pages/providers.html" class="cr-nav-trigger is-active">Providers<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
                         <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
                             <div class="cr-nav-col">
                                 <p class="cr-nav-col-title">Providers</p>
                                 <a href="https://portal.codydrugrx.com/" class="cr-nav-mlink" target="_blank" rel="noreferrer">Provider Portal</a>
-                                <a href="/pages/providers.html#consultation" class="cr-nav-mlink">Price List</a>
+                                <a href="/pages/providers.html#consultation" class="cr-nav-mlink">Provider Inquiry</a>
                             </div>
                         </div>
                     </li>
                     <li class="cr-nav-item"><a href="/#resources" class="cr-nav-link">Resources</a></li>
                     <li class="cr-nav-item">
-                        <button type="button" class="cr-nav-trigger">Products<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        <a href="/#products" class="cr-nav-trigger">Products<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
                         <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
                             <div class="cr-nav-col">
                                 <p class="cr-nav-col-title">Products</p>
                                 <a href="/#products" class="cr-nav-mlink">Supplements</a>
-                                <a href="/pages/solutions.html" class="cr-nav-mlink">Compounds</a>
+                                <a href="/services/compounding/" class="cr-nav-mlink">Compounds</a>
                             </div>
                         </div>
                     </li>
@@ -73,238 +73,266 @@
         </div>
     </header>
 
-    <main class="pr-page">
-        <section class="pr-hero">
-            <div class="pr-shell pr-hero-grid">
-                <div class="pr-hero-copy">
-                    <p class="pr-kicker">Expert care. Personal connection.</p>
-                    <h1 class="pr-title">Providers Who Put <span>Patients First.</span></h1>
-                    <p class="pr-body">
-                        Our clinical team brings together compounding experience, operational follow-through, and a patient-first tone that makes provider partnerships feel tighter from day one.
-                    </p>
-                    <div class="pr-hero-actions">
-                        <a href="#consultation" class="pr-btn pr-btn-primary">Schedule a Consultation</a>
-                        <a href="/pages/solutions.html" class="pr-btn pr-btn-outline">Our Services</a>
+    <main>
+        <section class="provider-hero section-shell" aria-labelledby="provider-hero-title">
+            <div class="hero-glow hero-glow-red" aria-hidden="true"></div>
+            <div class="hero-glow hero-glow-teal" aria-hidden="true"></div>
+            <div class="provider-container hero-grid">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">Providers</p>
+                    <h1 id="provider-hero-title"><span>Built for</span><span>Providers</span><span>Who Need</span><span>More Than</span><span>a Pharmacy</span></h1>
+                    <p class="hero-intro"><span>Cody Drug supports providers</span> <span>with custom compounded medications,</span> <span>responsive account management,</span> <span>fast processing, and patient-centered</span> <span>pharmacy support.</span></p>
+                    <div class="button-row" aria-label="Provider page actions">
+                        <a class="provider-btn provider-btn-primary" href="#consultation">Become a Provider Partner</a>
+                        <a class="provider-btn provider-btn-secondary" href="/#contact">Contact Cody Drug</a>
                     </div>
                 </div>
 
-                <div class="pr-hero-visual">
-                    <div class="pr-hero-stage"></div>
-                    <img src="assets/cody_vial.png" alt="Cody Drug Rx vial" class="pr-hero-vial">
-                    <article class="pr-hero-note">
-                        <span class="pr-hero-note-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-                        </span>
-                        <h2>Patient-Focused.<br>Science-Backed.</h2>
-                        <p>Trusted by thousands of patients and designed to support provider confidence at every step.</p>
+                <div class="hero-visual reveal" aria-label="Provider partner operations visual">
+                    <!-- Replace this operations mockup with final approved provider portal/account visuals before launch if supplied by the client. -->
+                    <div class="provider-window">
+                        <div class="console-header">
+                            <span>Provider Partner Console</span>
+                            <strong>Cody Drug Rx</strong>
+                        </div>
+                        <div class="console-grid">
+                            <article class="console-card console-card-primary">
+                                <span>Active request</span>
+                                <strong>Clinic intake reviewed</strong>
+                                <p>Formulation path ready for team confirmation.</p>
+                            </article>
+                            <article class="console-card">
+                                <span>Account manager</span>
+                                <strong>Support line open</strong>
+                                <p>Provider questions, process updates, and coordination.</p>
+                            </article>
+                            <article class="console-card">
+                                <span>Patient coordination</span>
+                                <strong>Follow-up queued</strong>
+                                <p>Patient support connected back to provider direction.</p>
+                            </article>
+                        </div>
+                        <div class="console-rail" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="console-footer">
+                            <span>Clinic workflow</span>
+                            <strong>Request → Review → Prepare → Support</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell choose-section" aria-labelledby="choose-title">
+            <div class="provider-container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Why Providers Choose Cody Drug</p>
+                    <h2 id="choose-title">A compounding partner built for provider realities.</h2>
+                    <p>Clinics, doctors, prescribers, and partner teams need clear answers, reliable workflows, and a pharmacy team that understands custom medication requests.</p>
+                </div>
+
+                <div class="partner-layout">
+                    <aside class="partner-note reveal">
+                        <span>Provider partner model</span>
+                        <strong>Built around clinic operations, not one-off transactions.</strong>
+                        <p>For providers, Cody Drug should feel like a responsive extension of the care team.</p>
+                    </aside>
+                    <div class="provider-value-grid">
+                        <article class="glass-card reveal">
+                            <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 5 14h6l-1 8 8-12h-6l1-8Z"/></svg></span>
+                            <h3>Fast Processing</h3>
+                            <p>Clear intake and preparation workflows designed to keep provider requests moving.</p>
+                        </article>
+                        <article class="glass-card reveal">
+                            <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 3h4M10 3v6.2a7 7 0 1 0 4 0V3M7 15h10"/></svg></span>
+                            <h3>Custom Compounds</h3>
+                            <p>Provider-directed formulation support for patient-specific medication needs.</p>
+                        </article>
+                        <article class="glass-card reveal">
+                            <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H7l-3 3V5Z"/><path d="M8 9h8M8 13h5"/></svg></span>
+                            <h3>Dedicated Account Support</h3>
+                            <p>A responsive account team for questions, updates, and coordination.</p>
+                        </article>
+                        <article class="glass-card reveal">
+                            <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-4.4 7-10V5.5L12 3 5 5.5V11c0 5.6 7 10 7 10Z"/><path d="m9 12 2 2 4-5"/></svg></span>
+                            <h3>Quality Standards</h3>
+                            <p>Process-minded preparation and review steps without unsupported certification claims.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell workflow-section" aria-labelledby="workflow-title">
+            <div class="provider-container">
+                <div class="section-heading compact reveal">
+                    <p class="eyebrow">Provider Workflow</p>
+                    <h2 id="workflow-title">A clear path from first request to ongoing support.</h2>
+                </div>
+
+                <div class="workflow-layout">
+                    <div class="workflow-stack" aria-label="Provider workflow steps">
+                        <article class="workflow-step reveal">
+                            <span>01</span>
+                            <h3>Connect with Cody Drug</h3>
+                            <p>Start with the team through inquiry, account support, or portal direction.</p>
+                        </article>
+                        <article class="workflow-step reveal">
+                            <span>02</span>
+                            <h3>Submit provider/patient needs</h3>
+                            <p>Share the requested medication need, patient context, and provider direction.</p>
+                        </article>
+                        <article class="workflow-step reveal">
+                            <span>03</span>
+                            <h3>Cody Drug confirms formulation path</h3>
+                            <p>The team reviews the request and coordinates next steps where needed.</p>
+                        </article>
+                        <article class="workflow-step reveal">
+                            <span>04</span>
+                            <h3>Medication is prepared</h3>
+                            <p>Preparation moves through the applicable compounding workflow.</p>
+                        </article>
+                        <article class="workflow-step reveal">
+                            <span>05</span>
+                            <h3>Ongoing support and follow-up</h3>
+                            <p>Provider and patient coordination continues after the request is prepared.</p>
+                        </article>
+                    </div>
+                    <aside class="workflow-brief reveal">
+                        <span>Handoff record</span>
+                        <strong>Provider need, patient context, and support path stay connected.</strong>
+                        <p>This section is designed for clinic review: clear enough for punch-list edits, specific enough to sell the partnership model.</p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell speed-section" aria-labelledby="speed-title">
+            <div class="provider-container speed-panel reveal">
+                <!-- Client must confirm public-facing claims before launch. -->
+                <div class="speed-copy">
+                    <p class="eyebrow">Speed &amp; Reliability</p>
+                    <h2 id="speed-title">Strong service claims, marked for client approval.</h2>
+                    <p>The metrics below are intentionally shown as placeholder claim language until Cody Drug confirms what can be published.</p>
+                </div>
+                <div class="metric-grid" aria-label="Provider reliability claims pending client confirmation">
+                    <article class="metric-card metric-primary">
+                        <span>Processing</span>
+                        <strong>24hr</strong>
+                        <p>average processing</p>
+                        <em>Pending client confirmation</em>
+                    </article>
+                    <article class="metric-card">
+                        <span>Workflow</span>
+                        <strong>10x faster</strong>
+                        <p>comparison language</p>
+                        <em>Pending client confirmation</em>
+                    </article>
+                    <article class="metric-card">
+                        <span>Account Management</span>
+                        <strong>24/7</strong>
+                        <p>accessible account management</p>
+                        <em>Pending client confirmation</em>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="pr-team-section">
-            <div class="pr-shell">
-                <div class="pr-section-head">
-                    <p class="pr-kicker pr-kicker-cyan">Meet your care team</p>
-                    <h2 class="pr-section-title">Dedicated. Experienced. <span>Here for You.</span></h2>
+        <section class="section-shell support-section" aria-labelledby="support-title">
+            <div class="provider-container">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Provider Support</p>
+                    <h2 id="support-title">Support That Feels Human</h2>
+                    <p>Providers can reach the Cody Drug team for questions, account support, process updates, and coordination without feeling routed through a generic pharmacy experience.</p>
                 </div>
 
-                <div class="pr-team-grid">
-                    <article class="pr-team-card">
-                        <div class="pr-team-copy">
-                            <span class="pr-card-tag">Owner &amp; Pharmacist</span>
-                            <h3>Will<br>Douglas</h3>
-                            <p class="pr-role">Owner &amp; Pharmacist</p>
-                            <p class="pr-card-body">Founder of Cody Drug Rx with over a decade of experience in clinical pharmacy, compounding, and patient-centered care.</p>
-                            <div class="pr-credential-row">
-                                <span>PharmD</span>
-                                <span>BCPS</span>
-                                <span>CPNP</span>
-                            </div>
-                            <div class="pr-skill-grid">
-                                <span>Compounding</span>
-                                <span>Patient Care</span>
-                                <span>Medication Management</span>
-                                <span>Virtual Consults</span>
-                            </div>
-                            <a href="#consultation" class="pr-card-btn">Book With Will</a>
-                        </div>
-                        <div class="pr-team-photo">
-                            <img src="assets/team_three.png" alt="Will Douglas" class="pr-team-img pr-team-img-left">
+                <div class="card-grid three-up">
+                    <article class="glass-card reveal">
+                        <span class="card-index">01</span>
+                        <h3>Account Management</h3>
+                        <p>Support for provider teams, account questions, and partner workflows.</p>
+                    </article>
+                    <article class="glass-card reveal">
+                        <span class="card-index">02</span>
+                        <h3>Responsive Communication</h3>
+                        <p>Practical updates and a team-focused communication style.</p>
+                    </article>
+                    <article class="glass-card reveal">
+                        <span class="card-index">03</span>
+                        <h3>Patient-Centered Coordination</h3>
+                        <p>Coordination that keeps patient needs and provider direction connected.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-shell trust-section" aria-labelledby="trust-title">
+            <div class="provider-container trust-grid">
+                <div class="trust-copy reveal">
+                    <p class="eyebrow">Quality &amp; Trust</p>
+                    <h2 id="trust-title">Built Around Quality and Consistency</h2>
+                    <p>Provider trust comes from disciplined preparation, thoughtful communication, and consistent support. Certification or compliance claims should only be added after final client documentation is approved.</p>
+                </div>
+                <div class="trust-list">
+                    <article class="trust-item reveal">
+                        <span aria-hidden="true"></span>
+                        <div>
+                            <h3>Sterile and non-sterile best practices</h3>
+                            <p>Support for applicable compounding workstreams without overclaiming scope.</p>
                         </div>
                     </article>
-
-                    <article class="pr-team-card">
-                        <div class="pr-team-copy">
-                            <span class="pr-card-tag">Operations Manager</span>
-                            <h3>Nan<br>Bass</h3>
-                            <p class="pr-role">Pharmacy Technician &amp; Operations Manager</p>
-                            <p class="pr-card-body">Over 20 years of pharmacy management experience with a passion for systems, patient experience, and operational excellence.</p>
-                            <div class="pr-credential-row">
-                                <span>CPHT</span>
-                                <span>Certified</span>
-                            </div>
-                            <div class="pr-skill-grid">
-                                <span>Operations Excellence</span>
-                                <span>Patient Coordination</span>
-                                <span>Insurance Support</span>
-                                <span>Care Follow-Up</span>
-                            </div>
-                            <a href="#consultation" class="pr-card-btn">Book With Nan</a>
-                        </div>
-                        <div class="pr-team-photo">
-                            <img src="assets/team_three.png" alt="Nan Bass" class="pr-team-img pr-team-img-center">
+                    <article class="trust-item reveal">
+                        <span aria-hidden="true"></span>
+                        <div>
+                            <h3>Quality assurance</h3>
+                            <p>Review-oriented checkpoints help support consistency and preparation confidence.</p>
                         </div>
                     </article>
-
-                    <article class="pr-team-card">
-                        <div class="pr-team-copy">
-                            <span class="pr-card-tag">Staff Pharmacist</span>
-                            <h3>Randy<br>White</h3>
-                            <p class="pr-role">Staff Pharmacist</p>
-                            <p class="pr-card-body">Compounding specialist focused on precision medication, clinical outcomes, and building lasting patient relationships.</p>
-                            <div class="pr-credential-row">
-                                <span>PharmD</span>
-                                <span>CPNP</span>
-                            </div>
-                            <div class="pr-skill-grid">
-                                <span>Compounding</span>
-                                <span>Medication Management</span>
-                                <span>Patient Care</span>
-                                <span>Virtual Consults</span>
-                            </div>
-                            <a href="#consultation" class="pr-card-btn">Book With Randy</a>
+                    <article class="trust-item reveal">
+                        <span aria-hidden="true"></span>
+                        <div>
+                            <h3>Provider communication</h3>
+                            <p>Clear intake, updates, and follow-up for clinics and prescribing partners.</p>
                         </div>
-                        <div class="pr-team-photo">
-                            <img src="assets/team_three.png" alt="Randy White" class="pr-team-img pr-team-img-right">
+                    </article>
+                    <article class="trust-item reveal">
+                        <span aria-hidden="true"></span>
+                        <div>
+                            <h3>Patient-focused standards</h3>
+                            <p>Support shaped around patient needs and provider-directed care plans.</p>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="pr-steps-section">
-            <div class="pr-shell">
-                <div class="pr-section-head">
-                    <p class="pr-kicker pr-kicker-cyan">How we care</p>
-                    <h2 class="pr-section-title">A Better Pharmacy Experience. <span>Every Step.</span></h2>
-                </div>
-
-                <div class="pr-steps-grid">
-                    <article class="pr-step-card">
-                        <span class="pr-step-num">01</span>
-                        <h3>Listen</h3>
-                        <p>We start with history, goals, and concerns so the recommendation feels tailored before it feels transactional.</p>
-                    </article>
-                    <article class="pr-step-card">
-                        <span class="pr-step-num">02</span>
-                        <h3>Build a Plan</h3>
-                        <p>We create a personalized plan with precision compounds, medication coaching, and ongoing provider communication.</p>
-                    </article>
-                    <article class="pr-step-card">
-                        <span class="pr-step-num">03</span>
-                        <h3>Deliver Results</h3>
-                        <p>We monitor progress, adjust when needed, and stay by your side so the provider and patient both feel supported.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="pr-reviews-section" id="reviews">
-            <div class="pr-shell">
-                <div class="pr-reviews-head">
-                    <div>
-                        <p class="pr-kicker pr-kicker-cyan">Trusted by thousands</p>
-                        <h2 class="pr-section-title">Real Patients. <span>Real Results.</span></h2>
-                    </div>
-                    <a href="/#peptides" class="pr-reviews-link">See More Reviews</a>
-                </div>
-
-                <div class="pr-review-grid">
-                    <article class="pr-review-card">
-                        <div class="pr-stars">★★★★★</div>
-                        <p>“The team at Cody Drug Rx changed my health and my life. They truly care.”</p>
-                        <div class="pr-review-meta">
-                            <span>Michelle D.</span>
-                            <img src="/assets/doctor-portrait.webp" alt="Michelle D." class="pr-review-avatar">
-                        </div>
-                    </article>
-                    <article class="pr-review-card">
-                        <div class="pr-stars">★★★★★</div>
-                        <p>“Personalized care, fast shipping, and the best communication I’ve ever had.”</p>
-                        <div class="pr-review-meta">
-                            <span>Jason T.</span>
-                            <img src="/assets/doctor-portrait.webp" alt="Jason T." class="pr-review-avatar pr-review-avatar-center">
-                        </div>
-                    </article>
-                    <article class="pr-review-card">
-                        <div class="pr-stars">★★★★★</div>
-                        <p>“Knowledgeable, professional, and focused on results. Highly recommend.”</p>
-                        <div class="pr-review-meta">
-                            <span>Amanda R.</span>
-                            <img src="/assets/doctor-portrait.webp" alt="Amanda R." class="pr-review-avatar pr-review-avatar-right">
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="pr-cta-section" id="consultation">
-            <div class="pr-shell">
-                <div class="pr-cta-card">
-                    <div class="pr-cta-copy">
-                        <p class="pr-kicker pr-kicker-cyan">Ready to take the next step?</p>
-                        <h2 class="pr-section-title">Let’s Create Your <span>Personalized Plan.</span></h2>
-                    </div>
-
-                    <div class="pr-cta-list">
-                        <span>One-on-one consultation</span>
-                        <span>Personalized treatment plan</span>
-                        <span>Ongoing support &amp; follow-up</span>
-                    </div>
-
-                    <div class="pr-cta-action">
-                        <p>Book your consultation today and experience the Cody Drug Rx difference.</p>
-                        <a href="https://portal.codydrugrx.com/" class="pr-btn pr-btn-primary" target="_blank" rel="noreferrer">Open Provider Portal</a>
-                    </div>
-
-                    <img src="assets/cody_vial.png" alt="Cody Drug Rx vial" class="pr-cta-vial">
+        <section class="section-shell cta-section" id="consultation" aria-labelledby="cta-title">
+            <div class="provider-container cta-panel reveal">
+                <p class="eyebrow">Provider Inquiry</p>
+                <h2 id="cta-title">Ready to Partner With Cody Drug?</h2>
+                <p>Connect with the Cody Drug team to discuss provider support, custom compounding needs, and next steps.</p>
+                <div class="button-row">
+                    <a class="provider-btn provider-btn-primary" href="https://portal.codydrugrx.com/" target="_blank" rel="noreferrer">Start Provider Inquiry</a>
+                    <a class="provider-btn provider-btn-secondary" href="/#contact">Contact the Team</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="pr-footer" id="contact">
-        <div class="pr-shell pr-footer-grid">
+    <footer class="provider-footer">
+        <div class="provider-container footer-grid">
             <div>
-                <div class="pr-footer-brand">CodyDrug<span>Rx</span></div>
-                <p class="pr-footer-copy">Personalized medicine. Precision science. Better outcomes.</p>
+                <a href="/" class="footer-logo" aria-label="Cody Drug Rx home">CODY DRUG <span>RX</span></a>
+                <p>Custom compounding support for providers, clinics, and partner care teams.</p>
             </div>
-
-            <div class="pr-footer-col">
-                <h3>Services</h3>
-                <a href="/pages/solutions.html">Compounding</a>
-                <a href="/pages/solutions.html">Med Sync</a>
-                <a href="/pages/virtual-consult.html">Virtual Consults</a>
-                <a href="/pages/solutions.html">Peptide Therapy</a>
-            </div>
-
-            <div class="pr-footer-col">
-                <h3>Company</h3>
-                <a href="/pages/about.html">About Us</a>
+            <div class="footer-links" aria-label="Footer links">
                 <a href="/pages/providers.html">Providers</a>
+                <a href="/services/compounding/">Compounding</a>
+                <a href="/pages/solutions.html">Services</a>
                 <a href="/#contact">Contact</a>
-                <a href="/#contact">Privacy Policy</a>
-            </div>
-
-            <div class="pr-footer-col">
-                <h3>Stay Connected</h3>
-                <div class="pr-socials">
-                    <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                    <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle></svg></a>
-                    <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-                </div>
-                <p class="pr-footer-note">© 2026 Cody Drug Rx. All rights reserved.</p>
             </div>
         </div>
     </footer>

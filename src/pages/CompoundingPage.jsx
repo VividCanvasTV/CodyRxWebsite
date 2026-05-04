@@ -1,0 +1,319 @@
+import { useEffect } from 'react'
+
+function CompoundingPage() {
+  useEffect(() => {
+    document.body.classList.add('compounding-page')
+    document.title = 'Cody Drug Rx | Compounding Services'
+
+    const navHref = '/pages/shared-nav.css'
+    const pageHref = '/services/compounding/compounding.css'
+    const navLink = document.querySelector(`link[href="${navHref}"]`) || document.createElement('link')
+    const pageLink = document.querySelector(`link[href="${pageHref}"]`) || document.createElement('link')
+
+    navLink.rel = 'stylesheet'
+    navLink.href = navHref
+    pageLink.rel = 'stylesheet'
+    pageLink.href = pageHref
+
+    if (!navLink.parentNode) document.head.appendChild(navLink)
+    if (!pageLink.parentNode) document.head.appendChild(pageLink)
+
+    return () => {
+      document.body.classList.remove('compounding-page')
+      if (pageLink.parentNode) pageLink.parentNode.removeChild(pageLink)
+    }
+  }, [])
+
+  return (
+    <>
+      <header className="cr-nav compounding-nav">
+        <div className="cr-nav-inner">
+          <a href="/" className="cr-nav-logo" aria-label="Cody Drug Rx home"><span className="cr-nav-logo-l">CODY</span><span>DRUG <span className="cr-nav-red">RX</span></span></a>
+          <nav aria-label="Primary">
+            <ul className="cr-nav-menu">
+              <li className="cr-nav-item">
+                <a href="/pages/about.html" className="cr-nav-trigger">About Us<svg className="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg></a>
+                <div className="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                  <div className="cr-nav-col">
+                    <p className="cr-nav-col-title">About Us</p>
+                    <a href="/pages/solutions.html" className="cr-nav-mlink">Services</a>
+                    <a href="/pages/about.html#team" className="cr-nav-mlink">Careers</a>
+                    <a href="/#resources" className="cr-nav-mlink">Events</a>
+                    <a href="/pages/about.html#licenses" className="cr-nav-mlink">Licenses</a>
+                  </div>
+                </div>
+              </li>
+              <li className="cr-nav-item">
+                <a href="/pages/solutions.html" className="cr-nav-trigger is-active">Services<svg className="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg></a>
+                <div className="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                  <div className="cr-nav-col">
+                    <p className="cr-nav-col-title">Services</p>
+                    <a href="/services/compounding/" className="cr-nav-mlink">Compounding</a>
+                    <a href="/pages/solutions.html" className="cr-nav-mlink">Vaccines</a>
+                    <a href="/pages/solutions.html" className="cr-nav-mlink">Medicine</a>
+                  </div>
+                </div>
+              </li>
+              <li className="cr-nav-item">
+                <a href="/pages/providers.html" className="cr-nav-trigger">Providers<svg className="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg></a>
+                <div className="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                  <div className="cr-nav-col">
+                    <p className="cr-nav-col-title">Providers</p>
+                    <a href="https://portal.codydrugrx.com/" className="cr-nav-mlink" target="_blank" rel="noreferrer">Provider Portal</a>
+                    <a href="/pages/providers.html#consultation" className="cr-nav-mlink">Provider Inquiry</a>
+                  </div>
+                </div>
+              </li>
+              <li className="cr-nav-item"><a href="/#resources" className="cr-nav-link">Resources</a></li>
+              <li className="cr-nav-item">
+                <a href="/#products" className="cr-nav-trigger">Products<svg className="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg></a>
+                <div className="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                  <div className="cr-nav-col">
+                    <p className="cr-nav-col-title">Products</p>
+                    <a href="/#products" className="cr-nav-mlink">Supplements</a>
+                    <a href="/services/compounding/" className="cr-nav-mlink">Compounds</a>
+                  </div>
+                </div>
+              </li>
+              <li className="cr-nav-item"><a href="/#contact" className="cr-nav-link">Contact</a></li>
+            </ul>
+          </nav>
+          <div className="cr-nav-actions">
+            <a href="https://portal.codydrugrx.com/" className="cr-nav-shortcut" target="_blank" rel="noreferrer">Provider Portal</a>
+            <a href="/pages/virtual-consult.html" className="cr-nav-shortcut">Live Rx Consult</a>
+            <a href="/#review" className="cr-nav-shortcut cr-nav-shortcut--primary">Refill</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section className="comp-hero section-shell" aria-labelledby="hero-title">
+          <div className="hero-light hero-light-red" aria-hidden="true" />
+          <div className="hero-light hero-light-teal" aria-hidden="true" />
+          <div className="container hero-grid">
+            <div className="hero-copy reveal">
+              <p className="eyebrow">Services / Compounding</p>
+              <h1 id="hero-title"><span>Compounding</span><span>Built Around</span><span>the Patient</span></h1>
+              <p className="hero-intro"><span>Cody Drug creates customized medication</span> <span>solutions designed around patient needs,</span> <span>provider workflows, and high standards of care.</span></p>
+              <div className="hero-actions" aria-label="Compounding page actions">
+                <a className="btn btn-primary" href="/#contact">Partner With Cody Drug</a>
+                <a className="btn btn-secondary" href="/pages/providers.html#consultation">Request Information</a>
+              </div>
+            </div>
+
+            <div className="hero-visual reveal" aria-label="Compounding service visual">
+              {/* Final product/lab imagery should be confirmed with the client before launch. */}
+              <div className="vial-stage">
+                <img src="/pages/assets/cody_vial.png" alt="Cody Drug Rx medication vial" className="vial-image" />
+                <div className="glass-readout readout-top">
+                  <span>Custom formula review</span>
+                  <strong>Provider ready</strong>
+                </div>
+                <div className="glass-readout readout-bottom">
+                  <span>Quality checkpoint</span>
+                  <strong>Preparation workflow</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell problem-section" aria-labelledby="problem-title">
+          <div className="container">
+            <div className="section-heading reveal">
+              <p className="eyebrow">What Compounding Solves</p>
+              <h2 id="problem-title">When standard medication does not fit every patient.</h2>
+              <p>Providers may need custom strengths, dosage forms, or formulations. Cody Drug supports more personalized treatment paths with a service model built around clarity and communication.</p>
+            </div>
+            <div className="card-grid three-up">
+              <article className="glass-card reveal">
+                <div className="line-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M10 3h4M10 3v6.2a7 7 0 1 0 4 0V3M7 15h10M8.5 19h7" /></svg>
+                </div>
+                <h3>Custom Strengths</h3>
+                <p>Formulation support when commercially available strengths do not match the request.</p>
+              </article>
+              <article className="glass-card reveal">
+                <div className="line-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 21s7-4.4 7-10V5.5L12 3 5 5.5V11c0 5.6 7 10 7 10Z" /><path d="m9 12 2 2 4-5" /></svg>
+                </div>
+                <h3>Patient-Specific Needs</h3>
+                <p>Options shaped around individual needs, preferences, and provider direction.</p>
+              </article>
+              <article className="glass-card reveal">
+                <div className="line-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 5h16v11H7l-3 3V5Z" /><path d="M8 9h8M8 13h5" /></svg>
+                </div>
+                <h3>Provider Support</h3>
+                <p>A responsive team for questions, formulation coordination, and next-step clarity.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell capabilities-section" aria-labelledby="capabilities-title">
+          <div className="container">
+            <div className="section-heading compact reveal">
+              <p className="eyebrow">Core Services</p>
+              <h2 id="capabilities-title">Compounding capabilities designed for real-world care.</h2>
+            </div>
+            <div className="card-grid four-up">
+              <article className="glass-card service-card reveal">
+                <span className="card-index">01</span>
+                <h3>Custom Formulations</h3>
+                <p>Medication formats and strengths prepared around provider-directed needs.</p>
+              </article>
+              <article className="glass-card service-card reveal">
+                <span className="card-index">02</span>
+                <h3>Sterile &amp; Non-Sterile Standards</h3>
+                <p>Process-minded preparation for applicable sterile and non-sterile workstreams.</p>
+              </article>
+              <article className="glass-card service-card reveal">
+                <span className="card-index">03</span>
+                <h3>Specialty Care Support</h3>
+                <p>Focused communication for specialized requests and coordinated patient support.</p>
+              </article>
+              <article className="glass-card service-card reveal">
+                <span className="card-index">04</span>
+                <h3>Provider-Focused Service</h3>
+                <p>Clear intake, practical follow-up, and support for ongoing provider workflows.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell speed-section" aria-labelledby="speed-title">
+          <div className="container speed-panel reveal">
+            {/* Client must confirm public-facing claim language before launch. */}
+            <div className="speed-copy">
+              <p className="eyebrow">Processing Speed</p>
+              <h2 id="speed-title">A faster workflow, pending final client-approved claims.</h2>
+              <p>This comparison is intentionally marked for review so the client can confirm exactly what may be published before launch.</p>
+            </div>
+            <div className="metric-grid" aria-label="Processing comparison pending confirmation">
+              <article className="metric-card metric-primary">
+                <span className="metric-label">Cody Drug</span>
+                <strong>24hr</strong>
+                <p>average processing</p>
+                <em>Pending client confirmation</em>
+              </article>
+              <article className="metric-card">
+                <span className="metric-label">Industry Average</span>
+                <strong>10 days</strong>
+                <p>comparison benchmark</p>
+                <em>Pending client confirmation</em>
+              </article>
+              <article className="metric-card">
+                <span className="metric-label">Workflow Claim</span>
+                <strong>10x faster</strong>
+                <p>public-facing claim language</p>
+                <em>Pending client confirmation</em>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell quality-section" aria-labelledby="quality-title">
+          <div className="container quality-grid">
+            <div className="quality-copy reveal">
+              <p className="eyebrow">Quality &amp; Safety</p>
+              <h2 id="quality-title">Built Around Quality, Safety, and Consistency.</h2>
+              <p>Trust depends on disciplined preparation, serious communication, and clear expectations. This page avoids certification or outcome claims until final client documentation is approved.</p>
+            </div>
+            <div className="quality-list">
+              <article className="quality-item reveal">
+                <span aria-hidden="true" />
+                <div>
+                  <h3>Best-practice sterile and non-sterile standards</h3>
+                  <p>Prepared with attention to appropriate workflows and formulation requirements.</p>
+                </div>
+              </article>
+              <article className="quality-item reveal">
+                <span aria-hidden="true" />
+                <div>
+                  <h3>Quality assurance process</h3>
+                  <p>Review-oriented checkpoints support consistent preparation and documentation.</p>
+                </div>
+              </article>
+              <article className="quality-item reveal">
+                <span aria-hidden="true" />
+                <div>
+                  <h3>Provider communication</h3>
+                  <p>Coordination from intake through follow-up helps keep requests clear.</p>
+                </div>
+              </article>
+              <article className="quality-item reveal">
+                <span aria-hidden="true" />
+                <div>
+                  <h3>Patient-focused care</h3>
+                  <p>Compounding support is shaped around the needs providers and patients bring forward.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell workflow-section" aria-labelledby="workflow-title">
+          <div className="container">
+            <div className="section-heading reveal">
+              <p className="eyebrow">Provider Workflow</p>
+              <h2 id="workflow-title">A clear path from request to support.</h2>
+              <p>Providers can connect with the Cody Drug team, clarify formulation needs, and move through a defined preparation workflow.</p>
+            </div>
+            <div className="workflow-steps" aria-label="Provider compounding workflow">
+              <article className="workflow-step reveal">
+                <span>01</span>
+                <h3>Submit request / connect with team</h3>
+                <p>Start with the provider portal, inquiry form, or direct team conversation.</p>
+              </article>
+              <article className="workflow-step reveal">
+                <span>02</span>
+                <h3>Confirm formulation needs</h3>
+                <p>Clarify strength, dosage form, and relevant preparation requirements.</p>
+              </article>
+              <article className="workflow-step reveal">
+                <span>03</span>
+                <h3>Process and prepare</h3>
+                <p>The Cody Drug team prepares the request through its compounding workflow.</p>
+              </article>
+              <article className="workflow-step reveal">
+                <span>04</span>
+                <h3>Support and follow-up</h3>
+                <p>Ongoing communication supports provider needs and patient questions.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="closing-cta section-shell" aria-labelledby="cta-title">
+          <div className="container cta-panel reveal">
+            <p className="eyebrow">Partner With Cody Drug</p>
+            <h2 id="cta-title">Ready to Partner With Cody Drug?</h2>
+            <p>Connect with the Cody Drug team to discuss custom compounding support, provider needs, and next steps.</p>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="/#contact">Contact Cody Drug</a>
+              <a className="btn btn-secondary" href="/pages/providers.html#consultation">Provider Inquiry</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="comp-footer">
+        <div className="container footer-grid">
+          <div>
+            <a href="/" className="footer-logo" aria-label="Cody Drug Rx home">CODY DRUG <span>RX</span></a>
+            <p>Personalized medicine support with a provider-focused compounding workflow.</p>
+          </div>
+          <div className="footer-links" aria-label="Footer links">
+            <a href="/services/compounding/">Compounding</a>
+            <a href="/pages/solutions.html">Services</a>
+            <a href="/pages/about.html">About</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </>
+  )
+}
+
+export default CompoundingPage
