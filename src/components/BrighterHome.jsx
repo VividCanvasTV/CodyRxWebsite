@@ -34,7 +34,7 @@ const LICENSES_URL = '/pages/about.html#licenses'
 const EVENTS_URL = '#resources'
 const RESOURCES_URL = '#resources'
 const PRODUCTS_URL = '#products'
-const CONTACT_URL = '/pages/contact.html'
+const CONTACT_URL = '/pages/providers.html#consultation'
 const MEGA_PANEL_WIDTH = 360
 const MEGA_PANEL_GUTTER = 28
 

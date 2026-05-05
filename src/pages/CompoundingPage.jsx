@@ -75,7 +75,7 @@ function CompoundingPage() {
                   </div>
                 </div>
               </li>
-              <li className="cr-nav-item"><a href="/pages/contact.html" className="cr-nav-link">Contact</a></li>
+              <li className="cr-nav-item"><a href="/pages/providers.html#consultation" className="cr-nav-link">Contact</a></li>
             </ul>
           </nav>
           <div className="cr-nav-actions">
@@ -96,7 +96,7 @@ function CompoundingPage() {
               <h1 id="hero-title"><span>Compounding</span><span>Built Around</span><span>the Patient</span></h1>
               <p className="hero-intro"><span>Cody Drug creates customized medication</span> <span>solutions designed around patient needs,</span> <span>provider workflows, and high standards of care.</span></p>
               <div className="hero-actions" aria-label="Compounding page actions">
-                <a className="btn btn-primary" href="/pages/contact.html#contact-form">Partner With Cody Drug</a>
+                <a className="btn btn-primary" href="/pages/providers.html#consultation">Partner With Cody Drug</a>
                 <a className="btn btn-secondary" href="/pages/providers.html#consultation">Request Information</a>
               </div>
             </div>
@@ -291,7 +291,7 @@ function CompoundingPage() {
             <h2 id="cta-title">Ready to Partner With Cody Drug?</h2>
             <p>Connect with the Cody Drug team to discuss custom compounding support, provider needs, and next steps.</p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href="/pages/contact.html#contact-form">Contact Cody Drug</a>
+              <a className="btn btn-primary" href="/pages/providers.html#consultation">Contact Cody Drug</a>
               <a className="btn btn-secondary" href="/pages/providers.html#consultation">Provider Inquiry</a>
             </div>
           </div>
@@ -308,7 +308,7 @@ function CompoundingPage() {
             <a href="/services/compounding/">Compounding</a>
             <a href="/pages/solutions.html">Services</a>
             <a href="/pages/about.html">About</a>
-            <a href="/pages/contact.html">Contact</a>
+            <a href="/pages/providers.html#consultation">Contact</a>
           </div>
         </div>
       </footer>
