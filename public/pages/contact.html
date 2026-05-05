@@ -16,10 +16,11 @@
                 <span>CodyDrug</span><strong>Rx</strong>
             </a>
             <div class="nav-links">
-                <a href="/pages/index.html">Home</a>
+                <a href="/#products">Peptides</a>
+                <a href="/#services">Health &amp; Wellness</a>
                 <a href="/pages/solutions.html">Services</a>
-                <a href="/pages/virtual-consult.html">Virtual Consults</a>
-                <a href="/pages/about.html">About</a>
+                <a href="/pages/about.html">About Us</a>
+                <a class="is-active" href="/pages/contact.html">Contact</a>
             </div>
             <a class="btn btn-red nav-cta" href="/pages/contact.html#contact-form">Contact Us</a>
         </nav>
@@ -33,42 +34,6 @@
                     <a class="btn btn-red" href="/pages/contact.html#contact-form">Provider Inquiry</a>
                     <a class="btn btn-outline" href="/pages/contact.html#contact-form">General Contact</a>
                 </div>
-            </div>
-
-            <div class="hero-visual" aria-label="Cody Drug contact routing overview">
-                <article class="routing-card">
-                    <div class="routing-card-top">
-                        <div>
-                            <p class="card-kicker">Request Routing</p>
-                            <h2>CodyDrug<span>Rx</span></h2>
-                        </div>
-                        <span class="secure-mark" aria-hidden="true">
-                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
-                        </span>
-                    </div>
-
-                    <div class="routing-lines">
-                        <div class="routing-row">
-                            <span>Provider inquiry</span>
-                            <strong>Clinical team</strong>
-                        </div>
-                        <div class="routing-row">
-                            <span>Refill question</span>
-                            <strong>Pharmacy support</strong>
-                        </div>
-                        <div class="routing-row">
-                            <span>Existing account</span>
-                            <strong>Account coordination</strong>
-                        </div>
-                    </div>
-
-                    <div class="routing-message">
-                        <span class="message-line"></span>
-                        <span class="message-line short"></span>
-                        <p>Final CRM routing pending confirmation.</p>
-                    </div>
-                </article>
-
                 <article class="hero-info-card">
                     <span class="line-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.69a16 16 0 0 0 6.22 6.22l1.21-1.2a2 2 0 0 1 2.11-.45c.85.3 1.74.51 2.65.63A2 2 0 0 1 22 16.92Z"/></svg>
@@ -79,50 +44,103 @@
                     </div>
                 </article>
             </div>
+
+            <div class="hero-visual" aria-label="Cody Drug contact routing overview">
+                <article class="contact-hub-card" aria-label="Cody Drug Contact Hub">
+                    <img src="assets/contact-hero-hub-reference.png" alt="Cody Drug contact hub with provider, patient, and existing account routing options.">
+                    <a class="hub-hotspot hotspot-provider" href="/pages/contact.html#contact-form" aria-label="Start provider inquiry"></a>
+                    <a class="hub-hotspot hotspot-patient" href="/pages/contact.html#contact-form" aria-label="Contact pharmacy"></a>
+                    <a class="hub-hotspot hotspot-account" href="/pages/contact.html#contact-form" aria-label="Get support for an existing account"></a>
+                </article>
+            </div>
         </section>
     </header>
 
     <main>
         <section class="contact-paths section-shell" id="provider-inquiry" aria-labelledby="paths-title">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">Contact Paths</p>
-                    <h2 id="paths-title">Choose the Right<br><span>Starting Point.</span></h2>
+            <div class="paths-layout">
+                <div class="path-grid">
+                    <article class="path-card">
+                        <div class="path-card-head">
+                            <span class="path-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6"/><path d="M22 11h-6"/></svg>
+                            </span>
+                            <span class="path-number">01</span>
+                        </div>
+                        <h3>Providers</h3>
+                        <p>For clinics, prescribers, and provider partnerships.</p>
+                        <div class="path-route" aria-label="Provider request routing">
+                            <div>
+                                <span>Route</span>
+                                <strong>Provider Inquiry</strong>
+                            </div>
+                            <div>
+                                <span>Team</span>
+                                <strong>Clinical &amp; Partnership</strong>
+                            </div>
+                        </div>
+                        <a href="/pages/contact.html#contact-form">Start Provider Inquiry</a>
+                    </article>
+
+                    <article class="path-card">
+                        <div class="path-card-head">
+                            <span class="path-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1L12 21l8.4-8.3a5 5 0 0 0 0-7.1Z"/><path d="M8.5 12h2l1.2-2.8 1.8 5.1 1-2.3h1.9"/></svg>
+                            </span>
+                            <span class="path-number">02</span>
+                        </div>
+                        <h3>Patients</h3>
+                        <p>For refill questions, pharmacy support, and general assistance.</p>
+                        <div class="path-route" aria-label="Patient request routing">
+                            <div>
+                                <span>Route</span>
+                                <strong>Pharmacy Support</strong>
+                            </div>
+                            <div>
+                                <span>Team</span>
+                                <strong>Patient Care</strong>
+                            </div>
+                        </div>
+                        <a href="/pages/contact.html#contact-form">Contact the Pharmacy</a>
+                    </article>
+
+                    <article class="path-card">
+                        <div class="path-card-head">
+                            <span class="path-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h2"/></svg>
+                            </span>
+                            <span class="path-number">03</span>
+                        </div>
+                        <h3>Existing Accounts</h3>
+                        <p>For current provider support, account questions, or order coordination.</p>
+                        <div class="path-route" aria-label="Existing account request routing">
+                            <div>
+                                <span>Route</span>
+                                <strong>Account Support</strong>
+                            </div>
+                            <div>
+                                <span>Team</span>
+                                <strong>Operations</strong>
+                            </div>
+                        </div>
+                        <a href="/pages/contact.html#contact-form">Get Support</a>
+                    </article>
                 </div>
-                <p>Each request type is framed for review now, with final routing ready to connect once the client confirms backend and CRM details.</p>
-            </div>
 
-            <div class="path-grid">
-                <article class="path-card">
-                    <span class="path-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6"/><path d="M22 11h-6"/></svg>
-                    </span>
-                    <p>Providers</p>
-                    <h3>For clinics, prescribers, and provider partnerships.</h3>
-                    <a href="/pages/contact.html#contact-form">Start Provider Inquiry</a>
-                </article>
-
-                <article class="path-card">
-                    <span class="path-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1L12 21l8.4-8.3a5 5 0 0 0 0-7.1Z"/></svg>
-                    </span>
-                    <p>Patients</p>
-                    <h3>For refill questions, pharmacy support, and general assistance.</h3>
-                    <a href="/pages/contact.html#contact-form">Contact the Pharmacy</a>
-                </article>
-
-                <article class="path-card">
-                    <span class="path-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h2"/></svg>
-                    </span>
-                    <p>Existing Accounts</p>
-                    <h3>For current provider support, account questions, or order coordination.</h3>
-                    <a href="/pages/contact.html#contact-form">Get Support</a>
-                </article>
+                <div class="section-heading paths-heading">
+                    <div>
+                        <p class="eyebrow">Contact Paths</p>
+                        <h2 id="paths-title">Choose the<br><span>Right Path.</span></h2>
+                    </div>
+                    <p>We’ve created clear paths so your inquiry reaches the right team faster. Choose the option that best matches your needs and we’ll take it from there.</p>
+                </div>
             </div>
         </section>
 
         <section class="form-section section-shell" id="contact-form" aria-labelledby="form-title">
+            <div class="form-background-visual" aria-hidden="true">
+                <img src="assets/contact-send-message-background.png" alt="">
+            </div>
             <div class="form-copy">
                 <p class="eyebrow">Send a Message</p>
                 <h2 id="form-title">Tell Us What<br><span>You Need.</span></h2>
@@ -135,37 +153,53 @@
 
             <!-- Final routing and CRM integration to be connected after client approval. -->
             <form class="contact-form" action="#" method="post">
-                <div class="field-grid">
+                <div class="form-panel-head">
+                    <div class="form-panel-title">
+                        <span class="form-envelope" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+                        </span>
+                        <h3>Message Routing</h3>
+                    </div>
+                    <div class="form-status-group">
+                        <span class="form-status" aria-label="Form integration status">CRM Pending</span>
+                        <span class="form-signal" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-fields-panel">
+                    <div class="field-grid">
+                        <label>
+                            <span>Name</span>
+                            <input type="text" name="name" autocomplete="name" placeholder="Full name">
+                        </label>
+                        <label>
+                            <span>Email</span>
+                            <input type="email" name="email" autocomplete="email" placeholder="you@example.com">
+                        </label>
+                        <label>
+                            <span>Phone</span>
+                            <input type="tel" name="phone" autocomplete="tel" placeholder="(000) 000-0000">
+                        </label>
+                        <label>
+                            <span>I am a</span>
+                            <select name="audience">
+                                <option>Provider</option>
+                                <option>Patient</option>
+                                <option>Existing Account</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+                    </div>
                     <label>
-                        <span>Name</span>
-                        <input type="text" name="name" autocomplete="name" placeholder="Full name">
+                        <span>Reason for reaching out</span>
+                        <input type="text" name="reason" placeholder="Provider inquiry, refill question, account support...">
                     </label>
                     <label>
-                        <span>Email</span>
-                        <input type="email" name="email" autocomplete="email" placeholder="you@example.com">
-                    </label>
-                    <label>
-                        <span>Phone</span>
-                        <input type="tel" name="phone" autocomplete="tel" placeholder="(000) 000-0000">
-                    </label>
-                    <label>
-                        <span>I am a</span>
-                        <select name="audience">
-                            <option>Provider</option>
-                            <option>Patient</option>
-                            <option>Existing Account</option>
-                            <option>Other</option>
-                        </select>
+                        <span>Message</span>
+                        <textarea name="message" rows="7" placeholder="Share the details the Cody Drug team should know."></textarea>
                     </label>
                 </div>
-                <label>
-                    <span>Reason for reaching out</span>
-                    <input type="text" name="reason" placeholder="Provider inquiry, refill question, account support...">
-                </label>
-                <label>
-                    <span>Message</span>
-                    <textarea name="message" rows="7" placeholder="Share the details the Cody Drug team should know."></textarea>
-                </label>
+
                 <div class="form-footer">
                     <p>No protected health information should be submitted until final secure-form requirements are confirmed.</p>
                     <button class="btn btn-red" type="submit">Submit Request</button>
@@ -174,105 +208,86 @@
         </section>
 
         <section class="direct-section section-shell" aria-labelledby="direct-title">
+            <a class="map-card" href="https://www.google.com/maps/search/?api=1&query=1505%20S%20Broadway%20St%2C%20Sulphur%20Springs%2C%20TX%2075482" target="_blank" rel="noreferrer" aria-label="Open Cody Drug Rx address in Google Maps">
+                <div class="map-frame">
+                    <div class="map-grid" aria-hidden="true">
+                        <span class="road road-main"></span>
+                        <span class="road road-vertical"></span>
+                        <span class="road road-curve"></span>
+                        <span class="road road-airport"></span>
+                        <span class="road-label label-industrial">E Industrial Dr</span>
+                        <span class="road-label label-league">League St</span>
+                        <span class="road-label label-broadway">S Broadway St</span>
+                        <span class="road-label label-city">Sulphur Springs</span>
+                    </div>
+                    <div class="map-pin" aria-hidden="true"></div>
+                    <div class="map-label">
+                        <strong>R<span>x</span></strong>
+                        <div class="map-label-text">
+                            <p>Cody Drug Rx</p>
+                            <span>1505 S Broadway St<br>Sulphur Springs, TX 75482</span>
+                        </div>
+                    </div>
+                    <div class="map-open">
+                        Open in Google Maps
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/><path d="M17 17v3H4V7h3"/></svg>
+                    </div>
+                </div>
+            </a>
+
             <div class="direct-panel">
                 <div class="direct-copy">
                     <p class="eyebrow">Direct Contact</p>
                     <h2 id="direct-title">Reach the Pharmacy<br><span>Directly.</span></h2>
-                    <p>Use the direct information below for review. Final public contact details should be approved before launch.</p>
+                    <p>Have a question or need assistance? Contact the pharmacy directly using the information below.</p>
                 </div>
 
                 <div class="info-grid">
                     <!-- Approved contact info to be confirmed by Cody Drug before launch. -->
                     <article class="info-item">
-                        <span>Phone</span>
-                        <a href="tel:+19038852639">(903) 885-2639</a>
-                        <p>Office number, pending final approval.</p>
+                        <div class="info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.69a16 16 0 0 0 6.22 6.22l1.21-1.2a2 2 0 0 1 2.11-.45c.85.3 1.74.51 2.65.63A2 2 0 0 1 22 16.92Z"/></svg>
+                        </div>
+                        <div>
+                            <span>Phone</span>
+                            <a href="tel:+19038852639">(903) 885-2639</a>
+                        </div>
                     </article>
                     <article class="info-item">
-                        <span>Email</span>
-                        <a href="mailto:Lillian@codydrugrx.com">Lillian@codydrugrx.com</a>
-                        <p>Placeholder until a general inbox is confirmed.</p>
+                        <div class="info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+                        </div>
+                        <div>
+                            <span>Email Address</span>
+                            <a href="mailto:Lillian@codydrugrx.com">Lillian@codydrugrx.com</a>
+                        </div>
                     </article>
                     <article class="info-item">
-                        <span>Address</span>
-                        <address>1505 S Broadway St<br>Sulphur Springs, TX 75482</address>
-                        <p>Address supplied for review; confirm launch usage.</p>
+                        <div class="info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <span>Address</span>
+                            <address>1505 S Broadway St,<br>Sulphur Springs, TX 75482</address>
+                        </div>
                     </article>
                     <article class="info-item">
-                        <span>Business Hours</span>
-                        <strong>Pending confirmation</strong>
-                        <p>Final public hours needed from client.</p>
+                        <div class="info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                        </div>
+                        <div>
+                            <span>Business Hours</span>
+                            <strong>Final approved<br>hours needed</strong>
+                        </div>
                     </article>
                 </div>
-            </div>
-
-            <div class="map-card" aria-label="Map location placeholder">
-                <div class="map-frame">
-                    <div class="map-crosshair" aria-hidden="true"></div>
-                    <div class="map-label">
-                        <p>Map Placeholder</p>
-                        <span>1505 S Broadway St<br>Sulphur Springs, TX</span>
-                    </div>
-                </div>
-                <p class="map-note">Embed map provider and exact pin pending confirmation.</p>
             </div>
         </section>
 
-        <section class="quick-actions section-shell" aria-labelledby="quick-title">
-            <div class="section-heading compact">
-                <div>
-                    <p class="eyebrow">Quick Actions</p>
-                    <h2 id="quick-title">Common Next<br><span>Steps.</span></h2>
-                </div>
-            </div>
-            <div class="quick-grid">
-                <a class="quick-card" href="https://portal.codydrugrx.com/" target="_blank" rel="noreferrer">
-                    <span>Provider Portal</span>
-                    <p>External provider access. Final destination to confirm.</p>
-                </a>
-                <a class="quick-card" href="/#review">
-                    <span>Refill</span>
-                    <p>Refill path placeholder until the approved flow is confirmed.</p>
-                </a>
-                <a class="quick-card" href="/pages/providers.html#consultation">
-                    <span>Price List</span>
-                    <p>Provider pricing route placeholder for review.</p>
-                </a>
-            </div>
-        </section>
-
-        <section class="faq-section section-shell" aria-labelledby="faq-title">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">Support Expectations</p>
-                    <h2 id="faq-title">Helpful Answers,<br><span>Without Overpromising.</span></h2>
-                </div>
-                <p>These are safe review-state answers and should be finalized once Cody Drug confirms support workflows.</p>
-            </div>
-
-            <div class="faq-grid">
-                <article class="faq-card">
-                    <h3>How quickly will someone respond?</h3>
-                    <p>Messages are reviewed during business hours and routed by request type. Final response expectations are pending client confirmation.</p>
-                </article>
-                <article class="faq-card">
-                    <h3>Can providers contact Cody Drug directly?</h3>
-                    <p>Yes. Providers can start with the Provider Inquiry path or use the portal when appropriate. Final direct-provider workflow is pending confirmation.</p>
-                </article>
-                <article class="faq-card">
-                    <h3>Where do refill requests go?</h3>
-                    <p>Refill requests will route to the approved refill flow once confirmed. For now, patients can use the form or direct pharmacy contact.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="final-cta section-shell" aria-labelledby="final-title">
-            <div>
-                <p class="eyebrow">Still Deciding?</p>
-                <h2 id="final-title">Not Sure Where<br><span>to Start?</span></h2>
-                <p>Send a message and the Cody Drug team will route your request to the right place.</p>
-            </div>
-            <a class="btn btn-red" href="/pages/contact.html#contact-form">Contact Cody Drug</a>
+        <section class="final-cta section-shell" aria-label="Still deciding contact call to action">
+            <a class="final-cta-art" href="/pages/contact.html#contact-form" aria-label="Contact Cody Drug">
+                <img src="assets/contact-final-cta-doctor.png" alt="Still deciding contact call to action with a smiling female doctor on a phone call.">
+            </a>
         </section>
     </main>
 
