@@ -13,44 +13,49 @@
     <header class="site-header" id="top">
         <nav class="topbar" aria-label="Primary navigation">
             <a class="brand" href="/pages/index.html" aria-label="Cody Drug Rx home">
-                <span>CodyDrug</span><strong>Rx</strong>
+                <img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx">
             </a>
             <div class="nav-links">
-                <a href="/#products">Peptides</a>
-                <a href="/#services">Health &amp; Wellness</a>
-                <a href="/pages/solutions.html">Services</a>
-                <a href="/pages/about.html">About Us</a>
-                <a class="is-active" href="/pages/contact.html">Contact</a>
+                <div class="nav-shop-stack" aria-label="Account and pharmacy actions">
+                    <div class="nav-shop-row nav-shop-row-top">
+                        <a href="/#login">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            Login
+                        </a>
+                        <a href="/#cart">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h8.8a2 2 0 0 0 1.95-1.57L21 7H5.12"/></svg>
+                            Cart
+                        </a>
+                    </div>
+                    <div class="nav-shop-row">
+                        <a href="/pages/about.html">About Us</a>
+                        <a href="/pages/solutions.html">Pharmacy</a>
+                        <a href="/pages/providers.html">Providers</a>
+                        <a href="/pages/virtual-consult.html">Virtual Rx Consults</a>
+                        <a href="/#news">Health News</a>
+                        <a href="/#products">Supplements</a>
+                        <a class="is-active" href="/pages/contact.html">Contact</a>
+                        <a href="/#subscriptions">Subscriptions</a>
+                        <a href="/#prescriptions">Prescriptions</a>
+                    </div>
+                </div>
             </div>
-            <a class="btn btn-red nav-cta" href="/pages/contact.html#contact-form">Contact Us</a>
         </nav>
 
         <section class="hero-shell" aria-labelledby="contact-title">
             <div class="hero-copy">
                 <p class="eyebrow">Contact Us</p>
                 <h1 id="contact-title">Connect With<br><span>Cody Drug</span></h1>
-                <p>Reach the Cody Drug team for provider support, patient questions, refill information, and custom compounding needs.</p>
+                <p>We're here to help with provider support, patient questions, refills, and custom compounding needs.</p>
                 <div class="hero-actions">
                     <a class="btn btn-red" href="/pages/contact.html#contact-form">Provider Inquiry</a>
-                    <a class="btn btn-outline" href="/pages/contact.html#contact-form">General Contact</a>
+                    <a class="btn btn-red hero-phone-btn" href="tel:+19038852639">Office (903) 885-2639</a>
                 </div>
-                <article class="hero-info-card">
-                    <span class="line-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.69a16 16 0 0 0 6.22 6.22l1.21-1.2a2 2 0 0 1 2.11-.45c.85.3 1.74.51 2.65.63A2 2 0 0 1 22 16.92Z"/></svg>
-                    </span>
-                    <div>
-                        <p>Office</p>
-                        <a href="tel:+19038852639">(903) 885-2639</a>
-                    </div>
-                </article>
             </div>
 
-            <div class="hero-visual" aria-label="Cody Drug contact routing overview">
-                <article class="contact-hub-card" aria-label="Cody Drug Contact Hub">
-                    <img src="assets/contact-hero-hub-reference.png" alt="Cody Drug contact hub with provider, patient, and existing account routing options.">
-                    <a class="hub-hotspot hotspot-provider" href="/pages/contact.html#contact-form" aria-label="Start provider inquiry"></a>
-                    <a class="hub-hotspot hotspot-patient" href="/pages/contact.html#contact-form" aria-label="Contact pharmacy"></a>
-                    <a class="hub-hotspot hotspot-account" href="/pages/contact.html#contact-form" aria-label="Get support for an existing account"></a>
+            <div class="hero-visual" aria-label="Cody Drug team photo">
+                <article class="hero-photo-card">
+                    <img src="assets/contact-hero-team-photo.jpg" alt="Three smiling Cody Drug team members.">
                 </article>
             </div>
         </section>
@@ -145,10 +150,6 @@
                 <p class="eyebrow">Send a Message</p>
                 <h2 id="form-title">Tell Us What<br><span>You Need.</span></h2>
                 <p>Use this form for provider support, patient questions, refill help, and compounding requests. The finished integration can route each submission by audience and reason.</p>
-                <div class="form-note">
-                    <span aria-hidden="true"></span>
-                    <p>Final form routing / CRM integration pending confirmation.</p>
-                </div>
             </div>
 
             <!-- Final routing and CRM integration to be connected after client approval. -->
@@ -159,10 +160,6 @@
                             <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
                         </span>
                         <h3>Message Routing</h3>
-                    </div>
-                    <div class="form-status-group">
-                        <span class="form-status" aria-label="Form integration status">CRM Pending</span>
-                        <span class="form-signal" aria-hidden="true"></span>
                     </div>
                 </div>
 
@@ -210,19 +207,9 @@
         <section class="direct-section section-shell" aria-labelledby="direct-title">
             <a class="map-card" href="https://www.google.com/maps/search/?api=1&query=1505%20S%20Broadway%20St%2C%20Sulphur%20Springs%2C%20TX%2075482" target="_blank" rel="noreferrer" aria-label="Open Cody Drug Rx address in Google Maps">
                 <div class="map-frame">
-                    <div class="map-grid" aria-hidden="true">
-                        <span class="road road-main"></span>
-                        <span class="road road-vertical"></span>
-                        <span class="road road-curve"></span>
-                        <span class="road road-airport"></span>
-                        <span class="road-label label-industrial">E Industrial Dr</span>
-                        <span class="road-label label-league">League St</span>
-                        <span class="road-label label-broadway">S Broadway St</span>
-                        <span class="road-label label-city">Sulphur Springs</span>
-                    </div>
-                    <div class="map-pin" aria-hidden="true"></div>
+                    <img class="map-art" src="assets/contact-texas-location-card.png" alt="Glowing Texas location map for Sulphur Springs, TX.">
                     <div class="map-label">
-                        <strong>R<span>x</span></strong>
+                        <img class="map-location-logo" src="assets/cody-drug-logo-red.png" alt="" aria-hidden="true">
                         <div class="map-label-text">
                             <p>Cody Drug Rx</p>
                             <span>1505 S Broadway St<br>Sulphur Springs, TX 75482</span>
@@ -294,7 +281,9 @@
     <footer class="site-footer">
         <div class="footer-grid">
             <div>
-                <a class="footer-brand" href="/pages/index.html">CodyDrug<span>Rx</span></a>
+                <a class="footer-brand" href="/pages/index.html" aria-label="Cody Drug Rx home">
+                    <img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx">
+                </a>
                 <p>Personalized medicine. Precision science. Patient-centered support.</p>
             </div>
             <div class="footer-col">
