@@ -138,10 +138,10 @@ textarea {
     position: relative;
     z-index: 5;
     display: grid;
-    grid-template-columns: minmax(130px, 1fr) auto minmax(130px, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     gap: 26px;
-    max-width: 1420px;
+    max-width: 1500px;
     margin: 0 auto clamp(46px, 7vw, 88px);
 }
 
@@ -159,22 +159,27 @@ textarea {
 
 .nav-links {
     display: flex;
-    align-items: center;
-    gap: clamp(24px, 5vw, 70px);
+    align-items: flex-end;
+    justify-content: flex-end;
+    min-width: 0;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-shop-row a {
     position: relative;
     padding: 10px 0 18px;
     color: rgba(255, 255, 255, 0.82);
-    font-size: 0.68rem;
+    font-size: clamp(0.52rem, 0.64vw, 0.62rem);
     font-weight: 900;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.085em;
+    line-height: 1.2;
+    white-space: nowrap;
     text-transform: uppercase;
     transition: color 180ms ease;
 }
 
-.nav-links a::after {
+.nav-links a::after,
+.nav-shop-row a::after {
     content: "";
     position: absolute;
     right: 0;
@@ -188,16 +193,58 @@ textarea {
 }
 
 .nav-links a:hover,
-.nav-links a:focus-visible {
+.nav-links a:focus-visible,
+.nav-shop-row a:hover,
+.nav-shop-row a:focus-visible {
     color: #fff;
     outline: none;
 }
 
 .nav-links a:hover::after,
-.nav-links a:focus-visible::after {
+.nav-links a:focus-visible::after,
+.nav-shop-row a:hover::after,
+.nav-shop-row a:focus-visible::after {
     background: var(--teal);
     opacity: 1;
     transform: scaleX(1);
+}
+
+.nav-shop-stack {
+    width: 100%;
+    display: grid;
+    gap: 4px;
+    justify-items: end;
+}
+
+.nav-shop-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(14px, 1.8vw, 28px);
+}
+
+.nav-shop-row-top a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 0 4px;
+    color: var(--red);
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.nav-shop-row-top svg {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.nav-shop-row-top a::after {
+    bottom: 0;
 }
 
 .nav-cta {
