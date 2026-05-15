@@ -352,9 +352,15 @@ body.compounding-page .nav-shop-row-top a::after {
   bottom: 0;
 }
 
+.services-home-nav-shell {
+  position: relative;
+  z-index: 1000;
+}
+
 .services-page {
   width: min(100% - 54px, 1360px);
   margin: 0 auto;
+  padding-top: 112px;
   padding-bottom: 48px;
   overflow-x: clip;
 }
