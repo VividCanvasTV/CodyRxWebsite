@@ -203,7 +203,8 @@ body.compounding-page button {
 body.compounding-page .site-header {
   position: relative;
   padding: 28px clamp(18px, 4vw, 70px) 0;
-  overflow: visible;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 body.compounding-page .site-header::after {
@@ -304,16 +305,27 @@ body.compounding-page .nav-shop-row a.is-active::after {
 
 body.compounding-page .nav-shop-stack {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   display: grid;
   gap: 4px;
   justify-items: end;
+  overflow: hidden;
 }
 
 body.compounding-page .nav-shop-row {
+  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: clamp(14px, 1.8vw, 28px);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+body.compounding-page .nav-shop-row::-webkit-scrollbar {
+  display: none;
 }
 
 body.compounding-page .nav-shop-row-top a {
@@ -344,6 +356,7 @@ body.compounding-page .nav-shop-row-top a::after {
   width: min(100% - 54px, 1360px);
   margin: 0 auto;
   padding-bottom: 48px;
+  overflow-x: clip;
 }
 
 .eyebrow {
@@ -715,15 +728,16 @@ body.compounding-page .nav-shop-row-top a::after {
 
 .quality-feature {
   display: grid;
-  grid-template-columns: minmax(360px, 0.72fr) minmax(520px, 1fr);
+  grid-template-columns: minmax(520px, 0.82fr) minmax(500px, 1fr);
   align-items: center;
   gap: clamp(34px, 6vw, 86px);
+  overflow: hidden;
   padding: clamp(96px, 12vw, 152px) 30px 64px;
 }
 
 .quality-copy h2 {
   max-width: 590px;
-  font-size: clamp(2.35rem, 4.45vw, 4.75rem);
+  font-size: clamp(2.35rem, 4vw, 4.25rem);
   line-height: 1.06;
 }
 
@@ -1695,6 +1709,20 @@ body.compounding-page .nav-shop-row-top a::after {
     padding-right: 0;
   }
 
+  .quality-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .quality-copy,
+  .quality-copy h2,
+  .quality-copy p {
+    max-width: 100%;
+  }
+
+  .quality-copy h2 span {
+    white-space: normal;
+  }
+
   .services-asset-stage {
     grid-template-columns: 1fr;
     min-height: 420px;
@@ -1775,6 +1803,7 @@ body.compounding-page .nav-shop-row-top a::after {
 
   body.compounding-page .nav-shop-row {
     gap: 16px;
+    justify-content: flex-start;
   }
 
   .brand-mark,
@@ -1832,7 +1861,7 @@ body.compounding-page .nav-shop-row-top a::after {
   .quality-copy h2,
   .section-intro h2,
   .services-cta h2 {
-    font-size: clamp(2.65rem, 13vw, 4.1rem);
+    font-size: clamp(2.2rem, 11.5vw, 3.25rem);
   }
 
   .lab-pill-stack {
