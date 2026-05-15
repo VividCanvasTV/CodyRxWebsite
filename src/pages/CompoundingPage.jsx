@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { BrighterNavbar } from '../components/BrighterHome'
 
 const PORTAL_REGISTER_URL = 'https://portal.codydrugrx.com/provider/register.php'
 
@@ -131,17 +132,12 @@ function CompoundingPage() {
     document.body.classList.add('compounding-page')
     document.title = 'Cody Drug Rx | Services'
 
-    const navHref = '/pages/shared-nav.css'
     const pageHref = '/services/compounding/compounding.css'
-    const navLink = document.querySelector(`link[href="${navHref}"]`) || document.createElement('link')
     const pageLink = document.querySelector(`link[href="${pageHref}"]`) || document.createElement('link')
 
-    navLink.rel = 'stylesheet'
-    navLink.href = navHref
     pageLink.rel = 'stylesheet'
     pageLink.href = pageHref
 
-    if (!navLink.parentNode) document.head.appendChild(navLink)
     if (!pageLink.parentNode) document.head.appendChild(pageLink)
 
     return () => {
@@ -162,38 +158,9 @@ function CompoundingPage() {
 
   return (
     <>
-      <header className="site-header services-contact-header" id="top">
-        <nav className="topbar" aria-label="Primary navigation">
-          <a className="brand" href="/pages/index.html" aria-label="Cody Drug Rx home">
-            <img src="/pages/assets/cody-drug-logo-red.png" alt="Cody Drug Rx" />
-          </a>
-          <div className="nav-links">
-            <div className="nav-shop-stack" aria-label="Account and pharmacy actions">
-              <div className="nav-shop-row nav-shop-row-top">
-                <a href="/#login">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
-                  Login
-                </a>
-                <a href="/#cart">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h8.8a2 2 0 0 0 1.95-1.57L21 7H5.12" /></svg>
-                  Cart
-                </a>
-              </div>
-              <div className="nav-shop-row">
-                <a href="/pages/about.html">About Us</a>
-                <a className="is-active" href="/services/compounding">Pharmacy</a>
-                <a href="/pages/providers.html">Providers</a>
-                <a href="/pages/virtual-consult.html">Virtual Rx Consults</a>
-                <a href="/#news">Health News</a>
-                <a href="/#products">Supplements</a>
-                <a href="/pages/contact.html">Contact</a>
-                <a href="/#subscriptions">Subscriptions</a>
-                <a href="/#prescriptions">Prescriptions</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <div id="top" className="bh-shell services-home-nav-shell">
+        <BrighterNavbar logoHref="/" logoScroll={false} />
+      </div>
 
       <main className="services-page">
         <section className="services-hero" aria-labelledby="services-hero-title">
@@ -378,7 +345,7 @@ function CompoundingPage() {
       <footer className="site-footer" id="site-footer">
         <div className="footer-grid">
           <div>
-            <a className="footer-brand" href="/pages/index.html" aria-label="Cody Drug Rx home">
+            <a className="footer-brand" href="/" aria-label="Cody Drug Rx home">
               <img src="/pages/assets/cody-drug-logo-red.png" alt="Cody Drug Rx" />
             </a>
             <p>Personalized medicine. Precision science. Patient-centered support.</p>

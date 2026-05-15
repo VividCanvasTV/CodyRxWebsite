@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform, useMotionTemplate, AnimatePresence, cubicBezier } from 'framer-motion'
 import { useRef, useState, useEffect, lazy, Suspense } from 'react'
 import ScrollSequence from './ScrollSequence'
-import SiteCursor from './SiteCursor'
 import './BrighterHome.css'
 
 const ease = [0.16, 1, 0.3, 1]
@@ -25,15 +24,15 @@ const PROVIDER_PORTAL_URL = 'https://portal.codydrugrx.com/'
 const PROVIDERS_PAGE_URL = '/pages/providers.html'
 const PROVIDERS_CONSULT_URL = '/pages/providers.html#consultation'
 const LIVE_RX_CONSULT_URL = '/pages/virtual-consult.html'
-const REFILL_URL = '#review'
+const REFILL_URL = '/#review'
 const ABOUT_PAGE_URL = '/pages/about.html'
 const SERVICES_PAGE_URL = '/services/compounding'
 const COMPOUNDING_PAGE_URL = '/services/compounding'
 const CAREERS_URL = '/pages/about.html#team'
 const LICENSES_URL = '/pages/about.html#licenses'
-const EVENTS_URL = '#resources'
-const RESOURCES_URL = '#resources'
-const PRODUCTS_URL = '#products'
+const EVENTS_URL = '/#resources'
+const RESOURCES_URL = '/#resources'
+const PRODUCTS_URL = '/#products'
 const CONTACT_URL = '/pages/contact.html'
 const MEGA_PANEL_WIDTH = 360
 const MEGA_PANEL_GUTTER = 28
@@ -127,7 +126,7 @@ function SplitMenuGlyph({ className = '' }) {
   )
 }
 
-function BrighterNavbar() {
+export function BrighterNavbar({ logoHref = '#top', logoScroll = true } = {}) {
   const [navMode, setNavMode] = useState('top')
   const [openMenu, setOpenMenu] = useState(null)
   const [sideMenuOpen, setSideMenuOpen] = useState(false)
@@ -333,18 +332,19 @@ function BrighterNavbar() {
     >
       <div className="bh-nav-container">
         <a
-          href="#top"
+          href={logoHref}
           className="bh-logo"
           onClick={(e) => {
-            e.preventDefault()
-            scrollToId('top')
+            if (logoScroll) {
+              e.preventDefault()
+              scrollToId('top')
+            }
             setOpenMenu(null)
             setSideMenuOpen(false)
           }}
           onMouseEnter={() => setOpenMenu(null)}
         >
-          <span className="bh-logo-text">CODY</span>
-          <span className="bh-logo-sub">DRUG <span className="bh-red">RX</span></span>
+          <img className="bh-logo-img" src="/pages/assets/cody-drug-logo-red.png" alt="Cody Drug Rx" />
         </a>
 
         {navMode === 'top' ? (
@@ -1855,7 +1855,6 @@ function CoverageMap() {
 export default function BrighterHome() {
   return (
     <div className="bh-shell">
-      <SiteCursor />
       <BrighterNavbar />
       <HeroWithVideo />
       <Stats />
