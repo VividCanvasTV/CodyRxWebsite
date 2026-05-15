@@ -345,7 +345,7 @@ function CompoundingPage() {
       <footer className="site-footer" id="site-footer">
         <div className="footer-grid">
           <div>
-            <a className="footer-brand" href="/pages/index.html" aria-label="Cody Drug Rx home">
+            <a className="footer-brand" href="/" aria-label="Cody Drug Rx home">
               <img src="/pages/assets/cody-drug-logo-red.png" alt="Cody Drug Rx" />
             </a>
             <p>Personalized medicine. Precision science. Patient-centered support.</p>

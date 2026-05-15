@@ -345,8 +345,7 @@ export function BrighterNavbar({ logoHref = '#top', logoScroll = true } = {}) {
           }}
           onMouseEnter={() => setOpenMenu(null)}
         >
-          <span className="bh-logo-text">CODY</span>
-          <span className="bh-logo-sub">DRUG <span className="bh-red">RX</span></span>
+          <img className="bh-logo-img" src="/pages/assets/cody-drug-logo-red.png" alt="Cody Drug Rx" />
         </a>
 
         {navMode === 'top' ? (
