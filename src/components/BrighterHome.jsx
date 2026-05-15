@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform, useMotionTemplate, AnimatePresence, cubicBezier } from 'framer-motion'
 import { useRef, useState, useEffect, lazy, Suspense } from 'react'
 import ScrollSequence from './ScrollSequence'
-import SiteCursor from './SiteCursor'
 import './BrighterHome.css'
 
 const ease = [0.16, 1, 0.3, 1]
@@ -1856,7 +1855,6 @@ function CoverageMap() {
 export default function BrighterHome() {
   return (
     <div className="bh-shell">
-      <SiteCursor />
       <BrighterNavbar />
       <HeroWithVideo />
       <Stats />
