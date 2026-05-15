@@ -181,7 +181,7 @@ function CompoundingPage() {
               </div>
               <div className="nav-shop-row">
                 <a href="/pages/about.html">About Us</a>
-                <a className="is-active" href="/pages/solutions.html">Pharmacy</a>
+                <a className="is-active" href="/services/compounding">Pharmacy</a>
                 <a href="/pages/providers.html">Providers</a>
                 <a href="/pages/virtual-consult.html">Virtual Rx Consults</a>
                 <a href="/#news">Health News</a>
@@ -386,7 +386,7 @@ function CompoundingPage() {
           <div className="footer-col">
             <h3>Explore</h3>
             <a href="/pages/about.html">About Us</a>
-            <a href="/pages/solutions.html">Services</a>
+            <a href="/services/compounding">Services</a>
             <a href="/pages/providers.html">Providers</a>
           </div>
           <div className="footer-col">

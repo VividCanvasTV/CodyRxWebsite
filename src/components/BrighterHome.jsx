@@ -27,8 +27,8 @@ const PROVIDERS_CONSULT_URL = '/pages/providers.html#consultation'
 const LIVE_RX_CONSULT_URL = '/pages/virtual-consult.html'
 const REFILL_URL = '#review'
 const ABOUT_PAGE_URL = '/pages/about.html'
-const SERVICES_PAGE_URL = '/pages/solutions.html'
-const COMPOUNDING_PAGE_URL = '/services/compounding/'
+const SERVICES_PAGE_URL = '/services/compounding'
+const COMPOUNDING_PAGE_URL = '/services/compounding'
 const CAREERS_URL = '/pages/about.html#team'
 const LICENSES_URL = '/pages/about.html#licenses'
 const EVENTS_URL = '#resources'
@@ -1489,7 +1489,7 @@ function Footer() {
         <div className="bh-footer-col">
           <h4 className="bh-footer-col-title">Navigate</h4>
           <a href="#top" className="bh-footer-link">Home</a>
-          <a href="#services" className="bh-footer-link">Services</a>
+          <a href={SERVICES_PAGE_URL} className="bh-footer-link">Services</a>
           <a href="#protocol" className="bh-footer-link">Protocol</a>
           <a href="#about" className="bh-footer-link">About</a>
         </div>
