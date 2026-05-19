@@ -95,7 +95,7 @@ a {
 }
 
 .about-nav .cr-nav-inner {
-    grid-template-columns: minmax(220px, 1fr) auto minmax(320px, 1fr);
+    grid-template-columns: auto minmax(0, 1fr) auto;
     max-width: 1440px;
     gap: 1.5rem;
 }
@@ -129,8 +129,8 @@ a {
 }
 
 .about-nav .cr-nav-logo-image {
-    width: clamp(58px, 5vw, 76px);
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 

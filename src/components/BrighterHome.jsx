@@ -1,10 +1,10 @@
-import { motion, useScroll, useTransform, useMotionTemplate, AnimatePresence, cubicBezier } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useRef, useState, useEffect, lazy, Suspense } from 'react'
 import ScrollSequence from './ScrollSequence'
 import './BrighterHome.css'
 
 const ease = [0.16, 1, 0.3, 1]
-const CoverageGlobe = lazy(() => import('./CoverageGlobe'))
+const StateLicenseMap3D = lazy(() => import('./StateLicenseMap3D'))
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -15,6 +15,34 @@ const fadeUp = {
 
 function scrollToId(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+function useNearViewport(ref, rootMargin = '1000px 0px') {
+  const [isNear, setIsNear] = useState(false)
+
+  useEffect(() => {
+    if (isNear) return undefined
+
+    const node = ref.current
+    if (!node) return undefined
+
+    if (!('IntersectionObserver' in window)) {
+      const fallbackTimer = window.setTimeout(() => setIsNear(true), 0)
+      return () => window.clearTimeout(fallbackTimer)
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setIsNear(true)
+      observer.disconnect()
+    }, { rootMargin })
+
+    observer.observe(node)
+
+    return () => observer.disconnect()
+  }, [isNear, ref, rootMargin])
+
+  return isNear
 }
 
 /* ─────────────────────────────────────────────
@@ -36,6 +64,46 @@ const PRODUCTS_URL = '/#products'
 const CONTACT_URL = '/pages/contact.html'
 const MEGA_PANEL_WIDTH = 360
 const MEGA_PANEL_GUTTER = 28
+const HERO_SEQUENCE_FRAMES = 265
+const HERO_SEQUENCE_SPLIT_FRAME = 40
+const HERO_SEQUENCE_PATH = '/assets/holding-vial-dark/frame_'
+const HERO_SEQUENCE_EXTENSION = 'webp'
+const HERO_SEQUENCE_INTRO_HEIGHT_VH = 260
+const HERO_SEQUENCE_FULL_HEIGHT_VH = 680
+const HERO_SEQUENCE_HEIGHT = `${HERO_SEQUENCE_FULL_HEIGHT_VH}vh`
+const HERO_SEQUENCE_INTRO_PROGRESS = (HERO_SEQUENCE_INTRO_HEIGHT_VH - 100) / (HERO_SEQUENCE_FULL_HEIGHT_VH - 100)
+
+function clamp01(value) {
+  return Math.max(0, Math.min(1, value))
+}
+
+function getHomeSequenceFrameIndex(progress) {
+  const splitIndex = HERO_SEQUENCE_SPLIT_FRAME - 1
+  const maxIndex = HERO_SEQUENCE_FRAMES - 1
+
+  if (progress <= HERO_SEQUENCE_INTRO_PROGRESS) {
+    const localProgress = clamp01(progress / HERO_SEQUENCE_INTRO_PROGRESS)
+    const playProgress = clamp01((localProgress - 0.05) / 0.95)
+    return Math.min(splitIndex, Math.floor(playProgress * HERO_SEQUENCE_SPLIT_FRAME))
+  }
+
+  const extensionProgress = clamp01((progress - HERO_SEQUENCE_INTRO_PROGRESS) / (1 - HERO_SEQUENCE_INTRO_PROGRESS))
+  return Math.min(maxIndex, splitIndex + Math.floor(extensionProgress * (maxIndex - splitIndex + 1)))
+}
+
+function getHeroExtensionProgress(progress) {
+  return clamp01((progress - HERO_SEQUENCE_INTRO_PROGRESS) / (1 - HERO_SEQUENCE_INTRO_PROGRESS))
+}
+
+function getHeroEndCoverStyle(progress) {
+  const raw = clamp01((progress - 0.9) / 0.1)
+  const eased = raw < 0.5 ? 4 * raw * raw * raw : 1 - Math.pow(-2 * raw + 2, 3) / 2
+
+  return {
+    opacity: eased,
+    transform: `translateY(${(1 - eased) * 110}px)`,
+  }
+}
 
 const MEGA_MENU_CONTENT = {
   'about-us': {
@@ -643,21 +711,25 @@ export function BrighterNavbar({ logoHref = '#top', logoScroll = true } = {}) {
 function HeroWithVideo() {
   return (
     <div className="bh-hero-sequence-wrapper">
-      {/* Hero plays frames 1-32 — stops 20 frames earlier than before so
-          the video doesn't hold on its last frame for too long.
-          Same 190vh height + holdStart=0.05, but shorter active range. */}
       <ScrollSequence
-        totalFrames={211}
-        framePath="/assets/vial-new-fall/frame_"
-        height="260vh"
+        totalFrames={HERO_SEQUENCE_FRAMES}
+        framePath={HERO_SEQUENCE_PATH}
+        frameExtension={HERO_SEQUENCE_EXTENSION}
+        height={HERO_SEQUENCE_HEIGHT}
         triggerMode="top"
         startFrame={1}
-        endFrame={32}
-        holdStart={0.05}
+        endFrame={HERO_SEQUENCE_FRAMES}
+        frameIndexForProgress={getHomeSequenceFrameIndex}
       >
-        <div className="bh-hero-overlay-layer">
-          <Hero />
-        </div>
+        {(progress) => (
+          <>
+            <div className="bh-hero-overlay-layer">
+              <Hero />
+            </div>
+            <PillarsProgressOverlay progress={getHeroExtensionProgress(progress)} />
+            <div className="bh-hero-bottom-parallax" style={getHeroEndCoverStyle(getHeroExtensionProgress(progress))} />
+          </>
+        )}
       </ScrollSequence>
     </div>
   )
@@ -701,9 +773,6 @@ function Hero() {
   const reviewsOpacity = useTransform(scrollY, [0, 400, 700, 9999], [1, 1, 0, 0])
 
   /* ── RIGHT SIDE — glass cards all slide RIGHT (staggered) ── */
-  const cardTLX = useTransform(scrollY, [0, 340, 660, 9999], [0, 0, 500, 500])
-  const cardTLOpacity = useTransform(scrollY, [0, 340, 640, 9999], [1, 1, 0, 0])
-
   const cardMLX = useTransform(scrollY, [0, 360, 680, 9999], [0, 0, 450, 450])
   const cardMLOpacity = useTransform(scrollY, [0, 360, 660, 9999], [1, 1, 0, 0])
 
@@ -778,53 +847,24 @@ function Hero() {
           <div className="bh-vial-wrapper bh-hero-enter-right">
             {/* Glass cards animate out in different directions */}
             <motion.div
-              className="bh-float-card bh-card-top-left"
-              style={{ x: cardTLX, opacity: cardTLOpacity }}
-            >
-              <p className="bh-card-title">DOSAGE READOUT</p>
-              <div className="bh-card-logo">Cody<span className="bh-red">Rx</span></div>
-              <div className="bh-card-stat">
-                <span className="bh-stat-label">TARGET:</span>
-                <span className="bh-stat-val">10.0</span>
-                <span className="bh-stat-unit">MG / ML</span>
-              </div>
-              <div className="bh-card-stat">
-                <span className="bh-stat-label">CURRENT:</span>
-                <span className="bh-stat-val">10.0</span>
-                <span className="bh-stat-unit">MG / ML</span>
-              </div>
-              <svg className="bh-graph" viewBox="0 0 100 20" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M0,15 L20,10 L40,12 L60,5 L80,10 L100,2" />
-              </svg>
-            </motion.div>
-
-            <motion.div
               className="bh-float-card bh-card-mid-left"
               style={{ x: cardMLX, opacity: cardMLOpacity }}
             >
-              <p className="bh-card-title">FORMULATION ID</p>
-              <p className="bh-card-val">CRX-9021-BETA</p>
-              <p className="bh-card-status">STATUS: ACTIVE COMPOUNDING</p>
+              <div className="bh-float-card-face">
+                <p className="bh-card-metric">95%</p>
+                <p className="bh-card-status">provider retention rate</p>
+              </div>
             </motion.div>
 
             <motion.div
-              className="bh-float-card bh-card-mid-right bh-flex-card"
+              className="bh-float-card bh-card-mid-right bh-processing-card"
               style={{ x: cardMRX, opacity: cardMROpacity }}
             >
-              <div>
-                <p className="bh-card-title">SYNTHESIS PROGRESS</p>
-                <div className="bh-progress-ring-wrap">
-                  <svg className="bh-progress-ring" viewBox="0 0 36 36">
-                    <path className="bh-circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <path className="bh-circle" strokeDasharray="87, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                  </svg>
-                  <div className="bh-ring-text">87%</div>
-                </div>
-              </div>
-              <div className="bh-ring-status">
-                <span>COMPLETE</span>
-                <div className="bh-status-line"></div>
-                <span style={{ color: '#aaa' }}>REMAINING</span>
+              <div className="bh-float-card-face">
+                <p className="bh-card-title">PROCESSING TIME COMPARISON</p>
+                <p className="bh-card-status">Cody Drug: 24hr avg processing</p>
+                <p className="bh-card-status">Industry Average: 10 days</p>
+                <p className="bh-card-metric bh-card-metric--large">10x faster</p>
               </div>
             </motion.div>
 
@@ -832,8 +872,18 @@ function Hero() {
               className="bh-float-card bh-card-bottom-right"
               style={{ x: cardBRX, opacity: cardBROpacity }}
             >
-              <p className="bh-card-title">QUALITY CONTROL</p>
-              <p className="bh-card-val bh-text-sm">PASSED — SPECTROSCOPY, HPLC, MICROBIOLOGY</p>
+              <div className="bh-float-card-face">
+                <p className="bh-card-copy bh-card-copy--standalone">Best-practice sterile and non-sterile safety standards.</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="bh-float-card bh-card-bottom-left"
+              style={{ x: cardMLX, opacity: cardMLOpacity }}
+            >
+              <div className="bh-float-card-face">
+                <p className="bh-card-copy bh-card-copy--standalone">24/7 accessible account management</p>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -848,74 +898,98 @@ function Hero() {
 const PILLARS = [
   {
     key: 'compounding',
-    eyebrow: '01 — THE CRAFT',
-    title: 'Custom Compounding',
-    desc: 'Every formulation begins with a licensed pharmacist, not a template. USP standards, sterile lab, built to your protocol.',
+    eyebrow: '01',
+    title: 'TAILORED COMPOUNDS',
+    desc: 'Medication centered around patients, not products.',
     side: 'right',
   },
   {
-    key: 'turnaround',
-    eyebrow: '02 — THE SERVICE',
-    title: 'Rapid Turnaround',
-    desc: 'Consistent communication, fast fulfillment, and a team that treats every prescription like it matters — because it does.',
+    key: 'retention',
+    eyebrow: '02',
+    title: '95%',
+    desc: 'provider retention rate',
     side: 'left',
   },
   {
-    key: 'partnership',
-    eyebrow: '03 — THE RELATIONSHIP',
-    title: 'Dedicated Partnership',
-    desc: "Providers across seven states trust Cody Drug Rx as an extension of their practice. At Cody Drug, it's personal.",
+    key: 'processing',
+    eyebrow: '03 — PROCESSING TIME COMPARISON',
+    title: '10x faster',
+    desc: 'Cody Drug: 24hr avg processing. Industry Average: 10 days.',
+    side: 'right',
+  },
+  {
+    key: 'standards',
+    eyebrow: '04',
+    title: 'Best-practice sterile and non-sterile safety standards.',
+    desc: '',
+    side: 'left',
+  },
+  {
+    key: 'account-management',
+    eyebrow: '05',
+    title: '24/7 accessible account management',
+    desc: '',
     side: 'right',
   },
 ]
 
 /* Pillars driven by a 0..1 progress value (passed from ScrollSequence's
-   function-as-children). Each pillar owns a segment of the progress with
-   long enter/exit windows, smooth ease-in-out, and a slight overshoot
-   on entry for a soft bounce. */
+   function-as-children). The cards deliberately overlap wide scroll windows so
+   they feel paced to the video rather than snapping through each segment. */
 const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
-const easeOutBack = (t) => {
-  const c1 = 1.70158
-  const c3 = c1 + 1
-  return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2)
-}
+const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4)
+const PILLAR_TIMING = [
+  { start: 0.06, end: 0.44, y: 0 },
+  { start: 0.15, end: 0.52, y: 0 },
+  { start: 0.42, end: 0.82, y: 120, exitY: 260 },
+  { start: 0.49, end: 0.9, y: 132 },
+  { start: 0.72, end: 0.98, y: 96 },
+]
 
 function computePillarStyle(progress, index, total, sideMult) {
-  const segment = 1 / total
-  const start = index * segment
-  const localProgress = (progress - start) / segment
-  const enterEnd = 0.4
-  const exitStart = 0.6
+  const timing = PILLAR_TIMING[index] ?? {
+    start: index / total,
+    end: (index + 1) / total,
+    y: 0,
+  }
+  const { start, end, y, exitY = 0 } = timing
+  const localProgress = (progress - start) / (end - start)
+  const enterEnd = 0.36
+  const exitStart = 0.78
 
-  let opacity, x, rotate, scale, blur
+  let opacity, x, rotate, scale, blur, exitProgress
   if (localProgress < 0) {
-    opacity = 0; x = 900 * sideMult; rotate = 18 * sideMult; scale = 0.88; blur = 16
+    opacity = 0; x = 580 * sideMult; rotate = 3 * sideMult; scale = 0.97; blur = 10; exitProgress = 0
   } else if (localProgress < enterEnd) {
     const raw = localProgress / enterEnd
     const tOpacity = easeInOutCubic(raw)
-    const tMove = easeOutBack(raw)
+    const tMove = easeOutQuart(raw)
     opacity = tOpacity
-    x = 900 * sideMult * (1 - tMove)
-    rotate = 18 * sideMult * (1 - tMove)
-    scale = 0.88 + 0.12 * tMove
-    blur = 16 * (1 - tOpacity)
+    x = 580 * sideMult * (1 - tMove)
+    rotate = 3 * sideMult * (1 - tMove)
+    scale = 0.97 + 0.03 * tMove
+    blur = 10 * (1 - tOpacity)
+    exitProgress = 0
   } else if (localProgress < exitStart) {
-    opacity = 1; x = 0; rotate = 0; scale = 1; blur = 0
+    opacity = 1; x = 0; rotate = 0; scale = 1; blur = 0; exitProgress = 0
   } else if (localProgress < 1) {
     const raw = (localProgress - exitStart) / (1 - exitStart)
     const t = easeInOutCubic(raw)
     opacity = 1 - t
-    x = -900 * sideMult * t
-    rotate = -18 * sideMult * t
-    scale = 1 - 0.12 * t
-    blur = 16 * t
+    x = -500 * sideMult * t
+    rotate = -2 * sideMult * t
+    scale = 1 - 0.03 * t
+    blur = 10 * t
+    exitProgress = t
   } else {
-    opacity = 0; x = -900 * sideMult; rotate = -18 * sideMult; scale = 0.88; blur = 16
+    opacity = 0; x = -500 * sideMult; rotate = -2 * sideMult; scale = 0.97; blur = 10; exitProgress = 1
   }
+
+  const yOffset = y + exitY * exitProgress
 
   return {
     opacity,
-    transform: `translateY(-50%) translateX(${x}px) rotate(${rotate}deg) scale(${scale})`,
+    transform: `translateY(-50%) translateY(${yOffset}px) translateX(${x}px) rotate(${rotate}deg) scale(${scale})`,
     filter: `blur(${blur}px)`,
   }
 }
@@ -930,80 +1004,15 @@ function PillarsProgressOverlay({ progress }) {
         return (
           <div
             key={pillar.key}
-            className={`bh-ps-card bh-ps-card--${pillar.side}`}
+            className={`bh-ps-card bh-ps-card--${pillar.side} bh-ps-card--${pillar.key}`}
             style={style}
           >
-            <span className="bh-ps-eyebrow">{pillar.eyebrow}</span>
             <h3 className="bh-ps-title">{pillar.title}</h3>
-            <p className="bh-ps-desc">{pillar.desc}</p>
+            {pillar.desc ? <p className="bh-ps-desc">{pillar.desc}</p> : null}
           </div>
         )
       })}
     </div>
-  )
-}
-
-/* ─────────────────────────────────────────────
-   STATS
-───────────────────────────────────────────── */
-const smoothEase = cubicBezier(0.16, 1, 0.3, 1)
-
-function Stats() {
-  const sectionRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
-
-  /* Letter-spacing interpolated from tight to dramatically spread as the
-     section scrolls through the viewport. At max, each letter visibly
-     separates — "S C I E N C E - B A C K E D ." — for a stretched
-     brutalist typographic pull. Smoothed with a cubic-bezier ease. */
-  const letterSpacing = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ['0.02em', '0.42em'],
-    { ease: smoothEase }
-  )
-  /* Subtle matching fade/slide for the subtitle so the whole block
-     breathes with the scroll. */
-  const subtitleX = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [-20, 20],
-    { ease: smoothEase }
-  )
-
-  return (
-    <section ref={sectionRef} className="bh-stats-section">
-      {/* Rails + dots span the section */}
-      <div className="bh-matrix-rails bh-container" aria-hidden="true">
-        <span /><span /><span /><span />
-      </div>
-      <div className="bh-matrix-dots" aria-hidden="true" />
-
-      {/* Matrix panel — brutalist tagline + bold tagline below */}
-      <div className="bh-matrix-panel">
-        <motion.div className="bh-matrix-display" {...fadeUp}>
-          <motion.div
-            className="bh-matrix-brutal"
-            aria-label="Science Backed. Patient Focused."
-            style={{ letterSpacing }}
-          >
-            <span className="bh-matrix-word">Science Backed</span>
-            <span className="bh-matrix-word bh-matrix-italic">Patient Focused</span>
-          </motion.div>
-
-          <motion.p className="bh-matrix-sub" style={{ x: subtitleX }}>
-            <span className="bh-matrix-sub-rule" aria-hidden="true" />
-            Compounded with intent
-            <span className="bh-matrix-sub-em">—</span>
-            not by the batch
-            <span className="bh-matrix-sub-rule" aria-hidden="true" />
-          </motion.p>
-        </motion.div>
-      </div>
-    </section>
   )
 }
 
@@ -1231,30 +1240,6 @@ function Features() {
 }
 
 /* ─────────────────────────────────────────────
-   VIDEO 2 — Second half of vial-new-fall (frames 42-211 = the falling
-   sequence). Seamlessly continues from the hero video.
-───────────────────────────────────────────── */
-function CinematicVialWithText() {
-  return (
-    <section className="bh-cinematic2-section">
-      <ScrollSequence
-        totalFrames={211}
-        framePath="/assets/vial-new-fall/frame_"
-        height="420vh"
-        startFrame={32}
-        endFrame={211}
-        triggerMode="top"
-        holdStart={0}
-        holdEnd={0.26}
-        prePlay={0.9}
-      >
-        {(progress) => <PillarsProgressOverlay progress={progress} />}
-      </ScrollSequence>
-    </section>
-  )
-}
-
-/* ─────────────────────────────────────────────
    EXPERT CARE (3-column)
 ───────────────────────────────────────────── */
 function ExpertCare() {
@@ -1355,8 +1340,9 @@ const ORDER_PILLARS = [
     title: '24hr Turnaround',
     alt: 'Prescription package with red light trails moving behind it',
     media: {
-      type: 'image',
-      src: '/new-pics/rapid-turnaround.png',
+      type: 'hover-video',
+      src: '/assets/hover-video-main-page/rapid-turnaround-hover-late-loop.mp4',
+      poster: '/new-pics/rapid-turnaround.png',
     },
     width: '92%',
   },
@@ -1364,8 +1350,9 @@ const ORDER_PILLARS = [
     title: 'Above/Beyond Testing',
     alt: 'Glossy red and white capsule pouring into a liquid droplet sculpture',
     media: {
-      type: 'image',
-      src: '/new-pics/custom-compounding.png',
+      type: 'hover-video',
+      src: '/assets/hover-video-main-page/above-beyond-testing-hover-full.mp4',
+      poster: '/new-pics/custom-compounding.png',
     },
     width: '92%',
   },
@@ -1373,12 +1360,88 @@ const ORDER_PILLARS = [
     title: 'Human-Centered Service',
     alt: 'Metallic handshake icon with a transparent teal accent',
     media: {
-      type: 'image',
-      src: '/new-pics/dedicated-partnership.png',
+      type: 'hover-video',
+      src: '/assets/hover-video-main-page/dedicated-partnership-hover-full.mp4',
+      poster: '/new-pics/dedicated-partnership.png',
     },
     width: '92%',
   },
 ]
+
+function getPillarHoverVideo(event) {
+  return event.currentTarget.querySelector('[data-pillar-hover-video]')
+}
+
+function stopPillarHoverCard(card) {
+  const video = card.querySelector('[data-pillar-hover-video]')
+
+  card.classList.remove('is-hovering')
+
+  if (!video) return
+
+  video.pause()
+  video.currentTime = 0
+}
+
+function stopOtherPillarHoverCards(activeCard) {
+  const grid = activeCard.parentElement
+
+  if (!grid) return
+
+  grid.querySelectorAll('.bh-pillars-card.is-hovering').forEach((card) => {
+    if (card !== activeCard) {
+      stopPillarHoverCard(card)
+    }
+  })
+}
+
+function playPillarHoverVideo(event) {
+  const video = getPillarHoverVideo(event)
+
+  if (!video) return
+
+  stopOtherPillarHoverCards(event.currentTarget)
+
+  const alreadyHovering = event.currentTarget.classList.contains('is-hovering')
+  event.currentTarget.classList.add('is-hovering')
+
+  if (!alreadyHovering) {
+    video.currentTime = 0
+  }
+
+  if (video.readyState === 0) {
+    video.load()
+  }
+
+  video.play().catch(() => {})
+}
+
+function ensurePillarHoverVideo(event) {
+  const video = getPillarHoverVideo(event)
+
+  if (!video) return
+
+  stopOtherPillarHoverCards(event.currentTarget)
+
+  event.currentTarget.classList.add('is-hovering')
+
+  if (video.readyState === 0) {
+    video.load()
+  }
+
+  if (!video.paused) return
+
+  video.play().catch(() => {})
+}
+
+function stopPillarHoverVideo(event) {
+  stopPillarHoverCard(event.currentTarget)
+}
+
+function stopAllPillarHoverVideos(event) {
+  event.currentTarget.querySelectorAll('.bh-pillars-card').forEach(stopPillarHoverCard)
+}
+
 
 function PillarMedia({ pillar }) {
   const mediaClassName = 'bh-pillar-image'
@@ -1394,6 +1457,30 @@ function PillarMedia({ pillar }) {
         muted
         playsInline
       />
+    )
+  }
+
+  if (pillar.media.type === 'hover-video') {
+    return (
+      <div className="bh-pillar-media-stack">
+        <img
+          className={`${mediaClassName} bh-pillar-still`}
+          src={pillar.media.poster}
+          alt={pillar.alt}
+          loading="lazy"
+        />
+        <video
+          className={`${mediaClassName} bh-pillar-hover-video`}
+          src={pillar.media.src}
+          poster={pillar.media.poster}
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-hidden="true"
+          data-pillar-hover-video
+        />
+      </div>
     )
   }
 
@@ -1417,19 +1504,34 @@ function FounderCTA() {
         aria-hidden="true"
       >
         <path
-          fill="#FFFFFF"
+          fill="#020202"
           d="M0,0 L1440,0 L1440,40 C1296,78 1152,14 1008,42 C864,70 720,20 576,46 C432,72 288,22 144,44 C96,51 48,48 0,42 Z"
         />
       </svg>
-      <div className="bh-pillars-grid">
+      <div
+        className="bh-pillars-grid"
+        onPointerLeave={stopAllPillarHoverVideos}
+        onMouseLeave={stopAllPillarHoverVideos}
+      >
         {ORDER_PILLARS.map((pillar, index) => (
           <motion.article
             key={pillar.title}
-            className="bh-pillar-card"
+            className="bh-pillars-card"
             initial={{ opacity: 0, y: 48 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: index * 0.12, ease }}
             viewport={{ once: true, margin: '-80px' }}
+            tabIndex={pillar.media.type === 'hover-video' ? 0 : undefined}
+            onPointerOver={ensurePillarHoverVideo}
+            onPointerEnter={playPillarHoverVideo}
+            onPointerLeave={stopPillarHoverVideo}
+            onPointerMove={ensurePillarHoverVideo}
+            onMouseOver={ensurePillarHoverVideo}
+            onMouseEnter={playPillarHoverVideo}
+            onMouseLeave={stopPillarHoverVideo}
+            onMouseMove={ensurePillarHoverVideo}
+            onFocus={playPillarHoverVideo}
+            onBlur={stopPillarHoverVideo}
           >
             <div
               className="bh-pillar-media"
@@ -1764,12 +1866,13 @@ function MapTransitionDivider({ shellY, mistY, accentOneY, accentTwoY }) {
 function CoverageMap() {
   const servedCount = SERVED_STATES.size
   const sectionRef = useRef(null)
+  const shouldLoadMap = useNearViewport(sectionRef)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
   })
-  const globeY = useTransform(scrollYProgress, [0, 1], [56, -42])
-  const copyY = useTransform(scrollYProgress, [0, 1], [24, -38])
+  const mapY = useTransform(scrollYProgress, [0, 1], [18, -28])
+  const copyY = useTransform(scrollYProgress, [0, 1], [8, -28])
   const dividerShellY = useTransform(scrollYProgress, [0, 1], [-16, 22])
   const dividerMistY = useTransform(scrollYProgress, [0, 1], [-12, 18])
   const dividerAccentOneY = useTransform(scrollYProgress, [0, 1], [-24, 12])
@@ -1785,64 +1888,72 @@ function CoverageMap() {
         accentTwoY={dividerAccentTwoY}
       />
       <div className="bh-container bh-map-wrapper">
-        <motion.div className="bh-map-visual" {...fadeUp} style={{ y: globeY }} transition={{ duration: 1, delay: 0.15, ease }}>
-          <div className="bh-map-globe-shell" aria-hidden="true">
-            <div className="bh-map-canvas">
-              <Suspense fallback={<div className="bh-map-globe-fallback" />}>
-                <CoverageGlobe />
-              </Suspense>
+        <motion.div className="bh-map-visual" {...fadeUp} style={{ y: mapY }} transition={{ duration: 1, delay: 0.15, ease }}>
+          <div className="bh-map-license-shell">
+            <div className="bh-map-license-canvas">
+              {shouldLoadMap ? (
+                <Suspense fallback={<div className="bh-map-license-fallback" />}>
+                  <StateLicenseMap3D embedded />
+                </Suspense>
+              ) : (
+                <div className="bh-map-license-fallback" />
+              )}
             </div>
-            <div className="bh-map-drag-pill">
-              <span className="bh-map-drag-orb" />
-              Animated globe
-            </div>
-          </div>
-          <div className="bh-map-shield">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <polyline points="9 12 11 14 15 10" />
-            </svg>
-            FULLY LICENSED · STATE COMPLIANT · PATIENT PROTECTED
           </div>
         </motion.div>
 
         <motion.div className="bh-map-copy" {...fadeUp} style={{ y: copyY }}>
-          <p className="bh-overline bh-cyan bh-map-overline">NATIONAL REACH. PREMIUM SIGNAL.</p>
-          <h2 className="bh-section-title bh-text-white">
-            State by state,<br />
-            <span className="bh-red">built for Cody RX.</span>
-          </h2>
-          <p className="bh-map-desc">
-            An animated globe keeps the U.S. footprint in view. The served states stay visible inside a more red-driven world, while teal and electric blue keep the whole system feeling alive instead of flat.
-          </p>
-
-          <div className="bh-map-stats">
-            <div className="bh-map-stat">
-              <span className="bh-map-stat-num">{servedCount}</span>
-              <span className="bh-map-stat-label">STATES SERVED</span>
-            </div>
-            <div className="bh-map-stat-divider" aria-hidden="true" />
-            <div className="bh-map-stat">
-              <span className="bh-map-stat-num">100<span className="bh-map-stat-pct">%</span></span>
-              <span className="bh-map-stat-label">COMPLIANT & LICENSED</span>
-            </div>
+          <div className="bh-map-copy-kicker">
+            <span className="bh-map-copy-rule" />
+            Licensed coverage
+          </div>
+          <div className="bh-map-copy-main">
+            <p className="bh-overline bh-cyan bh-map-overline">NATIONAL REACH. PREMIUM SIGNAL.</p>
+            <h2 className="bh-section-title bh-text-white">
+              State by state,<br />
+              <span className="bh-red">built for Cody RX.</span>
+            </h2>
+            <p className="bh-map-desc">
+              Cody Rx coverage stays clear across licensed states, pending licenses, and coming-soon markets.
+            </p>
           </div>
 
-          <div className="bh-map-legend">
-            <span className="bh-map-legend-item">
-              <span className="bh-map-dot bh-map-dot-active" /> SERVED STATES
-            </span>
-            <span className="bh-map-legend-item">
-              <span className="bh-map-dot bh-map-dot-cyan" /> CARE NODES
-            </span>
-            <span className="bh-map-legend-item">
-              <span className="bh-map-dot bh-map-dot-blue" /> RX NETWORK
-            </span>
-          </div>
+          <div className="bh-map-support">
+            <div className="bh-map-stats" aria-label="Coverage statistics">
+              <div className="bh-map-stat bh-map-stat--primary">
+                <span className="bh-map-stat-num">{servedCount}</span>
+                <span className="bh-map-stat-label">States served</span>
+              </div>
+              <div className="bh-map-stat">
+                <span className="bh-map-stat-num">100<span className="bh-map-stat-pct">%</span></span>
+                <span className="bh-map-stat-label">Compliant & licensed</span>
+              </div>
+            </div>
 
-          <a href="#review" className="bh-btn bh-btn-primary bh-map-cta">
-            CHECK ELIGIBILITY
-          </a>
+            <div className="bh-map-legend" aria-label="Map legend">
+              <span className="bh-map-legend-item">
+                <span className="bh-map-dot bh-map-dot-active" /> Served states
+              </span>
+              <span className="bh-map-legend-item">
+                <span className="bh-map-dot bh-map-dot-cyan" /> Pending licensure
+              </span>
+              <span className="bh-map-legend-item">
+                <span className="bh-map-dot bh-map-dot-blue" /> Coming soon
+              </span>
+            </div>
+
+            <div className="bh-map-shield">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+              Fully licensed · state compliant · patient protected
+            </div>
+
+            <a href="#review" className="bh-btn bh-btn-primary bh-map-cta">
+              CHECK ELIGIBILITY
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -1857,8 +1968,6 @@ export default function BrighterHome() {
     <div className="bh-shell">
       <BrighterNavbar />
       <HeroWithVideo />
-      <Stats />
-      <CinematicVialWithText />
       <FounderCTA />
       <FeaturedTestimonials />
       <CoverageMap />
