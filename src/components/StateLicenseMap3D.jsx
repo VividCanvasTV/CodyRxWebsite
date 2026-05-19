@@ -1,6 +1,6 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Billboard, Line, PerspectiveCamera, Text } from '@react-three/drei'
+import { Line, PerspectiveCamera } from '@react-three/drei'
 import { Bloom, EffectComposer, Vignette } from '@react-three/postprocessing'
 import * as THREE from 'three'
 import { geoAlbersUsa, geoPath } from 'd3-geo'
@@ -436,6 +436,60 @@ function seededRandom(seed) {
   }
 }
 
+function createLabelMaterial(label) {
+  const canvas = document.createElement('canvas')
+  const size = 192
+  canvas.width = size
+  canvas.height = size
+  const context = canvas.getContext('2d')
+
+  context.clearRect(0, 0, size, size)
+  context.font = '700 82px Arial, sans-serif'
+  context.textAlign = 'center'
+  context.textBaseline = 'middle'
+  context.lineJoin = 'round'
+  context.strokeStyle = 'rgba(2, 4, 6, 0.92)'
+  context.lineWidth = 16
+  context.strokeText(label, size / 2, size / 2 + 4)
+  context.fillStyle = '#f8fbff'
+  context.fillText(label, size / 2, size / 2 + 4)
+
+  const texture = new THREE.CanvasTexture(canvas)
+  texture.colorSpace = THREE.SRGBColorSpace
+  texture.minFilter = THREE.LinearFilter
+  texture.magFilter = THREE.LinearFilter
+
+  return new THREE.SpriteMaterial({
+    map: texture,
+    transparent: true,
+    depthWrite: false,
+    depthTest: false,
+    toneMapped: false,
+  })
+}
+
+function StateLabel({ state, compactScale }) {
+  const material = useMemo(() => createLabelMaterial(state.abbr), [state.abbr])
+  const labelScale = (state.isTinyLabel ? 0.58 : 0.72) / compactScale
+
+  useEffect(() => {
+    return () => {
+      material.map?.dispose()
+      material.dispose()
+    }
+  }, [material])
+
+  return (
+    <sprite
+      position={state.labelPosition}
+      scale={[labelScale, labelScale, 1]}
+      material={material}
+      renderOrder={10}
+      raycast={noopRaycast}
+    />
+  )
+}
+
 function DataField() {
   const groupRef = useRef(null)
   const rings = useMemo(
@@ -579,7 +633,6 @@ function StateObject({ state, compactScale, hovered }) {
         : null,
     [state]
   )
-  const labelSize = (state.isTinyLabel ? 0.24 : 0.34) / compactScale
 
   return (
     <group>
@@ -640,22 +693,7 @@ function StateObject({ state, compactScale, hovered }) {
         />
       ) : null}
 
-      <Billboard position={state.labelPosition} raycast={noopRaycast}>
-        <Text
-          color="#f8fbff"
-          fontSize={labelSize}
-          anchorX="center"
-          anchorY="middle"
-          outlineColor="#020406"
-          outlineWidth={0.025 / compactScale}
-          renderOrder={10}
-          material-toneMapped={false}
-          material-depthWrite={false}
-          raycast={noopRaycast}
-        >
-          {state.abbr}
-        </Text>
-      </Billboard>
+      <StateLabel state={state} compactScale={compactScale} />
     </group>
   )
 }
