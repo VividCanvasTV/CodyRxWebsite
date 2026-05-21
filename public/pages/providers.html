@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared-nav.css">
-    <link rel="stylesheet" href="providers.css?v=quality-smiling-lab-jpg">
+    <link rel="stylesheet" href="providers.css?v=catalog-compositor-stable">
 </head>
 <body class="providers-page">
     <header class="cr-nav providers-nav">
@@ -235,7 +235,7 @@
                     </div>
                     <article class="service-feature">
                         <div class="service-media">
-                            <img src="assets/services-pharmacist-group.jpg" alt="Cody Drug pharmacy team">
+                            <img src="assets/providers-treatment-focus-care.png" alt="Provider comforting a patient during personalized care">
                         </div>
                     </article>
                 </div>
@@ -252,8 +252,18 @@
                 <div class="provider-catalog reveal is-compounds" aria-label="Provider product catalog carousel">
                     <div class="provider-catalog-backdrop" aria-hidden="true"></div>
                     <div class="catalog-panel-actions" aria-label="Catalog controls">
-                        <button type="button" class="provider-btn provider-btn-primary catalog-mode-btn catalog-mode-btn-large is-active" data-catalog-mode="compounds" aria-pressed="true">Compounds</button>
-                        <button type="button" class="provider-btn provider-btn-primary catalog-mode-btn catalog-mode-btn-small" data-catalog-mode="supplements" aria-pressed="false">Supplements and More</button>
+                        <button type="button" class="provider-btn provider-btn-primary catalog-mode-btn catalog-mode-btn-large is-active" data-catalog-mode="compounds" aria-pressed="true" aria-expanded="false">Compounds</button>
+                        <div class="catalog-compound-shortcuts" aria-label="Compound section shortcuts" aria-hidden="true">
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="weight-loss" style="--shortcut-index: 0">Weight Loss</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="submagna" style="--shortcut-index: 1">Cody&rsquo;s SubMagna Line</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="mens-health" style="--shortcut-index: 2">Men&rsquo;s Health</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="womens-health" style="--shortcut-index: 3">Women&rsquo;s Health</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="compounds" style="--shortcut-index: 4">Compounds</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="wellness" style="--shortcut-index: 5">Wellness</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="dermatology" style="--shortcut-index: 6">Dermatology</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="coming-soon" style="--shortcut-index: 7">Coming Soon</button>
+                        </div>
+                        <button type="button" class="provider-btn provider-btn-primary catalog-mode-btn catalog-mode-btn-small" data-catalog-mode="supplements" aria-pressed="false" aria-expanded="false">Supplements and More</button>
                         <div class="catalog-filter-stack" aria-label="Catalog categories">
                             <button type="button" data-catalog-filter="Supplement">Supplement</button>
                             <button type="button" data-catalog-filter="Allergy">Allergy</button>
@@ -263,11 +273,20 @@
                     </div>
                     <div class="compound-playbook" aria-live="polite">
                         <article class="compound-page is-active" data-compound-page data-cover-page>
-                            <div class="compound-page-frame">
-                                <img class="compound-cover-image" src="assets/compound-playbook/price-playbook-cover.png" alt="Cody Drug Rx pricing playbook cover">
+                            <div class="compound-page-frame compound-designed-page compound-cover-page">
+                                <div class="compound-cover-copy">
+                                    <p class="compound-kicker">provider product catalog</p>
+                                    <img class="compound-cover-logo" src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx">
+                                    <p>pricing</p>
+                                </div>
+                                <div class="compound-cover-details" aria-label="Playbook details">
+                                    <span>Compounds</span>
+                                    <span>Provider reference</span>
+                                    <span>No listed pricing</span>
+                                </div>
                             </div>
                         </article>
-                        <article class="compound-page" data-compound-page>
+                        <article class="compound-page" data-compound-page data-compound-section="weight-loss">
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">weight loss</p>
@@ -409,11 +428,11 @@
                                 </table>
                             </div>
                         </article>
-                        <article class="compound-page" data-compound-page>
+                        <article class="compound-page" data-compound-page data-compound-section="submagna">
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">Cody SubMagna line</p>
-                                    <h3>Cody SubMagna&trade; Peptide Line</h3>
+                                    <h3><span class="compound-title-small">Cody SubMagna&trade;</span> Peptide Line</h3>
                                 </div>
                                 <table class="compound-grid">
                                     <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
@@ -428,7 +447,7 @@
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">Cody SubMagna line</p>
-                                    <h3>Cody SubMagna&trade; Weight Loss Line</h3>
+                                    <h3><span class="compound-title-small">Cody SubMagna&trade;</span> Weight Loss Line</h3>
                                 </div>
                                 <table class="compound-grid">
                                     <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
@@ -448,7 +467,7 @@
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">Cody SubMagna line</p>
-                                    <h3>Cody SubMagna&trade; General Health Line</h3>
+                                    <h3><span class="compound-title-small">Cody SubMagna&trade;</span> General Health Line</h3>
                                 </div>
                                 <table class="compound-grid">
                                     <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
@@ -464,7 +483,7 @@
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">Cody SubMagna line</p>
-                                    <h3>Cody SubMagna&trade; Men&rsquo;s Health Line</h3>
+                                    <h3><span class="compound-title-small">Cody SubMagna&trade;</span> Men&rsquo;s Health Line</h3>
                                 </div>
                                 <table class="compound-grid">
                                     <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
@@ -480,7 +499,7 @@
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">Cody SubMagna line</p>
-                                    <h3>Cody SubMagna&trade; Women&rsquo;s Health Line</h3>
+                                    <h3><span class="compound-title-small">Cody SubMagna&trade;</span> Women&rsquo;s Health Line</h3>
                                 </div>
                                 <table class="compound-grid">
                                     <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
@@ -490,7 +509,7 @@
                                 </table>
                             </div>
                         </article>
-                        <article class="compound-page" data-compound-page>
+                        <article class="compound-page" data-compound-page data-compound-section="mens-health">
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">men&rsquo;s health</p>
@@ -563,7 +582,7 @@
                                 </table>
                             </div>
                         </article>
-                        <article class="compound-page" data-compound-page>
+                        <article class="compound-page" data-compound-page data-compound-section="womens-health">
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">women&rsquo;s health</p>
@@ -645,7 +664,7 @@
                                 </table>
                             </div>
                         </article>
-                        <article class="compound-page" data-compound-page>
+                        <article class="compound-page" data-compound-page data-compound-section="compounds">
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">compounds</p>
@@ -664,7 +683,7 @@
                                 </table>
                             </div>
                         </article>
-                        <article class="compound-page" data-compound-page>
+                        <article class="compound-page" data-compound-page data-compound-section="wellness">
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">wellness</p>
@@ -679,21 +698,7 @@
                                 </table>
                             </div>
                         </article>
-                        <article class="compound-page" data-compound-page>
-                            <div class="compound-page-frame compound-designed-page">
-                                <div class="compound-page-copy">
-                                    <p class="compound-kicker">coming soon</p>
-                                    <h3>Oral Peptides</h3>
-                                </div>
-                                <table class="compound-grid compact">
-                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>Timeline</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>Thymosin Alpha-1</td><td>Oral Peptide</td><td></td><td></td><td></td><td></td><td>2026</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </article>
-                        <article class="compound-page" data-compound-page>
+                        <article class="compound-page" data-compound-page data-compound-section="dermatology">
                             <div class="compound-page-frame compound-designed-page">
                                 <div class="compound-page-copy">
                                     <p class="compound-kicker">dermatology</p>
@@ -746,6 +751,20 @@
                                         <tr><td>Minoxidil / Tretinoin / Fluocinolone Acetonide</td><td>Solution</td><td>5% / 0.1% / 0.1%</td><td>30 mL / 60 mL</td><td>Topical</td><td>RT</td><td></td></tr>
                                         <tr><td>Minoxidil / Tretinoin / Fluocinolone / Finasteride / Vitamin E Acetate</td><td>Solution</td><td>5% / 0.025% / 0.025% / 0.1% / 10 IU</td><td>30 mL / 60 mL</td><td>Topical</td><td>RT</td><td>35</td></tr>
                                         <tr><td>Minoxidil / Tretinoin / Fluocinolone / Finasteride / Vitamin E Acetate</td><td>Solution</td><td>5% / 0.01% / 0.01% / 0.25%</td><td>30 mL / 60 mL</td><td>Topical</td><td>RT</td><td>35</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page data-compound-section="coming-soon">
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">coming soon</p>
+                                    <h3>Oral Peptides</h3>
+                                </div>
+                                <table class="compound-grid compact">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>Timeline</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Thymosin Alpha-1</td><td>Oral Peptide</td><td></td><td></td><td></td><td></td><td>2026</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -966,120 +985,122 @@
             </div>
         </section>
 
-        <section class="section-shell articles-section" aria-labelledby="articles-title">
-            <div class="provider-container">
-                <div class="section-heading compact reveal">
-                    <p class="eyebrow">STAY UP TO DATE WITH</p>
-                    <h2 id="articles-title">Featured Articles</h2>
+        <section class="section-shell articles-section articles-testimonials-backdrop" aria-labelledby="articles-title">
+                <div class="provider-container">
+                    <div class="section-heading compact reveal">
+                        <p class="eyebrow">STAY UP TO DATE WITH</p>
+                        <h2 id="articles-title">Featured Articles</h2>
+                    </div>
+                    <div class="article-masonry reveal">
+                        <article class="article-card article-tall">
+                            <img src="assets/services-abstract-stage.png" alt="">
+                            <span>Quality</span>
+                            <h3>What providers should ask before choosing a compounding pharmacy</h3>
+                            <p>Apr 2026</p>
+                        </article>
+                        <article class="article-card">
+                            <span>Workflow</span>
+                            <h3>How faster onboarding protects clinical momentum</h3>
+                            <p>Provider Notes</p>
+                        </article>
+                        <article class="article-card">
+                            <span>Compounding</span>
+                            <h3>Sterile vs. non-sterile requests: what changes behind the scenes</h3>
+                            <p>Clinical Guide</p>
+                        </article>
+                        <article class="article-card article-wide">
+                            <img src="assets/about-lab-fill.png" alt="">
+                            <span>Patient Care</span>
+                            <h3>Why patient-specific medication support still depends on relationship</h3>
+                            <p>Apr 2026</p>
+                        </article>
+                        <article class="article-card">
+                            <span>Turnaround</span>
+                            <h3>Setting expectations for same-day and 24-48hr fulfillment</h3>
+                            <p>Operations</p>
+                        </article>
+                        <article class="article-card">
+                            <span>Portal</span>
+                            <h3>Clinic billing, patient billing, and account flexibility</h3>
+                            <p>Provider Portal</p>
+                        </article>
+                    </div>
                 </div>
-                <div class="article-masonry reveal">
-                    <article class="article-card article-tall">
-                        <img src="assets/services-abstract-stage.png" alt="">
-                        <span>Quality</span>
-                        <h3>What providers should ask before choosing a compounding pharmacy</h3>
-                        <p>Apr 2026</p>
-                    </article>
-                    <article class="article-card">
-                        <span>Workflow</span>
-                        <h3>How faster onboarding protects clinical momentum</h3>
-                        <p>Provider Notes</p>
-                    </article>
-                    <article class="article-card">
-                        <span>Compounding</span>
-                        <h3>Sterile vs. non-sterile requests: what changes behind the scenes</h3>
-                        <p>Clinical Guide</p>
-                    </article>
-                    <article class="article-card article-wide">
-                        <img src="assets/about-lab-fill.png" alt="">
-                        <span>Patient Care</span>
-                        <h3>Why patient-specific medication support still depends on relationship</h3>
-                        <p>Apr 2026</p>
-                    </article>
-                    <article class="article-card">
-                        <span>Turnaround</span>
-                        <h3>Setting expectations for same-day and 24-48hr fulfillment</h3>
-                        <p>Operations</p>
-                    </article>
-                    <article class="article-card">
-                        <span>Portal</span>
-                        <h3>Clinic billing, patient billing, and account flexibility</h3>
-                        <p>Provider Portal</p>
-                    </article>
-                </div>
-            </div>
         </section>
 
         <section class="section-shell testimonials-section" aria-labelledby="testimonials-title">
-            <div class="provider-container testimonials-panel reveal">
-                <div class="testimonial-heading">
-                    <div>
-                        <p class="eyebrow">Listen to why</p>
-                        <h2 id="testimonials-title">Providers Trust Cody Drug</h2>
+                <div class="provider-container testimonials-panel reveal">
+                    <div class="testimonial-heading">
+                        <div>
+                            <p class="eyebrow">Listen to why</p>
+                            <h2 id="testimonials-title">Providers Trust Cody Drug</h2>
+                        </div>
+                    </div>
+                    <div class="testimonial-rail" aria-label="Provider testimonial carousel">
+                        <article class="testimonial-card">
+                            <span>&ldquo;</span>
+                            <p>At Rhoades Family Practice, I often say &lsquo;healthcare as it should be,&rsquo; and Cody Drug truly shares that vision. Their team always provides exceptional customer service and an unbelievably quick turnaround when it comes to my patients&rsquo; weight loss medications. As a provider, I value partners who treat my patients like family &ndash; and that&rsquo;s exactly what Will and his staff at Cody Drug do. I&rsquo;m so grateful to have such a dedicated local pharmacy; they make it easier for me to give my patients the best care possible.&rdquo;</p>
+                            <strong class="testimonial-attribution">Dusty Rhoades, MSN, APRN, FNP-C | Rhoades Family Practice</strong>
+                            <div class="testimonial-logo"><img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx"></div>
+                        </article>
+                        <article class="testimonial-card">
+                            <span>&ldquo;</span>
+                            <p>Partnering with Cody Drug has been truly transformative for our clinics in Oklahoma City and Denver. As a practice that prides itself on offering our patients the absolute best, it is essential that we establish partnerships that align with our vision of care for our patients. Cody Drug&rsquo;s unwavering commitment to quality, innovation, and exceptional customer service ensures our patients receive top tier compounded treatments in a timely manner. This collaboration has elevated our ability to provide unmatched care and achieve extraordinary results. Together, we&rsquo;re ensuring wellness remains a top priority in every aspect of our practice. We look forward to continuing this dynamic partnership with Cody Drug for years to come&rdquo;</p>
+                            <strong class="testimonial-attribution">Jason R. Henderson, Co-Founder, Restorative Injectables</strong>
+                            <div class="testimonial-logo"><img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx"></div>
+                        </article>
+                        <article class="testimonial-card">
+                            <span>&ldquo;</span>
+                            <p>As a men&rsquo;s health physician here in Tyler, I rely on Cody Drug&rsquo;s exceptional compounding services to deliver customized treatments for my patients. Their team&rsquo;s professionalism, precision, and prompt service ensure my patients receive exactly what they need safely and efficiently. Working with a knowledgeable and responsive pharmacy gives me confidence in every prescription I write. I&rsquo;m grateful to have Cody Drug as a trusted partner in our mission to optimize my patient&rsquo;s health.&rdquo;</p>
+                            <strong class="testimonial-attribution">Alonso Osorio, M.D. FAAEM / FAAFP / FACEP Medical Director / Franchise Owner | GameDay Men&rsquo;s Health | Tyler &amp; Longview, TX</strong>
+                            <div class="testimonial-logo"><img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx"></div>
+                        </article>
+                    </div>
+                    <div class="testimonial-progress" aria-hidden="true">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
                     </div>
                 </div>
-                <div class="testimonial-rail" aria-label="Provider testimonial carousel">
-                    <article class="testimonial-card">
-                        <span>&ldquo;</span>
-                        <p>At Rhoades Family Practice, I often say &lsquo;healthcare as it should be,&rsquo; and Cody Drug truly shares that vision. Their team always provides exceptional customer service and an unbelievably quick turnaround when it comes to my patients&rsquo; weight loss medications. As a provider, I value partners who treat my patients like family &ndash; and that&rsquo;s exactly what Will and his staff at Cody Drug do. I&rsquo;m so grateful to have such a dedicated local pharmacy; they make it easier for me to give my patients the best care possible.&rdquo;</p>
-                        <div class="testimonial-logo"><img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx"></div>
-                        <strong class="testimonial-attribution">Dusty Rhoades, MSN, APRN, FNP-C | Rhoades Family Practice</strong>
-                    </article>
-                    <article class="testimonial-card">
-                        <span>&ldquo;</span>
-                        <p>Partnering with Cody Drug has been truly transformative for our clinics in Oklahoma City and Denver. As a practice that prides itself on offering our patients the absolute best, it is essential that we establish partnerships that align with our vision of care for our patients. Cody Drug&rsquo;s unwavering commitment to quality, innovation, and exceptional customer service ensures our patients receive top tier compounded treatments in a timely manner. This collaboration has elevated our ability to provide unmatched care and achieve extraordinary results. Together, we&rsquo;re ensuring wellness remains a top priority in every aspect of our practice. We look forward to continuing this dynamic partnership with Cody Drug for years to come&rdquo;</p>
-                        <div class="testimonial-logo"><img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx"></div>
-                        <strong class="testimonial-attribution">Jason R. Henderson, Co-Founder, Restorative Injectables</strong>
-                    </article>
-                    <article class="testimonial-card">
-                        <span>&ldquo;</span>
-                        <p>As a men&rsquo;s health physician here in Tyler, I rely on Cody Drug&rsquo;s exceptional compounding services to deliver customized treatments for my patients. Their team&rsquo;s professionalism, precision, and prompt service ensure my patients receive exactly what they need safely and efficiently. Working with a knowledgeable and responsive pharmacy gives me confidence in every prescription I write. I&rsquo;m grateful to have Cody Drug as a trusted partner in our mission to optimize my patient&rsquo;s health.&rdquo;</p>
-                        <div class="testimonial-logo"><img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx"></div>
-                        <strong class="testimonial-attribution">Alonso Osorio, M.D. FAAEM / FAAFP / FACEP Medical Director / Franchise Owner | GameDay Men&rsquo;s Health | Tyler &amp; Longview, TX</strong>
-                    </article>
-                </div>
-                <div class="testimonial-progress" aria-hidden="true">
-                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-                </div>
-            </div>
         </section>
 
-        <section class="section-shell faq-section" id="faq" aria-labelledby="faq-title">
-            <div class="provider-container faq-grid">
-                <div class="faq-intro reveal">
-                    <p class="eyebrow">Provider FAQ</p>
-                    <h2 id="faq-title">Frequently Asked Questions</h2>
-                    <p>Fast answers for providers who want the practical details before they start sending scripts.</p>
+        <div class="faq-cta-backdrop">
+            <section class="section-shell faq-section" id="faq" aria-labelledby="faq-title">
+                <div class="provider-container faq-grid">
+                    <div class="faq-intro reveal">
+                        <p class="eyebrow">Provider FAQ</p>
+                        <h2 id="faq-title">Frequently Asked Questions</h2>
+                        <p>Fast answers for providers who want the practical details before they start sending scripts.</p>
+                    </div>
+                    <div class="faq-list reveal">
+                        <details>
+                            <summary>How long does it take to get onboarded?</summary>
+                            <p>Less than 5min. No, we&rsquo;re not kidding. Yes, you can send in scripts that same day. We&rsquo;re serious about efficiency because we know your practice demands it.</p>
+                        </details>
+                        <details>
+                            <summary>What if a patient needs something not in the catalog?</summary>
+                            <p>That&rsquo;s literally why compounding pharmacies exist. We have a relationship with all our providers so that when their patients need something tailored, we can make it precisely.</p>
+                        </details>
+                        <details>
+                            <summary>What are standard turnaround times?</summary>
+                            <p>If you order a sterile compound product before 4pm CST, it ships same day. For non-sterile compounds, we&rsquo;ll have it on it&rsquo;s way in 24-48hrs.</p>
+                        </details>
+                        <details>
+                            <summary>Can I split between patient and clinic billing?</summary>
+                            <p>Absolutely, our portal allows you to choose the billing method with each order, so you can determine what&rsquo;s right for your practice, patient by patient.</p>
+                        </details>
+                    </div>
                 </div>
-                <div class="faq-list reveal">
-                    <details>
-                        <summary>How long does it take to get onboarded?</summary>
-                        <p>Less than 5min. No, we&rsquo;re not kidding. Yes, you can send in scripts that same day. We&rsquo;re serious about efficiency because we know your practice demands it.</p>
-                    </details>
-                    <details>
-                        <summary>What if a patient needs something not in the catalog?</summary>
-                        <p>That&rsquo;s literally why compounding pharmacies exist. We have a relationship with all our providers so that when their patients need something tailored, we can make it precisely.</p>
-                    </details>
-                    <details>
-                        <summary>What are standard turnaround times?</summary>
-                        <p>If you order a sterile compound product before 4pm CST, it ships same day. For non-sterile compounds, we&rsquo;ll have it on it&rsquo;s way in 24-48hrs.</p>
-                    </details>
-                    <details>
-                        <summary>Can I split between patient and clinic billing?</summary>
-                        <p>Absolutely, our portal allows you to choose the billing method with each order, so you can determine what&rsquo;s right for your practice, patient by patient.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="section-shell cta-section" id="consultation" aria-labelledby="cta-title">
-            <div class="provider-container cta-panel reveal">
-                <h2 id="cta-title">Ready to get started?</h2>
-                <p>Open the provider portal or connect with account support to discuss custom compounding needs, catalog access, and next steps.</p>
-                <div class="button-row">
-                    <a class="provider-btn provider-btn-primary" href="https://portal.codydrugrx.com/" target="_blank" rel="noreferrer">Get Started</a>
+            <section class="section-shell cta-section" id="consultation" aria-labelledby="cta-title">
+                <div class="provider-container cta-panel reveal">
+                    <h2 id="cta-title">Ready to get started?</h2>
+                    <p>Open the provider portal or connect with account support to discuss custom compounding needs, catalog access, and next steps.</p>
+                    <div class="button-row">
+                        <a class="provider-btn provider-btn-primary" href="https://portal.codydrugrx.com/" target="_blank" rel="noreferrer">Get Started</a>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
     </main>
 
@@ -1184,6 +1205,23 @@
                 }
             }
 
+            const faqSection = document.querySelector('.faq-section');
+            if (faqSection) {
+                faqSection.classList.add('faq-motion-ready');
+
+                if ('IntersectionObserver' in window) {
+                    const faqObserver = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            entry.target.classList.toggle('is-in-view', entry.isIntersecting);
+                        });
+                    }, { rootMargin: '-14% 0px -20% 0px', threshold: 0.18 });
+
+                    faqObserver.observe(faqSection);
+                } else {
+                    faqSection.classList.add('is-in-view');
+                }
+            }
+
             const catalogCards = Array.from(document.querySelectorAll('[data-product-card]'));
             const compoundPages = Array.from(document.querySelectorAll('[data-compound-page]'));
             const catalogPrev = document.querySelector('.catalog-prev');
@@ -1193,6 +1231,9 @@
             const providerCatalog = document.querySelector('.provider-catalog');
             const catalogModeButtons = Array.from(document.querySelectorAll('[data-catalog-mode]'));
             const catalogFilterButtons = Array.from(document.querySelectorAll('[data-catalog-filter]'));
+            const compoundShortcutButtons = Array.from(document.querySelectorAll('[data-compound-jump]'));
+            const compoundShortcutPanel = document.querySelector('.catalog-compound-shortcuts');
+            const catalogFilterStack = document.querySelector('.catalog-filter-stack');
             let catalogIndex = 0;
             let compoundIndex = 0;
             let catalogSwipeStartX = 0;
@@ -1203,6 +1244,8 @@
             let activeCatalogMode = 'compounds';
             let activeCatalogFilter = null;
             let activeCatalogCards = catalogCards;
+            let compoundShortcutsOpen = false;
+            let supplementFiltersOpen = false;
 
             const setCatalogCard = (card, className, hidden) => {
                 card.classList.toggle('is-active', className === 'is-active');
@@ -1216,6 +1259,30 @@
                 page.classList.toggle('is-next', className === 'is-next');
                 page.classList.toggle('is-third', className === 'is-third');
                 page.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+            };
+
+            const getCompoundSection = (index) => {
+                for (let i = index; i >= 0; i -= 1) {
+                    const section = compoundPages[i]?.dataset.compoundSection;
+                    if (section) return section;
+                }
+                return null;
+            };
+
+            const syncCompoundShortcuts = () => {
+                const isOpen = activeCatalogMode === 'compounds' && compoundShortcutsOpen;
+                providerCatalog?.classList.toggle('is-shortcuts-open', isOpen);
+                compoundShortcutPanel?.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                const compoundsButton = catalogModeButtons.find((button) => button.dataset.catalogMode === 'compounds');
+                compoundsButton?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            };
+
+            const syncSupplementFilters = () => {
+                const isOpen = activeCatalogMode === 'supplements' && supplementFiltersOpen;
+                providerCatalog?.classList.toggle('is-supplement-filters-open', isOpen);
+                catalogFilterStack?.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                const supplementsButton = catalogModeButtons.find((button) => button.dataset.catalogMode === 'supplements');
+                supplementsButton?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             };
 
             const updateCatalog = () => {
@@ -1287,11 +1354,33 @@
                 if (catalogProgress && activeTotal) {
                     catalogProgress.style.width = `${((activeIndex + 1) / activeTotal) * 100}%`;
                 }
+
+                const activeCompoundSection = activeCatalogMode === 'compounds'
+                    ? getCompoundSection(compoundIndex)
+                    : null;
+                compoundShortcutButtons.forEach((button) => {
+                    const isActive = button.dataset.compoundJump === activeCompoundSection;
+                    button.classList.toggle('is-active', isActive);
+                    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+
+                syncCompoundShortcuts();
+                syncSupplementFilters();
             };
 
-            const setCatalogMode = (mode) => {
+            const applyCatalogMode = (mode) => {
+                const modeChanged = activeCatalogMode !== mode;
                 activeCatalogMode = mode;
                 catalogGridOpen = false;
+                if (mode !== 'compounds') {
+                    compoundShortcutsOpen = false;
+                }
+                if (mode !== 'supplements') {
+                    supplementFiltersOpen = false;
+                }
+                if (modeChanged && mode === 'supplements') {
+                    catalogIndex = 0;
+                }
                 providerCatalog?.classList.toggle('is-compounds', mode === 'compounds');
                 providerCatalog?.classList.toggle('is-supplements', mode === 'supplements');
                 providerCatalog?.classList.remove('is-grid');
@@ -1303,6 +1392,14 @@
                 });
 
                 updateCatalog();
+            };
+
+            const setCatalogMode = (mode, options = {}) => {
+                applyCatalogMode(mode);
+                if (options.openSupplementFilters) {
+                    supplementFiltersOpen = true;
+                    updateCatalog();
+                }
             };
 
             const moveCatalog = (direction) => {
@@ -1320,7 +1417,32 @@
 
             catalogModeButtons.forEach((button) => {
                 button.addEventListener('click', () => {
-                    setCatalogMode(button.dataset.catalogMode || 'compounds');
+                    const nextMode = button.dataset.catalogMode || 'compounds';
+                    if (nextMode === 'compounds') {
+                        compoundShortcutsOpen = activeCatalogMode === 'compounds'
+                            ? !compoundShortcutsOpen
+                            : true;
+                    }
+                    if (nextMode === 'supplements') {
+                        if (activeCatalogMode !== 'supplements') {
+                            supplementFiltersOpen = false;
+                            setCatalogMode(nextMode, { openSupplementFilters: true });
+                            return;
+                        }
+                        supplementFiltersOpen = !supplementFiltersOpen;
+                    }
+                    setCatalogMode(nextMode);
+                });
+            });
+
+            compoundShortcutButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const targetSection = button.dataset.compoundJump;
+                    const targetIndex = compoundPages.findIndex((page) => page.dataset.compoundSection === targetSection);
+                    if (targetIndex < 0) return;
+                    compoundIndex = targetIndex;
+                    compoundShortcutsOpen = true;
+                    setCatalogMode('compounds');
                 });
             });
 
@@ -1435,6 +1557,7 @@
 
             catalogFilterButtons.forEach((button) => {
                 button.addEventListener('click', () => {
+                    supplementFiltersOpen = true;
                     setCatalogMode('supplements');
                     const filter = button.dataset.catalogFilter;
                     activeCatalogFilter = activeCatalogFilter === filter ? null : filter;
