@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access the premium interactive Provider Playbook, custom compounded pricing guide, and clinical product catalog for Cody Drug Rx.">
+    <title>Cody Drug Rx | Provider Playbook & Price List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared-nav.css">
+    <link rel="stylesheet" href="playbook.css">
+</head>
+<body class="playbook-page">
+    <header class="playbook-header">
+        <div class="header-left">
+            <a href="/pages/providers.html" class="back-link" aria-label="Back to Providers Portal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>Providers Portal</span>
+            </a>
+        </div>
+        <div class="header-center">
+            <img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx Logo" class="header-logo">
+            <h1 class="header-title">Provider Playbook & Price List</h1>
+        </div>
+        <div class="header-right">
+            <button type="button" id="toggle-view-btn" class="control-btn" aria-label="Toggle grid or flipbook view">
+                <svg class="grid-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <svg class="book-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display: none;">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Grid View</span>
+            </button>
+            <button type="button" id="print-pdf-btn" class="control-btn control-btn-primary" aria-label="Download Printable PDF">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M6 9V2h12v7"></path>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                <span>Print Playbook</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="playbook-main-container">
+        <!-- Interactive 3D Flipbook View -->
+        <section id="flipbook-section" class="playbook-view-section active-view" aria-label="Interactive 3D Flipbook">
+            <div class="book-wrapper">
+                <div class="book-spine"></div>
+                <div class="book" id="playbook-3d">
+                    <!-- SHEET 1 (Cover / Page 2) -->
+                    <div class="sheet" id="sheet-0">
+                        <div class="page page-front cover-page">
+                            <div class="cover-glow"></div>
+                            <div class="cover-content">
+                                <p class="cover-eyebrow">PCAB ACCREDITED CLINICAL FORMULARY</p>
+                                <h2 class="cover-title">PROVIDER<br><span class="highlight-red">PLAYBOOK</span></h2>
+                                <div class="cover-divider"></div>
+                                <p class="cover-subtitle">Interactive Product Catalog & Specialty Price List</p>
+                                <p class="cover-client">CODY DRUG RX</p>
+                            </div>
+                            <div class="cover-footer">
+                                <span>2026 EDITION</span>
+                                <span>CLINICAL EXCELLENCE</span>
+                            </div>
+                        </div>
+                        <div class="page page-back dark-page">
+                            <div class="page-header">
+                                <span class="page-tag">02 / ONBOARDING</span>
+                                <h3 class="page-title">Compliance is Our Receipts</h3>
+                            </div>
+                            <div class="page-body clinical-onboarding">
+                                <p class="lead-text">Every compounding pharmacy claims compliance. At Cody Drug, we provide the receipts. We hold our products to a higher standard because patients deserve strict precision.</p>
+                                <div class="clinical-proof-column">
+                                    <div class="proof-row">
+                                        <div class="proof-icon">🧪</div>
+                                        <div class="proof-desc">
+                                            <strong>EVERY LOT TESTED</strong>
+                                            <p>100% third-party sterility, endotoxin, and potency tested before release.</p>
+                                        </div>
+                                    </div>
+                                    <div class="proof-row">
+                                        <div class="proof-icon">🔄</div>
+                                        <div class="proof-desc">
+                                            <strong>6-WEEK GLP-1 CYCLE</strong>
+                                            <p>Ongoing recurring potency retesting on Semaglutide and Tirzepatide formulations.</p>
+                                        </div>
+                                    </div>
+                                    <div class="proof-row">
+                                        <div class="proof-icon">🏥</div>
+                                        <div class="proof-desc">
+                                            <strong>6-MONTH CERTIFICATION</strong>
+                                            <p>Cleanroom environment, air flow, and primary compounding hoods recertified twice annually.</p>
+                                        </div>
+                                    </div>
+                                    <div class="proof-row">
+                                        <div class="proof-icon">📄</div>
+                                        <div class="proof-desc">
+                                            <strong>COAS ON DEMAND</strong>
+                                            <p>Complete Certificate of Analysis results and clinical inspection histories provided on request.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-footer">
+                                <span>CODY DRUG RX</span>
+                                <span>CLINIC DIRECT: (903) 583-1234</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SHEET 2 (Page 3 / Page 4) -->
+                    <div class="sheet" id="sheet-1">
+                        <div class="page page-front light-page">
+                            <div class="page-header">
+                                <span class="page-tag">03 / SPECIALTY FORMULARY</span>
+                                <h3 class="page-title">Metabolic & Anti-Aging</h3>
+                            </div>
+                            <div class="page-body">
+                                <p class="section-intro">Synergistic pharmaceutical-grade clinical supplements formulated to optimize glucose levels and mitochondrial health.</p>
+                                <div class="price-list-container">
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">Berberine Max</span>
+                                            <span class="product-price">$56</span>
+                                        </div>
+                                        <p class="product-description">Supports healthy blood glucose levels, insulin sensitivity, and optimal cardiovascular metabolic performance.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">D3-K2 Max</span>
+                                            <span class="product-price">$37</span>
+                                        </div>
+                                        <p class="product-description">Highly bioavailable vitamin D3/K2 synergy supporting bone density, immune response, and vascular integrity.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">BrainMag Capsules</span>
+                                            <span class="product-price">$45</span>
+                                        </div>
+                                        <p class="product-description">Magnesium L-threonate engineered to cross the blood-brain barrier for memory retention and cognitive support.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">ProbioticMax</span>
+                                            <span class="product-price">$45</span>
+                                        </div>
+                                        <p class="product-description">High-potency, multi-strain microbiome replenisher designed to restore GI balance and support immune defenses.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-footer">
+                                <span>CLINICAL SUPPLEMENTS</span>
+                                <span>PAGE 3</span>
+                            </div>
+                        </div>
+                        <div class="page page-back light-page">
+                            <div class="page-header">
+                                <span class="page-tag">04 / SPECIALTY FORMULARY</span>
+                                <h3 class="page-title">Wellness & Stress Support</h3>
+                            </div>
+                            <div class="page-body">
+                                <p class="section-intro">Specialized adaptogenic and mineral compounds targeting endocrine regulation, recovery, and cognitive wellness.</p>
+                                <div class="price-list-container">
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">ChillMag</span>
+                                            <span class="product-price">$32</span>
+                                        </div>
+                                        <p class="product-description">Premium magnesium bisglycinate chelate optimized for rapid absorption, deep sleep, and muscular relaxation.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">FocusPlus</span>
+                                            <span class="product-price">$68</span>
+                                        </div>
+                                        <p class="product-description">Advanced neural activator stack compiled to improve memory consolidation, processing speed, and sustained attention.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">Omega Max</span>
+                                            <span class="product-price">$58</span>
+                                        </div>
+                                        <p class="product-description">Ultra-pure, double-strength EPA/DHA marine lipids supporting brain cell membranes and cardiovascular performance.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">Cortisolve</span>
+                                            <span class="product-price">$54.99</span>
+                                        </div>
+                                        <p class="product-description">Adaptogenic botanical formulation designed to regulate the HPA axis, calm cortisol spikes, and mitigate chronic stress.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-footer">
+                                <span>CLINICAL SUPPLEMENTS</span>
+                                <span>PAGE 4</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SHEET 3 (Page 5 / Page 6) -->
+                    <div class="sheet" id="sheet-2">
+                        <div class="page page-front light-page">
+                            <div class="page-header">
+                                <span class="page-tag">05 / SPECIALTY FORMULARY</span>
+                                <h3 class="page-title">Focus & Muscle Guard</h3>
+                            </div>
+                            <div class="page-body">
+                                <p class="section-intro">Formulations to protect lean muscle tissue during calorie restriction and maintain energy pathways.</p>
+                                <div class="price-list-container">
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">BrainMag Mixed Berry</span>
+                                            <span class="product-price">$51</span>
+                                        </div>
+                                        <p class="product-description">Powdered Magnesium L-threonate in a delicious mixed berry flavor, perfect for quick cognitive support drinks.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">Multivitamin</span>
+                                            <span class="product-price">$59</span>
+                                        </div>
+                                        <p class="product-description">Fully methylated clinical-grade daily micronutrient complex featuring active cofactors for high bioactivity.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">FiberLean Max</span>
+                                            <span class="product-price">$48</span>
+                                        </div>
+                                        <p class="product-description">High-viscosity organic soluble dietary fibers optimized to increase satiety, curb cravings, and slow glucose release.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">HMB Muscle Guard</span>
+                                            <span class="product-price">$65.99</span>
+                                        </div>
+                                        <p class="product-description">Clinically validated calcium beta-hydroxy-beta-methylbutyrate to shield muscle mass from catabolic breakdown.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-footer">
+                                <span>CLINICAL SUPPLEMENTS</span>
+                                <span>PAGE 5</span>
+                            </div>
+                        </div>
+                        <div class="page page-back light-page">
+                            <div class="page-header">
+                                <span class="page-tag">06 / SPECIALTY STACKS</span>
+                                <h3 class="page-title">Therapeutic Bundles</h3>
+                            </div>
+                            <div class="page-body">
+                                <p class="section-intro">Carefully curated, multi-product clinical protocols addressing complex endocrine, neurological, and longevity profiles.</p>
+                                <div class="price-list-container long-list">
+                                    <div class="price-item compact">
+                                        <div class="price-header">
+                                            <span class="product-name">Weight Loss Bundle Max</span>
+                                            <span class="product-price">$139</span>
+                                        </div>
+                                        <p class="product-description">Comprehensive GLP-1 companion stack: ProbioticLean Max + FiberLean Max + HMB Muscle Guard.</p>
+                                    </div>
+                                    <div class="price-item compact">
+                                        <div class="price-header">
+                                            <span class="product-name">Weight Loss Bundle</span>
+                                            <span class="product-price">$101</span>
+                                        </div>
+                                        <p class="product-description">Core metabolic synergy package supporting blood glucose regulation, gut barrier health, and healthy weight.</p>
+                                    </div>
+                                    <div class="price-item compact">
+                                        <div class="price-header">
+                                            <span class="product-name">Brain Health Bundle</span>
+                                            <span class="product-price">$98</span>
+                                        </div>
+                                        <p class="product-description">Dual neural performance stack: BrainMag Capsules + FocusPlus to support clarity, memory, and executive function.</p>
+                                    </div>
+                                    <div class="price-item compact">
+                                        <div class="price-header">
+                                            <span class="product-name">The Better Box</span>
+                                            <span class="product-price">$139</span>
+                                        </div>
+                                        <p class="product-description">High-end clinic longevity and cellular optimization collection designed to support healthy cellular aging and mitochondrial pathways.</p>
+                                    </div>
+                                    <div class="price-item compact">
+                                        <div class="price-header">
+                                            <span class="product-name">Brain Focus Bundle</span>
+                                            <span class="product-price">$121</span>
+                                        </div>
+                                        <p class="product-description">Complete cognitive endurance stack: BrainMag Mixed Berry + FocusPlus + Methyl-Multivitamin.</p>
+                                    </div>
+                                    <div class="price-item compact">
+                                        <div class="price-header">
+                                            <span class="product-name">Bone and Joint Bundle</span>
+                                            <span class="product-price">$129</span>
+                                        </div>
+                                        <p class="product-description">Synergistic skeletal protection stack: D3-K2 Max + Omega Max + trace mineral support complex.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-footer">
+                                <span>THERAPEUTIC BUNDLES</span>
+                                <span>PAGE 6</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SHEET 4 (Page 7 / Back Cover) -->
+                    <div class="sheet" id="sheet-3">
+                        <div class="page page-front light-page">
+                            <div class="page-header">
+                                <span class="page-tag">07 / CLINICAL MEDICINES</span>
+                                <h3 class="page-title">Allergy & Custom Remedies</h3>
+                            </div>
+                            <div class="page-body">
+                                <p class="section-intro">Targeted homeopathic, immunological, and acute relief solutions custom compounded for seasonal and regional demands.</p>
+                                <div class="price-list-container">
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">Texas Cedar Fever</span>
+                                            <span class="product-price">$20</span>
+                                        </div>
+                                        <p class="product-description">Proprietary clinical antigen immunization sublingual drops designed to desensitize and block Texas Juniper allergens.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">Texas Cedar Fever KIDS</span>
+                                            <span class="product-price">$20</span>
+                                        </div>
+                                        <p class="product-description">Gentle, pediatrician-compliant homeopathic sublingual drops optimized for children's seasonal immunity.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">Sinus Shield</span>
+                                            <span class="product-price">$50.95</span>
+                                        </div>
+                                        <p class="product-description">Broad-spectrum respiratory mucosal shield to clear pathways, reduce congestion, and balance immune defense.</p>
+                                    </div>
+                                    <div class="price-item">
+                                        <div class="price-header">
+                                            <span class="product-name">Texas Tea</span>
+                                            <span class="product-price">$42</span>
+                                        </div>
+                                        <p class="product-description">High-potency antioxidant-dense botanical blend supporting liver detoxification and general systemic cleanse.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-footer">
+                                <span>ALLERGY & COMPREHENSIVE</span>
+                                <span>PAGE 7</span>
+                            </div>
+                        </div>
+                        <div class="page page-back back-cover-page">
+                            <div class="back-glow"></div>
+                            <div class="back-cover-content">
+                                <img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx" class="back-logo">
+                                <h4>CODY DRUG RX</h4>
+                                <p class="back-tagline">Precision Compounding. Specialized Care. Clinical Excellence.</p>
+                                <div class="back-divider"></div>
+                                <div class="back-contact-grid">
+                                    <div class="contact-card-mini">
+                                        <strong>PROVIDERS DIRECTLINE</strong>
+                                        <p>(903) 583-1234</p>
+                                    </div>
+                                    <div class="contact-card-mini">
+                                        <strong>CLINICAL SUPPORT EMAIL</strong>
+                                        <p>providers@codydrugrx.com</p>
+                                    </div>
+                                    <div class="contact-card-mini">
+                                        <strong>SECURE PORTAL</strong>
+                                        <p>portal.codydrugrx.com</p>
+                                    </div>
+                                    <div class="contact-card-mini">
+                                        <strong>LICENSED AND ACCREDITED</strong>
+                                        <p>PCAB Accredited Compounding Facility. Licensed in TX, OK, LA, AR, FL, CO.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="back-cover-footer">
+                                <span>© 2026 CODY DRUG RX · CONFIDENTIAL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flipbook Interactive Controls -->
+            <div class="flipbook-controls">
+                <button type="button" id="prev-page-btn" class="nav-arrow" aria-label="Previous Page">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="book-progress-container">
+                    <div class="book-progress-bar">
+                        <div class="book-progress-fill" id="book-progress-indicator" style="width: 0%;"></div>
+                    </div>
+                    <span class="page-indicator-text" id="page-counter-text">Cover Page</span>
+                </div>
+                <button type="button" id="next-page-btn" class="nav-arrow" aria-label="Next Page">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+            
+            <div class="flip-tip">
+                <p>💡 Tip: Click page margins or drag to turn pages like a physical playbook.</p>
+            </div>
+        </section>
+
+        <!-- Searchable & Filterable Grid/List View -->
+        <section id="grid-view-section" class="playbook-view-section" aria-label="Product Search and Filter Catalog" style="display: none;">
+            <div class="utility-container">
+                <div class="search-filter-bar">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="catalog-search-input" placeholder="Search by product name, ingredient, or treatment..." aria-label="Search catalog">
+                    </div>
+                    <div class="category-filters" id="category-filter-stack" aria-label="Filter products by category">
+                        <button type="button" class="filter-chip active-chip" data-category="all">All Products</button>
+                        <button type="button" class="filter-chip" data-category="Supplement">Supplements</button>
+                        <button type="button" class="filter-chip" data-category="Bundle">Clinical Bundles</button>
+                        <button type="button" class="filter-chip" data-category="Allergy">Allergies</button>
+                        <button type="button" class="filter-chip" data-category="Merch">Clinic Merch</button>
+                    </div>
+                </div>
+                
+                <div class="products-grid-container" id="products-catalog-grid">
+                    <!-- Products dynamically rendered/filtered by JavaScript to ensure high integrity and instant speeds -->
+                </div>
+                
+                <div id="no-results-msg" class="empty-state-message" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h4>No products found matching your search</h4>
+                    <p>Try checking spelling or adjusting category filters.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Deep-styled Printable PDF Blueprint Block -->
+    <section class="printable-catalog-pdf" id="printable-pdf-document" aria-hidden="true">
+        <header class="print-pdf-header">
+            <div class="print-header-brand">
+                <span class="print-brand-title">CODY DRUG RX</span>
+                <span class="print-brand-subtitle">PCAB Accredited Compounding Pharmacy</span>
+            </div>
+            <div class="print-header-info">
+                <span>OFFICIAL PROVIDER CATALOG</span>
+                <span>2026 EDITION</span>
+            </div>
+        </header>
+
+        <div class="print-section-cover">
+            <h1>Specialty Compounding Formulary & Clinical Catalog</h1>
+            <p class="print-cover-meta">Accredited Clinical Quality Potency Verified · Price List Guide</p>
+            <div class="print-quality-banner">
+                <h3>Our Quality Standards (Accredited Receipts):</h3>
+                <ul>
+                    <li><strong>Sterility & Potency:</strong> 100% of lots undergo third-party GLP-compliant testing.</li>
+                    <li><strong>HPA Regulation:</strong> 6-week potency testing validation cycle on clinical peptides and GLP-1s.</li>
+                    <li><strong>Accreditation:</strong> Fully PCAB accredited sterile & non-sterile compounding laboratories.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="print-page-break"></div>
+
+        <div class="print-category-section">
+            <h2 class="print-category-title">1. Metabolic & Anti-Aging Supplements</h2>
+            <table class="print-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Product Name</th>
+                        <th style="width: 55%">Clinical Indication & Description</th>
+                        <th style="width: 15%; text-align: right">Price</th>
+                    </tr>
+                </thead>
+                <tbody id="print-table-body-metabolic">
+                    <!-- Supplements page 1 -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="print-page-break"></div>
+
+        <div class="print-category-section">
+            <h2 class="print-category-title">2. Wellness, Focus & Stress Support</h2>
+            <table class="print-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Product Name</th>
+                        <th style="width: 55%">Clinical Indication & Description</th>
+                        <th style="width: 15%; text-align: right">Price</th>
+                    </tr>
+                </thead>
+                <tbody id="print-table-body-wellness">
+                    <!-- Supplements page 2 -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="print-page-break"></div>
+
+        <div class="print-category-section">
+            <h2 class="print-category-title">3. Therapeutic Clinic Bundles</h2>
+            <table class="print-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Product Name</th>
+                        <th style="width: 55%">Clinical Indication & Description</th>
+                        <th style="width: 15%; text-align: right">Price</th>
+                    </tr>
+                </thead>
+                <tbody id="print-table-body-bundles">
+                    <!-- Bundles -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="print-page-break"></div>
+
+        <div class="print-category-section">
+            <h2 class="print-category-title">4. Custom Compounds, Allergies & Merchandise</h2>
+            <table class="print-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Product Name</th>
+                        <th style="width: 55%">Clinical Indication & Description</th>
+                        <th style="width: 15%; text-align: right">Price</th>
+                    </tr>
+                </thead>
+                <tbody id="print-table-body-compounds">
+                    <!-- Allergy + Merch -->
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="print-pdf-footer">
+            <div class="print-footer-inner">
+                <span>Phone: (903) 583-1234 · Fax: (903) 583-1235 · Email: providers@codydrugrx.com</span>
+                <span>Page <span class="print-page-number"></span> of 5 · Confidential Provider Formulary</span>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Playbook Application Logic -->
+    <script>
+        (function() {
+            // Full product data (29 items) with high-fidelity clinic descriptions
+            const catalogProducts = [
+                { id: "berberine-max", name: "Berberine Max", price: "$56", category: "Supplement", image: "assets/provider-products/berberine-max.webp", desc: "Supports healthy blood glucose levels, insulin sensitivity, and optimal cardiovascular metabolic performance." },
+                { id: "chillmag", name: "ChillMag", price: "$32", category: "Supplement", image: "assets/provider-products/chillmag.webp", desc: "Premium magnesium bisglycinate chelate optimized for rapid absorption, deep sleep, and muscular relaxation." },
+                { id: "d3-k2-max", name: "D3-K2 Max", price: "$37", category: "Supplement", image: "assets/provider-products/d3-k2-max.webp", desc: "Highly bioavailable vitamin D3/K2 synergy supporting bone density, immune response, and vascular integrity." },
+                { id: "brainmag-capsules", name: "BrainMag", price: "$45", category: "Supplement", image: "assets/provider-products/brainmag-capsules.webp", desc: "Magnesium L-threonate engineered to cross the blood-brain barrier for memory retention and cognitive support." },
+                { id: "weight-loss-bundle-max", name: "Weight Loss Bundle Max", price: "$139", category: "Bundle", image: "assets/provider-products/weight-loss-bundle-max.webp", desc: "Ultimate comprehensive GLP-1 companion stack: ProbioticLean Max + FiberLean Max + HMB Muscle Guard." },
+                { id: "brainmag-mixed-berry", name: "BrainMag Mixed Berry", price: "$51", category: "Supplement", image: "assets/provider-products/brainmag-mixed-berry.webp", desc: "Powdered Magnesium L-threonate in a delicious mixed berry flavor, perfect for quick cognitive support drinks." },
+                { id: "weight-loss-bundle", name: "Weight Loss Bundle", price: "$101", category: "Bundle", image: "assets/provider-products/weight-loss-bundle.webp", desc: "Core metabolic synergy package supporting blood glucose regulation, gut barrier health, and healthy weight." },
+                { id: "probioticmax", name: "ProbioticMax", price: "$45", category: "Supplement", image: "assets/provider-products/probioticmax.webp", desc: "High-potency, multi-strain microbiome replenisher designed to restore GI balance and support immune defenses." },
+                { id: "focusplus", name: "FocusPlus", price: "$68", category: "Supplement", image: "assets/provider-products/focusplus.webp", desc: "Advanced neural activator stack compiled to improve memory consolidation, processing speed, and sustained attention." },
+                { id: "omega-max", name: "Omega Max", price: "$58", category: "Supplement", image: "assets/provider-products/omega-max.webp", desc: "Ultra-pure, double-strength EPA/DHA marine lipids supporting brain cell membranes and cardiovascular performance." },
+                { id: "multivitamin", name: "Multivitamin", price: "$59", category: "Supplement", image: "assets/provider-products/multivitamin.png", desc: "Fully methylated clinical-grade daily micronutrient complex featuring active cofactors for high bioactivity." },
+                { id: "cortisolve", name: "Cortisolve", price: "$54.99", category: "Supplement", image: "assets/provider-products/cortisolve.webp", desc: "Adaptogenic botanical formulation designed to regulate the HPA axis, calm cortisol spikes, and mitigate chronic stress." },
+                { id: "fiberlean-max", name: "FiberLean Max", price: "$48", category: "Supplement", image: "assets/provider-products/fiberlean-max.webp", desc: "High-viscosity organic soluble dietary fibers optimized to increase satiety, curb cravings, and slow glucose release." },
+                { id: "brain-health-bundle", name: "Brain Health Bundle", price: "$98", category: "Bundle", image: "assets/provider-products/brain-health-bundle.webp", desc: "Dual neural performance stack: BrainMag Capsules + FocusPlus to support clarity, memory, and executive function." },
+                { id: "probioticlean-max", name: "ProbioticLean Max", price: "$72", category: "Supplement", image: "assets/provider-products/probioticlean-max.webp", desc: "Advanced probiotic strain targeted for metabolic enhancement, weight management, and endocrine homeostasis." },
+                { id: "the-better-box", name: "The Better Box", price: "$139", category: "Bundle", image: "assets/provider-products/the-better-box.webp", desc: "High-end clinic longevity and cellular optimization collection designed to support healthy cellular aging and mitochondrial pathways." },
+                { id: "brain-focus-bundle", name: "Brain Focus Bundle", price: "$121", category: "Bundle", image: "assets/provider-products/brain-focus-bundle.webp", desc: "Complete cognitive endurance stack: BrainMag Mixed Berry + FocusPlus + Methyl-Multivitamin." },
+                { id: "weight-loss", name: "Weight Loss Protocol", price: "$199", category: "Bundle", image: "assets/provider-products/weight-loss.webp", desc: "All-in-one clinical metabolic rejuvenation program detailing supplementation guidelines, clean wellness protocols, and physician resources." },
+                { id: "texas-cedar-fever", name: "Texas Cedar Fever", price: "$20", category: "Allergy", image: "assets/provider-products/texas-cedar-fever.webp", desc: "Proprietary clinical antigen immunization sublingual drops designed to desensitize and block Texas Juniper allergens." },
+                { id: "sinus-shield", name: "Sinus Shield", price: "$50.95", category: "Supplement", image: "assets/provider-products/sinus-shield.webp", desc: "Broad-spectrum respiratory mucosal shield to clear pathways, reduce congestion, and balance immune defense." },
+                { id: "bone-joint-bundle", name: "Bone & Joint Bundle", price: "$129", category: "Bundle", image: "assets/provider-products/bone-joint-bundle.webp", desc: "Synergistic skeletal protection stack: D3-K2 Max + Omega Max + trace mineral support complex." },
+                { id: "texas-tea", name: "Texas Tea", price: "$42", category: "Supplement", image: "assets/provider-products/texas-tea.webp", desc: "High-potency antioxidant-dense botanical blend supporting liver detoxification and general systemic cleanse." },
+                { id: "hmb-muscle-guard", name: "HMB Muscle Guard", price: "$65.99", category: "Supplement", image: "assets/provider-products/hmb-muscle-guard.webp", desc: "Clinically validated calcium beta-hydroxy-beta-methylbutyrate to shield muscle mass from catabolic breakdown." },
+                { id: "cuffed-beanie", name: "Cuffed Beanie", price: "$16", category: "Merch", image: "assets/provider-products/cuffed-beanie.webp", desc: "Double-layered clinical style soft acrylic knit cap with premium embroidered Cody Drug therapeutic logo." },
+                { id: "texas-cedar-fever-kids", name: "Texas Cedar Fever KIDS", price: "$20", category: "Allergy", image: "assets/provider-products/texas-cedar-fever-kids.webp", desc: "Gentle, pediatrician-compliant homeopathic sublingual drops optimized for children's seasonal immunity." },
+                { id: "under-armour-backpack", name: "Under Armour Backpack", price: "$96.50", category: "Merch", image: "assets/provider-products/under-armour-backpack.webp", desc: "High-grade water-resistant ballistic nylon clinic travel backpack featuring dual compartments and embroidered emblem." },
+                { id: "mens-box-hoodie", name: "Men's Box Hoodie", price: "From $35.50", category: "Merch", image: "assets/provider-products/mens-box-hoodie.webp", desc: "Ultra-heavyweight cotton fleece active leisure hoodie styled with clinical drop-shoulder profile and clean back print." },
+                { id: "stainless-steel-tumbler", name: "Stainless Steel Tumbler", price: "$28", category: "Merch", image: "assets/provider-products/stainless-steel-tumbler.webp", desc: "Double-walled vacuum insulated travel vessel engineered to keep recovery beverages at zero thermal loss for 24h." },
+                { id: "columbia-soft-shell-jacket", name: "Columbia Soft Shell Jacket", price: "From $110", category: "Merch", image: "assets/provider-products/columbia-soft-shell-jacket.webp", desc: "Premium windproof and waterproof clinic softshell outerwear optimized for outdoor operations and provider representation." }
+            ];
+
+            // Render Printable PDF Tables
+            const fillPrintTables = () => {
+                const metabolicTbody = document.getElementById('print-table-body-metabolic');
+                const wellnessTbody = document.getElementById('print-table-body-wellness');
+                const bundlesTbody = document.getElementById('print-table-body-bundles');
+                const compoundsTbody = document.getElementById('print-table-body-compounds');
+
+                if (!metabolicTbody || !wellnessTbody || !bundlesTbody || !compoundsTbody) return;
+
+                catalogProducts.forEach(prod => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td style="font-weight: 700; color: #000;">${prod.name}</td>
+                        <td style="font-size: 0.85rem; color: #333; line-height: 1.4;">${prod.desc}</td>
+                        <td style="text-align: right; font-weight: 700; color: #E50914;">${prod.price}</td>
+                    `;
+
+                    // Sort items into print sections
+                    if (prod.category === 'Bundle') {
+                        bundlesTbody.appendChild(tr);
+                    } else if (prod.category === 'Allergy' || prod.category === 'Merch') {
+                        compoundsTbody.appendChild(tr.cloneNode(true));
+                    } else {
+                        // Split supplements into metabolic (first 7) and wellness (rest)
+                        const supplementIndex = catalogProducts.filter(p => p.category === 'Supplement').indexOf(prod);
+                        if (supplementIndex < 7) {
+                            metabolicTbody.appendChild(tr);
+                        } else {
+                            wellnessTbody.appendChild(tr);
+                        }
+                    }
+                });
+            };
+
+            // Toggle Between Views (Flipbook vs Grid)
+            const viewToggleBtn = document.getElementById('toggle-view-btn');
+            const flipbookSection = document.getElementById('flipbook-section');
+            const gridViewSection = document.getElementById('grid-view-section');
+            const gridIcon = viewToggleBtn?.querySelector('.grid-icon');
+            const bookIcon = viewToggleBtn?.querySelector('.book-icon');
+            const btnText = viewToggleBtn?.querySelector('span');
+            let activeView = 'flipbook';
+
+            const toggleView = () => {
+                if (activeView === 'flipbook') {
+                    activeView = 'grid';
+                    flipbookSection.classList.remove('active-view');
+                    gridViewSection.classList.add('active-view');
+                    gridViewSection.style.display = 'block';
+                    flipbookSection.style.display = 'none';
+                    if (gridIcon) gridIcon.style.display = 'none';
+                    if (bookIcon) bookIcon.style.display = 'block';
+                    if (btnText) btnText.textContent = 'Flipbook';
+                    renderGridView();
+                } else {
+                    activeView = 'flipbook';
+                    gridViewSection.classList.remove('active-view');
+                    flipbookSection.classList.add('active-view');
+                    flipbookSection.style.display = 'block';
+                    gridViewSection.style.display = 'none';
+                    if (gridIcon) gridIcon.style.display = 'block';
+                    if (bookIcon) bookIcon.style.display = 'none';
+                    if (btnText) btnText.textContent = 'Grid View';
+                }
+            };
+
+            viewToggleBtn?.addEventListener('click', toggleView);
+
+            // Render search/filter grid view
+            const gridContainer = document.getElementById('products-catalog-grid');
+            const searchInput = document.getElementById('catalog-search-input');
+            const filterChips = document.querySelectorAll('.filter-chip');
+            const noResultsMsg = document.getElementById('no-results-msg');
+            let currentCategoryFilter = 'all';
+            let searchQuery = '';
+
+            const renderGridView = () => {
+                if (!gridContainer) return;
+                gridContainer.innerHTML = '';
+
+                const filtered = catalogProducts.filter(prod => {
+                    const matchesCategory = currentCategoryFilter === 'all' || prod.category === currentCategoryFilter;
+                    const matchesSearch = prod.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                          prod.category.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                          prod.desc.toLowerCase().includes(searchQuery.toLowerCase());
+                    return matchesCategory && matchesSearch;
+                });
+
+                if (filtered.length === 0) {
+                    if (noResultsMsg) noResultsMsg.style.display = 'flex';
+                } else {
+                    if (noResultsMsg) noResultsMsg.style.display = 'none';
+                    filtered.forEach(prod => {
+                        const card = document.createElement('article');
+                        card.className = 'grid-product-card';
+                        card.innerHTML = `
+                            <div class="grid-card-tag">${prod.category}</div>
+                            <div class="grid-card-image-wrapper">
+                                <img src="${prod.image}" alt="${prod.name}" loading="lazy">
+                            </div>
+                            <div class="grid-card-details">
+                                <h4 class="grid-card-title">${prod.name}</h4>
+                                <p class="grid-card-desc">${prod.desc}</p>
+                                <div class="grid-card-footer">
+                                    <span class="grid-card-price">${prod.price}</span>
+                                    <button type="button" class="grid-card-cta" onclick="window.print()">Print Detail</button>
+                                </div>
+                            </div>
+                        `;
+                        gridContainer.appendChild(card);
+                    });
+                }
+            };
+
+            // Search input handler
+            searchInput?.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                renderGridView();
+            });
+
+            // Category filter chips handler
+            filterChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    filterChips.forEach(c => c.classList.remove('active-chip'));
+                    chip.classList.add('active-chip');
+                    currentCategoryFilter = chip.dataset.category;
+                    renderGridView();
+                });
+            });
+
+            // 3D Flipbook Page Turning Engine
+            const book = document.getElementById('playbook-3d');
+            const sheets = Array.from(document.querySelectorAll('.sheet'));
+            const prevBtn = document.getElementById('prev-page-btn');
+            const nextBtn = document.getElementById('next-page-btn');
+            const progressFill = document.getElementById('book-progress-indicator');
+            const pageCounter = document.getElementById('page-counter-text');
+            
+            let currentSheet = 0;
+            const totalSheets = sheets.length;
+            
+            const pageNames = [
+                "Cover Page",
+                "02 / Clinical Quality",
+                "03 / Metabolic & Anti-Aging",
+                "04 / Wellness & Stress Support",
+                "05 / Focus & Muscle Guard",
+                "06 / Therapeutic Bundles",
+                "07 / Allergy & Custom",
+                "Back Cover & Contact"
+            ];
+
+            const updateBookState = () => {
+                sheets.forEach((sheet, idx) => {
+                    if (idx < currentSheet) {
+                        // Sheet is flipped to the left
+                        sheet.classList.add('flipped');
+                        sheet.style.zIndex = idx;
+                    } else {
+                        // Sheet is on the right
+                        sheet.classList.remove('flipped');
+                        sheet.style.zIndex = totalSheets - idx;
+                    }
+                });
+
+                // Update arrows visibility/states
+                if (prevBtn) {
+                    prevBtn.disabled = currentSheet === 0;
+                    prevBtn.style.opacity = currentSheet === 0 ? "0.3" : "1";
+                }
+                if (nextBtn) {
+                    nextBtn.disabled = currentSheet === totalSheets;
+                    nextBtn.style.opacity = currentSheet === totalSheets ? "0.3" : "1";
+                }
+
+                // Update page counter & progress bar
+                // Page indices correspond to:
+                // Sheet 0 flipped: on left Page 2 (idx 1), on right Page 3 (idx 2)
+                let visiblePageText = "";
+                if (currentSheet === 0) {
+                    visiblePageText = pageNames[0]; // Cover
+                } else if (currentSheet === totalSheets) {
+                    visiblePageText = pageNames[pageNames.length - 1]; // Back Cover
+                } else {
+                    visiblePageText = `${pageNames[currentSheet * 2 - 1]}  &  ${pageNames[currentSheet * 2]}`;
+                }
+
+                if (pageCounter) pageCounter.textContent = visiblePageText;
+                if (progressFill) {
+                    const percentage = (currentSheet / totalSheets) * 100;
+                    progressFill.style.width = `${percentage}%`;
+                }
+            };
+
+            const turnPage = (direction) => {
+                if (direction === 1 && currentSheet < totalSheets) {
+                    currentSheet++;
+                    updateBookState();
+                } else if (direction === -1 && currentSheet > 0) {
+                    currentSheet--;
+                    updateBookState();
+                }
+            };
+
+            prevBtn?.addEventListener('click', () => turnPage(-1));
+            nextBtn?.addEventListener('click', () => turnPage(1));
+
+            // Allow clicking sheet edges to flip pages
+            sheets.forEach((sheet, idx) => {
+                sheet.addEventListener('click', (e) => {
+                    // Ignore clicks on buttons/links
+                    if (e.target.closest('button, a, input')) return;
+                    
+                    const rect = sheet.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    
+                    if (sheet.classList.contains('flipped')) {
+                        // It is on the left. Click on the left half of the opened sheet flips it back
+                        if (clickX < rect.width / 2) {
+                            turnPage(-1);
+                        }
+                    } else {
+                        // It is on the right. Click on the right half of the opened sheet flips it forward
+                        if (clickX > rect.width / 2) {
+                            turnPage(1);
+                        }
+                    }
+                });
+            });
+
+            // Swipe Gestures for touch screens
+            let swipeStartX = 0;
+            let swipeStartY = 0;
+            
+            book?.addEventListener('touchstart', (e) => {
+                const touch = e.touches[0];
+                if (touch) {
+                    swipeStartX = touch.clientX;
+                    swipeStartY = touch.clientY;
+                }
+            }, { passive: true });
+
+            book?.addEventListener('touchend', (e) => {
+                const touch = e.changedTouches[0];
+                if (touch) {
+                    const deltaX = touch.clientX - swipeStartX;
+                    const deltaY = touch.clientY - swipeStartY;
+                    
+                    // Horizontal swipe criteria
+                    if (Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+                        if (deltaX < 0) {
+                            turnPage(1); // Swipe left = turn page forward
+                        } else {
+                            turnPage(-1); // Swipe right = turn page backward
+                        }
+                    }
+                }
+            }, { passive: true });
+
+            // Keyboard navigation
+            window.addEventListener('keydown', (e) => {
+                if (activeView !== 'flipbook') return;
+                if (e.key === 'ArrowRight') turnPage(1);
+                if (e.key === 'ArrowLeft') turnPage(-1);
+            });
+
+            // Print triggers
+            const printBtn = document.getElementById('print-pdf-btn');
+            printBtn?.addEventListener('click', () => {
+                window.print();
+            });
+
+            // Parse URL hash commands (e.g. #print, #grid)
+            const handleHashCommands = () => {
+                const hash = window.location.hash;
+                if (hash === '#print') {
+                    window.setTimeout(() => window.print(), 500);
+                } else if (hash === '#grid') {
+                    toggleView();
+                }
+            };
+
+            // Initialize Page
+            fillPrintTables();
+            updateBookState();
+            handleHashCommands();
+        })();
+    </script>
+</body>
+</html>

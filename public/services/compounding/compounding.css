@@ -58,10 +58,6 @@ body.compounding-page a {
   color: inherit;
 }
 
-body.compounding-page .cr-chat-widget {
-  display: none;
-}
-
 body.compounding-page img,
 body.compounding-page svg {
   display: block;

@@ -1,0 +1,1347 @@
+/* ==========================================================================
+   Cody Drug Rx - Provider Playbook Stylesheet
+   Luxury Clinical Branding System
+   ========================================================================== */
+
+:root {
+    --provider-red: #E50914;
+    --provider-red-glow: rgba(229, 9, 20, 0.25);
+    --provider-cyan: #00f2fe;
+    --provider-cyan-glow: rgba(0, 242, 254, 0.2);
+    --bg-dark: #070709;
+    --bg-card: rgba(22, 22, 28, 0.45);
+    --border-color: rgba(255, 255, 255, 0.12);
+    --text-white: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.65);
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   Base Layout & Theme
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.playbook-page {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body.playbook-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(229, 9, 20, 0.08), transparent 35rem),
+        radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.08), transparent 35rem);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ==========================================================================
+   Header Navigation
+   ========================================================================== */
+
+.playbook-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(7, 7, 9, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+}
+
+.back-link svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--text-white);
+}
+
+.back-link:hover svg {
+    transform: translateX(-4px);
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    height: 38px;
+    object-fit: contain;
+}
+
+.header-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.control-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-white);
+    padding: 10px 18px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.control-btn-primary {
+    background: linear-gradient(180deg, #ef192d, var(--provider-red) 58%, #990a17);
+    border-color: rgba(229, 9, 20, 0.78);
+    box-shadow: 0 4px 18px var(--provider-red-glow);
+}
+
+.control-btn-primary:hover {
+    background: linear-gradient(180deg, #20e3df 0%, var(--provider-cyan) 58%, #00a4b4);
+    border-color: rgba(0, 242, 254, 0.78);
+    color: #030304;
+    box-shadow: 0 4px 22px var(--provider-cyan-glow);
+}
+
+/* ==========================================================================
+   Main Containers & Views
+   ========================================================================== */
+
+.playbook-main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.playbook-view-section {
+    width: 100%;
+    max-width: 1100px;
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   3D Book Canvas & Core Mechanics
+   ========================================================================== */
+
+.book-wrapper {
+    position: relative;
+    width: 100%;
+    height: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1800px;
+    margin-bottom: 25px;
+}
+
+.book {
+    position: relative;
+    width: 1000px;
+    height: 640px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.book-spine {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(90deg, #111, #333 40%, #111);
+    transform: translate3d(-50%, 0, 1px);
+    z-index: 10;
+    border-radius: 3px;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.8);
+}
+
+/* Sheet Structure */
+.sheet {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: left center;
+    transition: transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+    will-change: transform, z-index;
+}
+
+/* Sheet Turning Animation */
+.sheet.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Page Sides Base */
+.page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    padding: 40px 48px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.05);
+}
+
+.page-front {
+    z-index: 2;
+    border-radius: 0 8px 8px 0;
+    border-left: none;
+}
+
+.page-back {
+    z-index: 1;
+    transform: rotateY(180deg);
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+}
+
+/* Page Shading Gradients (Simulating Depth) */
+.page-front::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
+    pointer-events: none;
+    z-index: 5;
+}
+
+.page-back::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ==========================================================================
+   Page Themes (Cover, Clinical, Light)
+   ========================================================================== */
+
+/* 1. Cover Page */
+.cover-page {
+    background: 
+        radial-gradient(circle at 100% 0%, rgba(229, 9, 20, 0.2), transparent 28rem),
+        linear-gradient(135deg, #111116, #070709);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+}
+
+.cover-glow {
+    position: absolute;
+    top: 20%;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(229, 9, 20, 0.25), transparent 70%);
+    filter: blur(30px);
+}
+
+.cover-content {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cover-eyebrow {
+    color: var(--provider-red);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+}
+
+.cover-title {
+    font-family: var(--font-serif);
+    font-size: 3.4rem;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+}
+
+.highlight-red {
+    color: var(--text-white);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.cover-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--provider-red), transparent);
+    margin: 30px 0;
+}
+
+.cover-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 340px;
+    margin-bottom: 12px;
+}
+
+.cover-client {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.cover-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+}
+
+/* 2. Clinical Dark Page */
+.dark-page {
+    background: linear-gradient(180deg, #111116, #09090c);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text-white);
+}
+
+.page-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+}
+
+.page-tag {
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--provider-red);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.page-title {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+.page-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.lead-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 22px;
+}
+
+.clinical-onboarding {
+    display: flex;
+    flex-direction: column;
+}
+
+.clinical-proof-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.proof-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.proof-icon {
+    font-size: 1.3rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.proof-desc strong {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-white);
+    display: block;
+    margin-bottom: 2px;
+}
+
+.proof-desc p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.35);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 18px;
+}
+
+/* 3. Light Luxury Catalog Pages */
+.light-page {
+    background: #fdfdfd;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    color: #111116;
+}
+
+.light-page .page-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.light-page .page-tag {
+    color: var(--provider-red);
+}
+
+.light-page .page-title {
+    color: #111116;
+}
+
+.section-intro {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #555562;
+    font-weight: 400;
+    margin-bottom: 20px;
+    border-left: 2px solid var(--provider-red);
+    padding-left: 10px;
+}
+
+.light-page .page-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.45);
+}
+
+/* Back Cover Page */
+.back-cover-page {
+    background: 
+        radial-gradient(circle at 0% 100%, rgba(0, 242, 254, 0.15), transparent 28rem),
+        linear-gradient(225deg, #111116, #070709);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+}
+
+.back-glow {
+    position: absolute;
+    bottom: 10%;
+    left: -50px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.15), transparent 70%);
+    filter: blur(30px);
+}
+
+.back-cover-content {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.back-logo {
+    height: 48px;
+    margin-bottom: 18px;
+    filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.25));
+}
+
+.back-cover-content h4 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+}
+
+.back-tagline {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+.back-divider {
+    width: 100px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    margin-bottom: 25px;
+}
+
+.back-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    text-align: left;
+    width: 100%;
+    max-width: 380px;
+}
+
+.contact-card-mini strong {
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--provider-cyan);
+    display: block;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+
+.contact-card-mini p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+}
+
+.back-cover-footer {
+    display: flex;
+    justify-content: center;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 18px;
+    width: 100%;
+}
+
+/* ==========================================================================
+   Product Tables / Pricing List Layouts
+   ========================================================================== */
+
+.price-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.price-item {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.price-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.price-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+}
+
+.product-name {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #111116;
+}
+
+.product-price {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--provider-red);
+}
+
+.product-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #555562;
+    font-weight: 300;
+}
+
+/* Stacks Compact List */
+.price-list-container.long-list {
+    gap: 10px;
+}
+
+.price-item.compact {
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.price-item.compact:last-child {
+    border-bottom: none;
+}
+
+.price-item.compact .product-name {
+    font-size: 1rem;
+}
+
+.price-item.compact .product-price {
+    font-size: 0.95rem;
+}
+
+.price-item.compact .product-description {
+    font-size: 0.72rem;
+    line-height: 1.3;
+}
+
+/* ==========================================================================
+   Interactive Controls & progress
+   ========================================================================== */
+
+.flipbook-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+    z-index: 10;
+}
+
+.nav-arrow {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    color: var(--text-white);
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-arrow svg {
+    width: 20px;
+    height: 20px;
+}
+
+.nav-arrow:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--provider-cyan);
+    transform: scale(1.08);
+}
+
+.nav-arrow:disabled {
+    cursor: not-allowed;
+}
+
+.book-progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.book-progress-bar {
+    width: 240px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.book-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--provider-red), var(--provider-cyan));
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.page-indicator-text {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.flip-tip {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   Grid & List View Section Styles
+   ========================================================================== */
+
+.utility-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.search-filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(22, 22, 28, 0.25);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.search-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+#catalog-search-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-white);
+    padding: 14px 14px 14px 48px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: var(--transition-smooth);
+}
+
+#catalog-search-input:focus {
+    border-color: rgba(0, 242, 254, 0.42);
+    outline: none;
+    box-shadow: 0 0 14px rgba(0, 242, 254, 0.12);
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filter-chip {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    color: var(--text-muted);
+    padding: 8px 18px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filter-chip:hover {
+    color: var(--text-white);
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.filter-chip.active-chip {
+    background: var(--provider-red);
+    border-color: var(--provider-red);
+    color: var(--text-white);
+    box-shadow: 0 4px 12px var(--provider-red-glow);
+}
+
+/* Dynamic Products Grid */
+.products-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.grid-product-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: var(--transition-smooth);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.grid-product-card:hover {
+    border-color: rgba(0, 242, 254, 0.35);
+    box-shadow: 
+        0 14px 45px rgba(0, 0, 0, 0.38),
+        0 0 24px var(--provider-cyan-glow);
+    transform: translateY(-5px);
+}
+
+.grid-card-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 5;
+    background: rgba(7, 7, 9, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    color: var(--provider-cyan);
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 4px 8px;
+    text-transform: uppercase;
+}
+
+.grid-card-image-wrapper {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 20%, transparent 80%);
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.grid-card-image-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.05), transparent 70%);
+    filter: blur(8px);
+}
+
+.grid-card-image-wrapper img {
+    max-width: 90%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 22px rgba(0, 0, 0, 0.45));
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grid-product-card:hover .grid-card-image-wrapper img {
+    transform: scale(1.06) translateY(-4px);
+}
+
+.grid-card-details {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.grid-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--text-white);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.grid-card-desc {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.grid-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 12px;
+}
+
+.grid-card-price {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--provider-red);
+}
+
+.grid-card-cta {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    color: var(--text-white);
+    padding: 6px 12px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.grid-card-cta:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #030304;
+}
+
+.empty-state-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.empty-state-message svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.empty-state-message h4 {
+    color: var(--text-white);
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.empty-state-message p {
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Print Section Hide (On Screen)
+   ========================================================================== */
+
+.printable-catalog-pdf {
+    display: none;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    .book-wrapper {
+        height: 520px;
+    }
+    .book {
+        width: 820px;
+        height: 520px;
+    }
+    .products-grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .playbook-header {
+        padding: 15px 20px;
+    }
+    .header-title {
+        font-size: 1.25rem;
+    }
+    .header-logo {
+        height: 32px;
+    }
+    .playbook-main-container {
+        padding: 20px;
+    }
+    .products-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Convert 3D flipbook into a flat vertical stack/accordion for easy mobile scrolling */
+    .book-wrapper {
+        height: auto;
+        perspective: none;
+        display: block;
+    }
+    .book {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        transform-style: flat;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin: 0 auto;
+    }
+    .sheet {
+        position: relative;
+        right: auto;
+        top: auto;
+        width: 100%;
+        height: auto;
+        transform-style: flat;
+        transform: none !important;
+        cursor: default;
+    }
+    .page {
+        position: relative;
+        width: 100%;
+        height: 540px; /* Locked height on mobile to ensure clean page ratios */
+        border-radius: 8px !important;
+        border: 1px solid var(--border-color) !important;
+        transform: none !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+        margin-bottom: 10px;
+    }
+    .page-back {
+        transform: none;
+    }
+    .page::after {
+        display: none;
+    }
+    .book-spine, .flipbook-controls, .flip-tip {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .playbook-header {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        text-align: center;
+    }
+    .header-left, .header-center, .header-right {
+        justify-content: center;
+    }
+    .products-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Print Engine Stylesheet (300DPI Layout Optimization)
+   ========================================================================== */
+
+@media print {
+    /* Hide all browser-level chrome, navigation, backgrounds, and interactive cards */
+    body, html {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+        font-size: 11pt !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    .playbook-header, 
+    .playbook-main-container, 
+    .flip-tip, 
+    #flipbook-section, 
+    #grid-view-section, 
+    header, 
+    footer,
+    body::before {
+        display: none !important;
+    }
+
+    /* Reveal and style deep printable catalog */
+    .printable-catalog-pdf {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        overflow: visible !important;
+    }
+
+    /* Print Header configuration */
+    .print-pdf-header {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-bottom: 2px solid #000000;
+        padding-bottom: 8px;
+        margin-bottom: 30px;
+    }
+
+    .print-brand-title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 18pt;
+        font-weight: 700;
+        color: #000000;
+        letter-spacing: -0.01em;
+        display: block;
+        line-height: 1.1;
+    }
+
+    .print-brand-subtitle {
+        font-size: 8pt;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #555;
+        display: block;
+    }
+
+    .print-header-info {
+        text-align: right;
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #000;
+        line-height: 1.4;
+    }
+
+    /* Catalog Cover Sheet */
+    .print-section-cover {
+        height: 80vh;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .print-section-cover h1 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 32pt;
+        font-weight: 500;
+        line-height: 1.15;
+        margin-bottom: 20px;
+        color: #000;
+    }
+
+    .print-cover-meta {
+        font-size: 11pt;
+        letter-spacing: 0.05em;
+        color: #555;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        font-weight: 700;
+    }
+
+    .print-quality-banner {
+        border: 1px solid #000000;
+        padding: 24px;
+        border-radius: 4px;
+        text-align: left;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 600px;
+        background: #fdfdfd;
+    }
+
+    .print-quality-banner h3 {
+        font-size: 11pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #000000;
+        padding-bottom: 6px;
+    }
+
+    .print-quality-banner ul {
+        list-style-type: square;
+        margin-left: 20px;
+        font-size: 9.5pt;
+        line-height: 1.5;
+    }
+
+    .print-quality-banner li {
+        margin-bottom: 8px;
+    }
+
+    /* Table layouts */
+    .print-category-section {
+        margin-bottom: 30px;
+        page-break-inside: avoid;
+    }
+
+    .print-category-title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 16pt;
+        font-weight: 600;
+        margin-bottom: 15px;
+        border-bottom: 1.5px solid #000;
+        padding-bottom: 5px;
+    }
+
+    .print-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .print-table th {
+        background: #f4f4f6 !important;
+        border: 1px solid #ddd;
+        padding: 8px 12px;
+        font-size: 8pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-align: left;
+        color: #000;
+    }
+
+    .print-table td {
+        border: 1px solid #ddd;
+        padding: 10px 12px;
+        vertical-align: top;
+        font-size: 9pt;
+    }
+
+    .print-table tr {
+        page-break-inside: avoid;
+    }
+
+    /* Section Page Breaks */
+    .print-page-break {
+        page-break-after: always !important;
+        break-after: page !important;
+        height: 0;
+        border: none;
+    }
+
+    /* Footer print specs */
+    .print-pdf-footer {
+        display: block !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        border-top: 1px solid #000000;
+        padding-top: 8px;
+        margin-top: 20px;
+    }
+
+    .print-footer-inner {
+        display: flex !important;
+        justify-content: space-between;
+        font-size: 7.5pt;
+        color: #555555;
+        font-weight: 600;
+    }
+
+    .print-page-number::before {
+        content: counter(page);
+    }
+}

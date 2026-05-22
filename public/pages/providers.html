@@ -8,9 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared-nav.css">
-    <link rel="stylesheet" href="providers.css">
-    <link rel="stylesheet" href="/shared-chat.css">
-    <script src="/shared-chat.js" defer></script>
+    <link rel="stylesheet" href="providers.css?v=catalog-compositor-stable">
 </head>
 <body class="providers-page">
     <header class="cr-nav providers-nav">
@@ -25,7 +23,7 @@
                                 <p class="cr-nav-col-title">About Us</p>
                                 <a href="/services/compounding" class="cr-nav-mlink">Services</a>
                                 <a href="/pages/about.html#team" class="cr-nav-mlink">Careers</a>
-                                <a href="/#resources" class="cr-nav-mlink">Events</a>
+                                <a href="/pages/events.html" class="cr-nav-mlink">Events</a>
                                 <a href="/pages/about.html#licenses" class="cr-nav-mlink">Licenses</a>
                             </div>
                         </div>
@@ -51,7 +49,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="cr-nav-item"><a href="/#resources" class="cr-nav-link">Resources</a></li>
+                    <li class="cr-nav-item"><a href="/pages/resources.html" class="cr-nav-link">Resources</a></li>
                     <li class="cr-nav-item">
                         <a href="/#products" class="cr-nav-trigger">Products<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
                         <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
@@ -73,268 +71,1534 @@
         </div>
     </header>
 
-    <main>
-        <section class="provider-hero section-shell" aria-labelledby="provider-hero-title">
+    <main id="top">
+        <section class="provider-hero section-shell" aria-labelledby="quality-title">
             <div class="hero-glow hero-glow-red" aria-hidden="true"></div>
-            <div class="hero-glow hero-glow-teal" aria-hidden="true"></div>
-            <div class="provider-container hero-grid">
-                <div class="hero-copy reveal">
-                    <p class="eyebrow">Providers</p>
-                    <h1 id="provider-hero-title"><span>Built for</span><span>Providers</span><span>Who Need</span><span>More Than</span><span>a Pharmacy</span></h1>
-                    <p class="hero-intro"><span>Cody Drug supports providers</span> <span>with custom compounded medications,</span> <span>responsive account management,</span> <span>fast processing, and patient-centered</span> <span>pharmacy support.</span></p>
-                    <div class="button-row" aria-label="Provider page actions">
-                        <a class="provider-btn provider-btn-primary" href="#consultation">Become a Provider Partner</a>
-                        <a class="provider-btn provider-btn-secondary" href="/pages/contact.html">Contact Cody Drug</a>
+            <div class="hero-glow hero-glow-violet" aria-hidden="true"></div>
+            <div class="provider-container quality-hero-card">
+                <div class="quality-copy reveal">
+                    <p class="eyebrow">Compliance</p>
+                    <h1 id="quality-title"><span>Our Quality is</span><span>Your Competitive Advantage.</span></h1>
+                    <div class="quality-caption">
+                        <p>Every compounding pharmacy will tell you they're compliant. At Cody Drug, we show our work. We hold ourselves to a higher standard not because we have to, but because your patients deserve to know exactly what's in their medication and that it was made to your exact specifications.</p>
+                        <p>Testing is our way of showing you the receipts. Don&rsquo;t be afraid to ask any pharmacy for theirs. That includes us!</p>
+                    </div>
+                    <div class="quality-proof-grid" aria-label="Cody Drug quality proof points">
+                        <article class="quality-proof-card">
+                            <strong>EVERY LOT</strong>
+                            <p>third party sterility, endotoxin and potency tested</p>
+                        </article>
+                        <article class="quality-proof-card">
+                            <strong>6 WEEKS</strong>
+                            <p>GLP-1 potency retested on a recurring basis</p>
+                        </article>
+                        <article class="quality-proof-card">
+                            <strong>6 MONTHS</strong>
+                            <p>clean room and hood recertification cycle</p>
+                        </article>
+                        <article class="quality-proof-card">
+                            <strong>ON REQUEST</strong>
+                            <p>CoAs test results and inspection history available</p>
+                        </article>
+                    </div>
+                    <div class="button-row" aria-label="Provider quality actions">
+                        <a class="provider-btn provider-btn-primary" href="#standards">View Quality Standards</a>
+                        <a class="provider-btn provider-btn-secondary" href="#partnership">Become a Provider Partner</a>
                     </div>
                 </div>
 
-                <div class="hero-visual reveal" aria-label="Provider partner operations visual">
-                    <!-- Replace this operations mockup with final approved provider portal/account visuals before launch if supplied by the client. -->
-                    <div class="provider-window">
-                        <div class="console-header">
-                            <span>Provider Partner Console</span>
-                            <strong>Cody Drug Rx</strong>
-                        </div>
-                        <div class="console-grid">
-                            <article class="console-card console-card-primary">
-                                <span>Active request</span>
-                                <strong>Clinic intake reviewed</strong>
-                                <p>Formulation path ready for team confirmation.</p>
-                            </article>
-                            <article class="console-card">
-                                <span>Account manager</span>
-                                <strong>Support line open</strong>
-                                <p>Provider questions, process updates, and coordination.</p>
-                            </article>
-                            <article class="console-card">
-                                <span>Patient coordination</span>
-                                <strong>Follow-up queued</strong>
-                                <p>Patient support connected back to provider direction.</p>
-                            </article>
-                        </div>
-                        <div class="console-rail" aria-hidden="true">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="console-footer">
-                            <span>Clinic workflow</span>
-                            <strong>Request → Review → Prepare → Support</strong>
-                        </div>
+                <div class="quality-visual reveal" aria-label="Cody Drug quality and compliance testing">
+                    <div class="quality-photo">
+                        <img src="assets/providers-quality-lab-smiling-review.jpg" alt="Cody Drug lab specialist reviewing compound quality documentation">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-shell choose-section" aria-labelledby="choose-title">
-            <div class="provider-container">
-                <div class="section-heading reveal">
-                    <p class="eyebrow">Why Providers Choose Cody Drug</p>
-                    <h2 id="choose-title">A compounding partner built for provider realities.</h2>
-                    <p>Clinics, doctors, prescribers, and partner teams need clear answers, reliable workflows, and a pharmacy team that understands custom medication requests.</p>
-                </div>
-
-                <div class="partner-layout">
-                    <aside class="partner-note reveal">
-                        <span>Provider partner model</span>
-                        <strong>Built around clinic operations, not one-off transactions.</strong>
-                        <p>For providers, Cody Drug should feel like a responsive extension of the care team.</p>
-                    </aside>
-                    <div class="provider-value-grid">
-                        <article class="glass-card reveal">
-                            <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 5 14h6l-1 8 8-12h-6l1-8Z"/></svg></span>
-                            <h3>Fast Processing</h3>
-                            <p>Clear intake and preparation workflows designed to keep provider requests moving.</p>
-                        </article>
-                        <article class="glass-card reveal">
-                            <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 3h4M10 3v6.2a7 7 0 1 0 4 0V3M7 15h10"/></svg></span>
-                            <h3>Custom Compounds</h3>
-                            <p>Provider-directed formulation support for patient-specific medication needs.</p>
-                        </article>
-                        <article class="glass-card reveal">
-                            <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H7l-3 3V5Z"/><path d="M8 9h8M8 13h5"/></svg></span>
-                            <h3>Dedicated Account Support</h3>
-                            <p>A responsive account team for questions, updates, and coordination.</p>
-                        </article>
-                        <article class="glass-card reveal">
-                            <span class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-4.4 7-10V5.5L12 3 5 5.5V11c0 5.6 7 10 7 10Z"/><path d="m9 12 2 2 4-5"/></svg></span>
-                            <h3>Quality Standards</h3>
-                            <p>Process-minded preparation and review steps without unsupported certification claims.</p>
-                        </article>
+        <section class="section-shell partnership-section" id="partnership" aria-labelledby="partner-title">
+            <div class="provider-container split-feature">
+                <div class="video-panel reveal" aria-label="Provider Partner Video placeholder">
+                    <img src="assets/services-office-wide.jpg" alt="Cody Drug provider support workspace">
+                    <button type="button" class="play-button" aria-label="Play Provider Partner Video">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    <div class="video-caption">
+                        <span>Provider Partner Video</span>
+                        <strong>Placeholder</strong>
                     </div>
+                </div>
+                <div class="feature-copy reveal">
+                    <p class="eyebrow">Personal Relationships</p>
+                    <h2 id="partner-title" class="partner-title"><span>For Providers That</span><span>Need a Partner</span><span>Not Just A Pharmacy.</span></h2>
+                    <p>Cody Drug builds real relationships with provider teams. We learn how your practice works, how your patients need support, and how communication should move when something needs attention.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section-shell workflow-section" aria-labelledby="workflow-title">
+        <section class="section-shell standards-section" id="standards" aria-labelledby="turnaround-title">
             <div class="provider-container">
                 <div class="section-heading compact reveal">
-                    <p class="eyebrow">Provider Workflow</p>
-                    <h2 id="workflow-title">A clear path from first request to ongoing support.</h2>
+                    <p class="eyebrow">Cody Drug Delivers</p>
+                    <h2 id="turnaround-title" class="turnaround-title"><span>Beyond Standard.</span><span>Turnaround Times.</span></h2>
                 </div>
-
-                <div class="workflow-layout">
-                    <div class="workflow-stack" aria-label="Provider workflow steps">
-                        <article class="workflow-step reveal">
-                            <span>01</span>
-                            <h3>Connect with Cody Drug</h3>
-                            <p>Start with the team through inquiry, account support, or portal direction.</p>
+                <div class="turnaround-showcase reveal">
+                    <div class="turnaround-lightfield" aria-hidden="true"></div>
+                    <div class="turnaround-cards">
+                        <article class="turnaround-glass-card processing-time-card">
+                            <span class="turnaround-card-kicker">Processing Time Comparison</span>
+                            <i aria-hidden="true"></i>
+                            <p class="processing-primary">24-hour average processing</p>
+                            <p class="processing-industry">Industry average 10 days</p>
+                            <div class="speed-graph" aria-label="Progression graph showing Cody Drug processing speed rising quickly">
+                                <span>10x faster</span>
+                                <svg viewBox="-42 0 462 148" role="img" aria-hidden="true" focusable="false">
+                                    <defs>
+                                        <linearGradient id="speedGraphGradient" x1="-34" y1="116" x2="390" y2="24" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#d31326" />
+                                            <stop offset="0.56" stop-color="#d31326" />
+                                            <stop offset="1" stop-color="#65bedb" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="speed-grid" d="M-34 118H396M-34 78H396M-34 38H396" />
+                                    <path class="speed-line-glow" pathLength="1" d="M-34 116 L62 116 L106 104 L154 101 L190 88 L228 91 L262 68 L298 72 L330 48 L356 42 L390 24" />
+                                    <path class="speed-line" pathLength="1" stroke="url(#speedGraphGradient)" d="M-34 116 L62 116 L106 104 L154 101 L190 88 L228 91 L262 68 L298 72 L330 48 L356 42 L390 24" />
+                                    <circle class="speed-dot speed-dot-start" cx="-34" cy="116" r="5" />
+                                    <circle class="speed-dot speed-dot-end" cx="390" cy="24" r="7" />
+                                </svg>
+                            </div>
                         </article>
-                        <article class="workflow-step reveal">
-                            <span>02</span>
-                            <h3>Submit provider/patient needs</h3>
-                            <p>Share the requested medication need, patient context, and provider direction.</p>
-                        </article>
-                        <article class="workflow-step reveal">
-                            <span>03</span>
-                            <h3>Cody Drug confirms formulation path</h3>
-                            <p>The team reviews the request and coordinates next steps where needed.</p>
-                        </article>
-                        <article class="workflow-step reveal">
-                            <span>04</span>
-                            <h3>Medication is prepared</h3>
-                            <p>Preparation moves through the applicable compounding workflow.</p>
-                        </article>
-                        <article class="workflow-step reveal">
-                            <span>05</span>
-                            <h3>Ongoing support and follow-up</h3>
-                            <p>Provider and patient coordination continues after the request is prepared.</p>
-                        </article>
+                        <div class="support-card-grid" aria-label="Sterile compound service features">
+                            <article class="turnaround-glass-card support-mini-card">
+                                <span class="support-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/><path d="M18.5 5.5 20 4"/><path d="M4 4l1.5 1.5"/></svg>
+                                </span>
+                                <div>
+                                    <h3>same day turnaround</h3>
+                                    <p>Sterile Compounds, M-Th</p>
+                                </div>
+                            </article>
+                            <article class="turnaround-glass-card support-mini-card">
+                                <span class="support-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M8 12h2l1.5-3 2.5 6 1.5-3H18"/><path d="M9 20h6"/><path d="M12 16v4"/></svg>
+                                </span>
+                                <div>
+                                    <h3>Live status tracking</h3>
+                                </div>
+                            </article>
+                            <article class="turnaround-glass-card support-mini-card">
+                                <span class="support-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 0 1 14 0"/><path d="M5 12v3a2 2 0 0 0 2 2h1v-6H7a2 2 0 0 0-2 2"/><path d="M19 12v3a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2"/><path d="M16 17c0 2-1.6 3-4 3h-1"/></svg>
+                                </span>
+                                <div>
+                                    <h3>Individual support every time</h3>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                    <aside class="workflow-brief reveal">
-                        <span>Handoff record</span>
-                        <strong>Provider need, patient context, and support path stay connected.</strong>
-                        <p>This section is designed for clinic review: clear enough for punch-list edits, specific enough to sell the partnership model.</p>
-                    </aside>
                 </div>
             </div>
         </section>
 
-        <section class="section-shell speed-section" aria-labelledby="speed-title">
-            <div class="provider-container speed-panel reveal">
-                <!-- Client must confirm public-facing claims before launch. -->
-                <div class="speed-copy">
-                    <p class="eyebrow">Speed &amp; Reliability</p>
-                    <h2 id="speed-title">Strong service claims, marked for client approval.</h2>
-                    <p>The metrics below are intentionally shown as placeholder claim language until Cody Drug confirms what can be published.</p>
+        <section class="section-shell services-section" aria-labelledby="services-title">
+            <div class="provider-container services-stage reveal">
+                <div class="services-stage-copy">
+                    <p class="eyebrow">Areas of Treatment Focus</p>
+                    <h2><span>Prescribed with Confidence</span><em>Elevate Patient Care</em></h2>
+                    <p>We know clinics, and we know that your patients expect results. That&rsquo;s why we partner with our providers to bring the latest and most effective therapies in each specialty practice.</p>
                 </div>
-                <div class="metric-grid" aria-label="Provider reliability claims pending client confirmation">
-                    <article class="metric-card metric-primary">
-                        <span>Processing</span>
-                        <strong>24hr</strong>
-                        <p>average processing</p>
-                        <em>Pending client confirmation</em>
-                    </article>
-                    <article class="metric-card">
-                        <span>Workflow</span>
-                        <strong>10x faster</strong>
-                        <p>comparison language</p>
-                        <em>Pending client confirmation</em>
-                    </article>
-                    <article class="metric-card">
-                        <span>Account Management</span>
-                        <strong>24/7</strong>
-                        <p>accessible account management</p>
-                        <em>Pending client confirmation</em>
+                <div class="services-browser">
+                    <div class="service-tabs" role="tablist" aria-label="Provider service categories">
+                        <button type="button" class="is-active">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M6 7l-3 6h6l-3-6z"/><path d="M18 7l-3 6h6l-3-6z"/></svg>
+                            <span>Weight Loss</span>
+                        </button>
+                        <button type="button">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="14" r="5"/><path d="M14 10l6-6"/><path d="M15 4h5v5"/></svg>
+                            <span>Men&rsquo;s Health</span>
+                        </button>
+                        <button type="button">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/><path d="M12 14v6"/><path d="M9 17h6"/></svg>
+                            <span>Women&rsquo;s Health</span>
+                        </button>
+                        <button type="button">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.6a5.2 5.2 0 0 0-8.8-3.8 5.2 5.2 0 0 0-8.8 3.8c0 5.3 8.8 10.4 8.8 10.4s8.8-5.1 8.8-10.4z"/><path d="M7 12h3l1.4-2.8 2.2 5.6L15 12h2"/></svg>
+                            <span>Wellness</span>
+                        </button>
+                        <button type="button">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="12" cy="7" r="2.5"/><circle cx="18" cy="12" r="2.5"/><circle cx="12" cy="17" r="2.5"/><path d="M8 10.5 10.2 8.6"/><path d="m14 8.6 2 1.9"/><path d="m16 13.5-2 1.9"/><path d="m10.2 15.4-2.2-1.9"/></svg>
+                            <span>Peptides</span>
+                        </button>
+                        <button type="button">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 2.8 5 5.4 5 9a5 5 0 0 1-10 0c0-3.6 2-6.2 5-9z"/><path d="M9 14c1.6 1.2 4.4 1.2 6 0"/><path d="M19 4v4"/><path d="M17 6h4"/></svg>
+                            <span>Dermatology</span>
+                        </button>
+                    </div>
+                    <article class="service-feature">
+                        <div class="service-media">
+                            <img src="assets/providers-treatment-focus-care.png" alt="Provider comforting a patient during personalized care">
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section-shell support-section" aria-labelledby="support-title">
+        <section class="section-shell catalog-section" aria-labelledby="catalog-title">
             <div class="provider-container">
                 <div class="section-heading reveal">
-                    <p class="eyebrow">Provider Support</p>
-                    <h2 id="support-title">Support That Feels Human</h2>
-                    <p>Providers can reach the Cody Drug team for questions, account support, process updates, and coordination without feeling routed through a generic pharmacy experience.</p>
+                    <div>
+                        <h2 id="catalog-title">Product Catalog</h2>
+                    </div>
                 </div>
-
-                <div class="card-grid three-up">
-                    <article class="glass-card reveal">
-                        <span class="card-index">01</span>
-                        <h3>Account Management</h3>
-                        <p>Support for provider teams, account questions, and partner workflows.</p>
-                    </article>
-                    <article class="glass-card reveal">
-                        <span class="card-index">02</span>
-                        <h3>Responsive Communication</h3>
-                        <p>Practical updates and a team-focused communication style.</p>
-                    </article>
-                    <article class="glass-card reveal">
-                        <span class="card-index">03</span>
-                        <h3>Patient-Centered Coordination</h3>
-                        <p>Coordination that keeps patient needs and provider direction connected.</p>
-                    </article>
+                <div class="provider-catalog reveal is-compounds" aria-label="Provider product catalog carousel">
+                    <div class="provider-catalog-backdrop" aria-hidden="true"></div>
+                    <div class="catalog-panel-actions" aria-label="Catalog controls">
+                        <button type="button" class="provider-btn provider-btn-primary catalog-mode-btn catalog-mode-btn-large is-active" data-catalog-mode="compounds" aria-pressed="true" aria-expanded="false">Compounds</button>
+                        <div class="catalog-compound-shortcuts" aria-label="Compound section shortcuts" aria-hidden="true">
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="weight-loss" style="--shortcut-index: 0">Weight Loss</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="submagna" style="--shortcut-index: 1">Cody&rsquo;s SubMagna Line</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="mens-health" style="--shortcut-index: 2">Men&rsquo;s Health</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="womens-health" style="--shortcut-index: 3">Women&rsquo;s Health</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="compounds" style="--shortcut-index: 4">Compounds</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="wellness" style="--shortcut-index: 5">Wellness</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="dermatology" style="--shortcut-index: 6">Dermatology</button>
+                            <button type="button" class="provider-btn provider-btn-primary catalog-shortcut-btn" data-compound-jump="coming-soon" style="--shortcut-index: 7">Coming Soon</button>
+                        </div>
+                        <button type="button" class="provider-btn provider-btn-primary catalog-mode-btn catalog-mode-btn-small" data-catalog-mode="supplements" aria-pressed="false" aria-expanded="false">Supplements and More</button>
+                        <div class="catalog-filter-stack" aria-label="Catalog categories">
+                            <button type="button" data-catalog-filter="Supplement">Supplement</button>
+                            <button type="button" data-catalog-filter="Allergy">Allergy</button>
+                            <button type="button" data-catalog-filter="Bundle">Bundle</button>
+                            <button type="button" data-catalog-filter="Merch">Merch</button>
+                        </div>
+                    </div>
+                    <div class="compound-playbook" aria-live="polite">
+                        <article class="compound-page is-active" data-compound-page data-cover-page>
+                            <div class="compound-page-frame compound-designed-page compound-cover-page">
+                                <div class="compound-cover-copy">
+                                    <p class="compound-kicker">provider product catalog</p>
+                                    <img class="compound-cover-logo" src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx">
+                                    <p>pricing</p>
+                                </div>
+                                <div class="compound-cover-details" aria-label="Playbook details">
+                                    <span>Compounds</span>
+                                    <span>Provider reference</span>
+                                    <span>No listed pricing</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page data-compound-section="weight-loss">
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">weight loss</p>
+                                    <h3>GLP-1</h3>
+                                    <p>Free shipping</p>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Semaglutide / Glycine / Cyanocobalamin</td><td>Injection</td><td>2.5MG/10MG/0.5MG/ML</td><td>0.5 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide / Glycine / Cyanocobalamin</td><td>Injection</td><td>2.5MG/10MG/0.5MG/ML</td><td>1 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide / Glycine / Cyanocobalamin</td><td>Injection</td><td>2.5MG/10MG/0.5MG/ML</td><td>2 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide / Glycine / Cyanocobalamin</td><td>Injection</td><td>2.5MG/10MG/0.5MG/ML</td><td>3 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide / Glycine / Cyanocobalamin</td><td>Injection</td><td>2.5MG/10MG/0.5MG/ML</td><td>4 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide / L-Carnitine</td><td>Injection</td><td>2.5MG/100MG/ML</td><td>0.5 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide / L-Carnitine</td><td>Injection</td><td>2.5MG/100MG/ML</td><td>1 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide / L-Carnitine</td><td>Injection</td><td>2.5MG/100MG/ML</td><td>2 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide / L-Carnitine</td><td>Injection</td><td>2.5MG/100MG/ML</td><td>3 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide / L-Carnitine</td><td>Injection</td><td>2.5MG/100MG/ML</td><td>4 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">weight loss</p>
+                                    <h3>GLP-1 <span class="compound-continued">(continued)</span></h3>
+                                    <p>Free shipping</p>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Tirzepatide / Glycine / Cyanocobalamin</td><td>Injection</td><td>30MG/10MG/0.5MG/ML</td><td>0.5 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide / Glycine / Cyanocobalamin</td><td>Injection</td><td>30MG/10MG/0.5MG/ML</td><td>1 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide / Glycine / Cyanocobalamin</td><td>Injection</td><td>30MG/10MG/0.5MG/ML</td><td>1.5 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide / Glycine / Cyanocobalamin</td><td>Injection</td><td>30MG/10MG/0.5MG/ML</td><td>2 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide / L-Carnitine</td><td>Injection</td><td>30MG/100MG/ML</td><td>0.5 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide / L-Carnitine</td><td>Injection</td><td>30MG/100MG/ML</td><td>1 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide / L-Carnitine</td><td>Injection</td><td>30MG/100MG/ML</td><td>1.5 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide / L-Carnitine</td><td>Injection</td><td>30MG/100MG/ML</td><td>2 mL</td><td>SQ</td><td>Refrigerated</td><td>90</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">weight loss</p>
+                                    <h3>Injectables</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>MIC-Lipo B<br>Methionine/Inositol/Choline/Thiamine/Pyridoxine/Riboflavin/Cyanocobalamin</td><td>Injection</td><td>12.4MG/25MG/25MG/50MG/5MG/2MG/1MG/ML</td><td>30 mL</td><td>IM</td><td>Refrigerated</td><td>45</td></tr>
+                                        <tr><td>MIC-Lipo C<br>Methionine/Inositol/Choline/Thiamine/Pyridoxine/Riboflavin/Cyanocobalamin/Levocarnitine</td><td>Injection</td><td>12.4MG/25MG/25MG/50MG/5MG/2MG/125MG/ML</td><td>30 mL</td><td>IM</td><td>Refrigerated</td><td>45</td></tr>
+                                        <tr><td>MIC-Lipo Plus<br>Methionine/Inositol/Choline/Methylcobalamin</td><td>Injection</td><td>25MG/50MG/50MG/1MG/ML</td><td>30 mL</td><td>IM</td><td>Refrigerated</td><td>45</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">weight loss</p>
+                                    <h3>Oral</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Bella 1<br>Bupropion/Phentermine/Topiramate/Naltrexone/Methylcobalamin</td><td>SR Capsule</td><td>65/20/15/8/1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td></td></tr>
+                                        <tr><td>Bella 2<br>Bupropion/Phentermine/Topiramate/Naltrexone/Methylcobalamin</td><td>SR Capsule</td><td>65/37.5/15/8/1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td></td></tr>
+                                        <tr><td>Bella 3<br>Bupropion/Caffeine/Oxytocin/Topiramate/Naltrexone/Methylcobalamin</td><td>Capsule</td><td>65/20/100 IU/15/8/1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Bella 4<br>Bupropion/Phentermine/Topiramate/Naltrexone/Methylcobalamin</td><td>SR Capsule</td><td>65/15/15/8/1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Bella Decaf<br>Bupropion/Oxytocin/Topiramate/Naltrexone/Methylcobalamin</td><td>Capsule</td><td>65/100 IU/15/8/1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td></td></tr>
+                                        <tr><td>Bella Plus Decaf<br>Bupropion/Metformin/Oxytocin/Topiramate/Naltrexone/Methylcobalamin</td><td>Capsule</td><td>65/250/100 IU/5/8/1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">weight loss</p>
+                                    <h3>Oral <span class="compound-continued">(continued)</span></h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Bupropion / Naltrexone</td><td>Capsule</td><td>45 mg / 5 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Bupropion / Naltrexone</td><td>Capsule</td><td>90 mg / 8 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Bupropion / Phentermine / Naltrexone / Topiramate</td><td>Capsule</td><td>65 mg/4 mg/5 mg/25 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td></td></tr>
+                                        <tr><td>Bupropion / Phentermine / Naltrexone / Topiramate</td><td>Capsule</td><td>65 mg / 10 mg / 5 mg / 50 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Naltrexone / Bupropion</td><td>Capsule</td><td>5 mg / 45 mg, 8 mg / 90 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">weight loss</p>
+                                    <h3>Oral <span class="compound-continued">(continued)</span></h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Phentermine HCL / Chromium / 5-HTP</td><td>Capsule</td><td>15 mg / 1 mg / 50 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Chromium Picolinate</td><td>Capsule</td><td>18.75 mg / 1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Chromium Picolinate</td><td>Capsule</td><td>38 mg / 1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Naltrexone</td><td>Capsule</td><td>10 mg / 5 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Naltrexone</td><td>Capsule</td><td>18.75 mg / 5 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Naltrexone</td><td>Capsule</td><td>35 mg / 5 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Naltrexone / Chromium</td><td>Capsule</td><td>15 mg / 5 mg / 0.2 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Naltrexone / Topiramate</td><td>Capsule</td><td>4 mg / 5 mg / 25 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">weight loss</p>
+                                    <h3>Oral <span class="compound-continued">(continued)</span></h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Phentermine HCL / Naltrexone / Topiramate</td><td>Capsule</td><td>7 mg / 5 mg / 50 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Naltrexone / Topiramate</td><td>Capsule</td><td>10 mg / 5 mg / 50 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Naltrexone / Topiramate</td><td>Capsule</td><td>18.75 mg / 5 mg / 25 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Naltrexone / Topiramate</td><td>Capsule</td><td>18.75 mg / 5 mg / 70 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Naltrexone / Topiramate</td><td>Capsule</td><td>35 mg / 5 mg / 92 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Topiramate</td><td>Capsule</td><td>15 mg / 12.5 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Topiramate / Chromium Picolinate</td><td>Capsule</td><td>10 mg / 12.5 mg / 1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Topiramate / Chromium Picolinate</td><td>Capsule</td><td>25 mg / 40 mg / 1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Phentermine HCL / Topiramate / Chromium Picolinate</td><td>Capsule</td><td>35 mg / 60 mg / 1 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page data-compound-section="submagna">
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">Cody SubMagna line</p>
+                                    <h3><span class="compound-title-small">Cody SubMagna&trade;</span> Peptide Line</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>NAD+</td><td>SubMagna</td><td>100 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Sermorelin</td><td>SubMagna</td><td>1 mg/mL</td><td>20 mL / 30 mL</td><td>Sublingual</td><td>Refrigerated</td><td>90</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">Cody SubMagna line</p>
+                                    <h3><span class="compound-title-small">Cody SubMagna&trade;</span> Weight Loss Line</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Semaglutide SubMagna</td><td>Sublingual</td><td>3.1 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide SubMagna</td><td>Sublingual</td><td>6.1 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Semaglutide SubMagna</td><td>Sublingual</td><td>9.1 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide SubMagna</td><td>Sublingual</td><td>5.71 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide SubMagna</td><td>Sublingual</td><td>11.43 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide SubMagna</td><td>Sublingual</td><td>14.29 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Tirzepatide SubMagna</td><td>Sublingual</td><td>17.14 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>Refrigerated</td><td>90</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">Cody SubMagna line</p>
+                                    <h3><span class="compound-title-small">Cody SubMagna&trade;</span> General Health Line</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Methylene Blue SubMagna</td><td>SubMagna</td><td>5 mg / 0.25 mL</td><td>30 mL</td><td>Sublingual</td><td>RT</td><td>90</td></tr>
+                                        <tr><td>Naltrexone SubMagna</td><td>SubMagna</td><td>7.5 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>RT</td><td>90</td></tr>
+                                        <tr><td>Methylcobalamin w/ Synapsin SubMagna</td><td>SubMagna</td><td>2 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>RT</td><td>90</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">Cody SubMagna line</p>
+                                    <h3><span class="compound-title-small">Cody SubMagna&trade;</span> Men&rsquo;s Health Line</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>PT-141 / Oxytocin SubMagna</td><td>SubMagna</td><td>2 mg / 100 IU / 0.5 mL</td><td>15 mL</td><td>Sublingual</td><td>Refrigerated</td><td>90</td></tr>
+                                        <tr><td>Sildenafil SubMagna</td><td>SubMagna</td><td>20 mg / 0.25 mL</td><td>30 mL</td><td>Sublingual</td><td>RT</td><td>90</td></tr>
+                                        <tr><td>Testosterone SubMagna</td><td>SubMagna</td><td>100 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>RT</td><td>180</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">Cody SubMagna line</p>
+                                    <h3><span class="compound-title-small">Cody SubMagna&trade;</span> Women&rsquo;s Health Line</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Progesterone SubMagna</td><td>SubMagna</td><td>100 mg/mL</td><td>30 mL</td><td>Sublingual</td><td>RT</td><td>90</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page data-compound-section="mens-health">
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">men&rsquo;s health</p>
+                                    <h3>BHRT</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Testosterone</td><td>Cream</td><td>4 mg/mL (0.4%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Cream</td><td>10 mg/mL (1%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Cream</td><td>15 mg/mL (1.5%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Topical Cream</td><td>20 mg/mL (2%)</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Cream</td><td>30 mg/mL (3%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Cream</td><td>40 mg/mL (4%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Topical Cream</td><td>50 mg/mL (5%)</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Topical Cream</td><td>100 mg/mL (10%)</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Cream</td><td>200 mg/mL (20%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">men&rsquo;s health</p>
+                                    <h3>BHRT <span class="compound-continued">(continued)</span></h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Testosterone / Chrysin Cream</td><td>Cream</td><td>40 mg/80 mg/mL (4%/8%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td></td></tr>
+                                        <tr><td>Testosterone / DHEA Cream</td><td>Cream</td><td>20 mg/10 mg/mL (2%/1%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone / DHEA Cream</td><td>Cream</td><td>5 mg/40 mg/mL (0.5%/4%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Gel</td><td>5 mg/mL (0.5%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Gel</td><td>48 mg/mL (4.8%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone (Atrevis)</td><td>Gel</td><td>200 mg/mL (20%)</td><td>30 mL</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Troche</td><td>2 mg, 3 mg, 4 mg, 5 mg, 6 mg, 20 mg</td><td>1 EA</td><td>Oral</td><td>Refrigerated</td><td>180</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">men&rsquo;s health</p>
+                                    <h3>Hair Restoration</h3>
+                                </div>
+                                <table class="compound-grid compact">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Finasteride / Biotin</td><td>Capsule</td><td>1.1 mg / 2.5 mg</td><td>30 caps</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">men&rsquo;s health</p>
+                                    <h3>Libido &amp; Sexual Health</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Enclomiphene Citrate</td><td>Capsule</td><td>0.28 mg</td><td>30/60</td><td>Oral</td><td>RT</td><td></td></tr>
+                                        <tr><td>Enclomiphene Troche</td><td>Troche</td><td>6.25 mg, 12.5 mg, 25 mg</td><td>30 EA</td><td>Oral</td><td>Refrigerated</td><td></td></tr>
+                                        <tr><td>Oxytocin / Sildenafil</td><td>Troche</td><td>100 IU / 50 mg</td><td></td><td>Oral</td><td>Refrigerated</td><td></td></tr>
+                                        <tr><td>Oxytocin / Tadalafil / PT-141</td><td>Troche</td><td>100 IU / 40 mg / 2 mg</td><td></td><td>Oral</td><td>Refrigerated</td><td></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page data-compound-section="womens-health">
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">women&rsquo;s health</p>
+                                    <h3>BHRT</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Boric Acid</td><td>Suppository</td><td>600 mg</td><td>14 EA</td><td>Vaginal</td><td>Refrigerated</td><td>180</td></tr>
+                                        <tr><td>Biest (80/20)</td><td>Capsule</td><td>0.625 mg, 1.25 mg, 2.5 mg, 5 mg</td><td>30 caps</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>BIEST (80/20) / Progesterone</td><td>Capsule</td><td>1.25 mg / 100 mg</td><td>1 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>BIEST (80/20) / Progesterone</td><td>SR Capsule</td><td>1.25 mg / 100 mg, 2 mg / 75 mg, 0.5 mg / 100 mg</td><td>1 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Biest (80/20) / Progesterone / Testosterone</td><td>Capsule</td><td>2 mg / 3 mg / 80 mg</td><td>1 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>DHEA</td><td>Capsule</td><td>10 mg, 15 mg, 20 mg, 25 mg, 50 mg</td><td>1 EA</td><td>Oral</td><td>RT</td><td></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">women&rsquo;s health</p>
+                                    <h3>BHRT <span class="compound-continued">(continued)</span></h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Estradiol</td><td>Capsule</td><td>1 mg, 1.5 mg</td><td>1 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Methyltestosterone</td><td>Capsule</td><td>1.25 mg / 2.5 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Progesterone / Testosterone</td><td>Capsule</td><td>0.5 mg / 200 mg / 4 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Progesterone / Testosterone</td><td>Capsule</td><td>1 mg / 100 mg / 2 mg; 1 mg / 200 mg / 4 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Progesterone / Testosterone</td><td>Capsule</td><td>1.5 mg / 200 mg / 5 mg; 2 mg / 300 mg / 10 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Progesterone / Testosterone / DHEA</td><td>Capsule</td><td>2 mg / 150 mg / 40 mg / 10 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Testosterone</td><td>Capsule</td><td>2 mg / 20 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Progesterone</td><td>Capsule</td><td>50 mg, 100 mg, 150 mg</td><td>30/60/90/180</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Progesterone</td><td>Capsule</td><td>180 mg, 200 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Progesterone</td><td>SR Capsule</td><td>150 mg, 200 mg</td><td>30 EA</td><td>Oral</td><td>RT</td><td>180</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">women&rsquo;s health</p>
+                                    <h3>BHRT Creams</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Biest Cream (80/20)</td><td>Cream</td><td>1.25 mg, 2.5 mg, 5 mg/mL</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>BIEST (80/20) / Progesterone</td><td>Cream</td><td>1 mg / 40 mg</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol</td><td>Cream</td><td>2 mg/mL, 3 mg/mL</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol</td><td>Vaginal Cream</td><td>0.01% / 40 mg (4%)</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Progesterone</td><td>Cream</td><td>0.01% / 40 mg; 1 mg / 200 mg/mL; 1 mg / 100 mg/mL</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Progesterone / Testosterone</td><td>Cream</td><td>0.05 mg / 40 mg / 2.5 mg/mL; 0.1% / 8% / 3%</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Progesterone / Testosterone</td><td>Cream</td><td>0.2 mg / 200 mg / 20 mg/mL; 1 mg / 30 mg / 2 mg/mL</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Progesterone / Testosterone</td><td>Cream</td><td>1 mg / 100 mg / 10 mg/mL</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">women&rsquo;s health</p>
+                                    <h3>Libido &amp; Creams</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Estradiol / Testosterone</td><td>Cream</td><td>0.1 mg / 2.5 mg/mL; 0.5 mg / 10 mg/mL; 1.5 mg / 3 mg/mL</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Estradiol / Testosterone</td><td>Cream</td><td>1.8 mg / 3 mg/mL; 2.5 mg / 6 mg/mL</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Testosterone</td><td>Cream</td><td>5 mg/mL (0.5%), 8 mg/mL (0.8%)</td><td>30 mL</td><td>Topi-Click</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Biest (50/50) / Progesterone</td><td>Troche</td><td>0.5 mg / 200 mg</td><td>1 EA</td><td>Oral</td><td>Refrigerated</td><td></td></tr>
+                                        <tr><td>Biest (80/20) / Progesterone</td><td>Troche</td><td>0.5 mg / 50 mg</td><td>1 EA</td><td>Oral</td><td>Refrigerated</td><td></td></tr>
+                                        <tr><td>Scream Cream (SILD/THEO/ARG)</td><td>Cream</td><td>2.5% / 2.5% / 6%</td><td></td><td>Topical</td><td>RT</td><td></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page data-compound-section="compounds">
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">compounds</p>
+                                    <h3>Amino Acids, Vitamins &amp; Minerals</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>B12 (Methylcobalamin)</td><td>Injection</td><td>5 mg/mL</td><td>30 mL</td><td>SQ/IM/IV</td><td>RT</td><td></td></tr>
+                                        <tr><td>Super-B (B1/B2/B3/B5/B6/B12)</td><td>Injection</td><td>100 mg/5 mg/100 mg/25 mg/25 mg/2 mg/mL</td><td>30 mL</td><td>IM/IV</td><td>Refrigerated</td><td>45</td></tr>
+                                        <tr><td>Tri-Immune Boost (Ascorbic Acid/Glutathione/Zinc Sulfate)</td><td>Injection</td><td>200 mg/200 mg/2.5 mg/mL</td><td>30 mL</td><td>IV</td><td>Refrigerated</td><td>45</td></tr>
+                                        <tr><td>NAD+</td><td>Injection</td><td>100 mg/mL, 200 mg/mL</td><td>4 mL / 10 mL</td><td>SQ/IM/IV</td><td>Refrigerated</td><td></td></tr>
+                                        <tr><td>Methylene Blue</td><td>Capsule</td><td>5 mg, 10 mg, 15 mg, 25 mg</td><td>1 EA</td><td>Oral</td><td>RT</td><td></td></tr>
+                                        <tr><td>Magic Mouthwash<br>Diphenhydramine/Antacid/Lidocaine</td><td>Suspension</td><td>1:1:1 / 0.5</td><td>120 mL</td><td>Oral</td><td>Refrigerated</td><td></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page data-compound-section="wellness">
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">wellness</p>
+                                    <h3>Others &amp; Wellness Line</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Naltrexone (low dose)</td><td>Capsule</td><td>0.5 mg, 1 mg, 1.5 mg, 2 mg, 2.5 mg, 3 mg, 4 mg, 4.5 mg, 5 mg</td><td>30/60/90</td><td>Oral</td><td>RT</td><td></td></tr>
+                                        <tr><td>Phosphatidylcholine / Deoxycholic Acid</td><td>Injection</td><td>10% / 4.2%</td><td></td><td></td><td>Refrigerated</td><td></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page data-compound-section="dermatology">
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">dermatology</p>
+                                    <h3>Anti-Acne, Anti-Aging &amp; Anti-Inflammatory</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Azelaic Acid / Metronidazole / Ivermectin</td><td>Cream</td><td>15% / 1% / 1%</td><td>30 GM</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Azelaic Acid / Niacinamide</td><td>Cream</td><td>15%/4%, 17%/2%, 20%/4%</td><td>30 GM</td><td>Topical</td><td>RT</td><td></td></tr>
+                                        <tr><td>Benzoyl Peroxide / Niacinamide / Spironolactone / Clindamycin</td><td>Topical Gel</td><td>5% / 2% / 2% / 1%</td><td>30 mL</td><td>Topical</td><td>RT</td><td>35</td></tr>
+                                        <tr><td>GHK-CU / Niacinamide</td><td>Facial Cream</td><td>0.5% / 3%</td><td>30 GM</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Red Cream (Ivermectin / Metronidazole / Niacinamide)</td><td>Cream</td><td>1% / 1% / 4%</td><td>30 GM</td><td>Topical</td><td>RT</td><td>35</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">dermatology</p>
+                                    <h3>Anti-Viral, Skin Lightening &amp; Anesthetics</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Acyclovir / Lidocaine / Triamcinolone</td><td>Chapstick</td><td>5% / 1% / 0.1%</td><td>5 GM</td><td>Topical</td><td>RT</td><td>180</td></tr>
+                                        <tr><td>Trilidovir (Acyclovir/Lidocaine/Triamcinolone)</td><td>Topical</td><td>5% / 1% / 0.1%</td><td>10 GM</td><td>Topical</td><td>RT</td><td>35</td></tr>
+                                        <tr><td>Jessners Peel Solution</td><td>Solution</td><td>Lactic Acid / Salicylic Acid / Mandelic Acid</td><td></td><td>Topical</td><td>RT</td><td></td></tr>
+                                        <tr><td>Hydroquinone / Tretinoin</td><td>Cream</td><td>4% / 0.05%; 8% / 0.05%</td><td>30 GM</td><td>Topical</td><td>RT</td><td></td></tr>
+                                        <tr><td>BLT (Benzocaine / Lidocaine / Tetracaine)</td><td>LPODERM Cream</td><td>20% / 10% / 10%</td><td>1 GM</td><td>Topical</td><td>RT</td><td>35</td></tr>
+                                        <tr><td>Lidocaine / Tetracaine</td><td>Plasticized Ointment</td><td>23% / 7%</td><td>1 GM</td><td>Topical</td><td>RT</td><td></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page>
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">dermatology</p>
+                                    <h3>Hair Restoration</h3>
+                                </div>
+                                <table class="compound-grid">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>BUD</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>GHK-CU / Niacinamide / Caffeine / Biotin (scalp)</td><td>Solution</td><td>0.005% / 0.50%</td><td>30 mL / 60 mL</td><td>Topical</td><td>RT</td><td>90</td></tr>
+                                        <tr><td>Minoxidil / Dutasteride / Tretinoin</td><td>Solution</td><td>5% / 0.05% / 0.025%</td><td>30 mL / 60 mL</td><td>Topical</td><td>RT</td><td></td></tr>
+                                        <tr><td>Minoxidil / Finasteride / Tretinoin</td><td>Solution</td><td>5% / 0.05% / 0.025%</td><td>30 mL / 60 mL</td><td>Topical</td><td>RT</td><td></td></tr>
+                                        <tr><td>Minoxidil / Tretinoin / Fluocinolone Acetonide</td><td>Solution</td><td>5% / 0.025% / 0.025%</td><td>30 mL / 60 mL</td><td>Topical</td><td>RT</td><td></td></tr>
+                                        <tr><td>Minoxidil / Tretinoin / Fluocinolone Acetonide</td><td>Solution</td><td>5% / 0.1% / 0.1%</td><td>30 mL / 60 mL</td><td>Topical</td><td>RT</td><td></td></tr>
+                                        <tr><td>Minoxidil / Tretinoin / Fluocinolone / Finasteride / Vitamin E Acetate</td><td>Solution</td><td>5% / 0.025% / 0.025% / 0.1% / 10 IU</td><td>30 mL / 60 mL</td><td>Topical</td><td>RT</td><td>35</td></tr>
+                                        <tr><td>Minoxidil / Tretinoin / Fluocinolone / Finasteride / Vitamin E Acetate</td><td>Solution</td><td>5% / 0.01% / 0.01% / 0.25%</td><td>30 mL / 60 mL</td><td>Topical</td><td>RT</td><td>35</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                        <article class="compound-page" data-compound-page data-compound-section="coming-soon">
+                            <div class="compound-page-frame compound-designed-page">
+                                <div class="compound-page-copy">
+                                    <p class="compound-kicker">coming soon</p>
+                                    <h3>Oral Peptides</h3>
+                                </div>
+                                <table class="compound-grid compact">
+                                    <thead><tr><th>Compound</th><th>Form</th><th>Strength</th><th>Volume</th><th>Route</th><th>Storage</th><th>Timeline</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Thymosin Alpha-1</td><td>Oral Peptide</td><td></td><td></td><td></td><td></td><td>2026</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="catalog-deck" aria-live="polite">
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/berberine-max.webp" alt="Berberine Max"></div>
+                            <h3>Berberine Max</h3>
+                            <p>$56</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/chillmag.webp" alt="ChillMag"></div>
+                            <h3>ChillMag</h3>
+                            <p>$32</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/d3-k2-max.webp" alt="D3-K2 Max"></div>
+                            <h3>D3-K2 Max</h3>
+                            <p>$37</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/brainmag-capsules.webp" alt="BrainMag"></div>
+                            <h3>BrainMag</h3>
+                            <p>$45</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Bundle</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/weight-loss-bundle-max.webp" alt="Weight Loss Bundle Max"></div>
+                            <h3>Weight Loss Bundle Max</h3>
+                            <p>$139</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/brainmag-mixed-berry.webp" alt="BrainMag Mixed Berry"></div>
+                            <h3>BrainMag Mixed Berry</h3>
+                            <p>$51</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Bundle</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/weight-loss-bundle.webp" alt="Weight Loss Bundle"></div>
+                            <h3>Weight Loss Bundle</h3>
+                            <p>$101</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/probioticmax.webp" alt="ProbioticMax"></div>
+                            <h3>ProbioticMax</h3>
+                            <p>$45</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/focusplus.webp" alt="FocusPlus"></div>
+                            <h3>FocusPlus</h3>
+                            <p>$68</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/omega-max.webp" alt="Omega Max"></div>
+                            <h3>Omega Max</h3>
+                            <p>$58</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/multivitamin.png" alt="Multivitamin"></div>
+                            <h3>Multivitamin</h3>
+                            <p>$59</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/cortisolve.webp" alt="Cortisolve"></div>
+                            <h3>Cortisolve</h3>
+                            <p>$54.99</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/fiberlean-max.webp" alt="FiberLean Max"></div>
+                            <h3>FiberLean Max</h3>
+                            <p>$48</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Bundle</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/brain-health-bundle.webp" alt="Brain Health Bundle"></div>
+                            <h3>Brain Health Bundle</h3>
+                            <p>$98</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/probioticlean-max.webp" alt="ProbioticLean Max"></div>
+                            <h3>ProbioticLean Max</h3>
+                            <p>$72</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Bundle</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/the-better-box.webp" alt="The Better Box"></div>
+                            <h3>The Better Box</h3>
+                            <p>$139</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Bundle</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/brain-focus-bundle.webp" alt="Brain Focus Bundle"></div>
+                            <h3>Brain Focus Bundle</h3>
+                            <p>$121</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Bundle</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/weight-loss.webp" alt="Weight Loss"></div>
+                            <h3>Weight Loss</h3>
+                            <p>$199</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Allergy</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/texas-cedar-fever.webp" alt="Texas Cedar Fever"></div>
+                            <h3>Texas Cedar Fever</h3>
+                            <p>$20</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/sinus-shield.webp" alt="Sinus Shield"></div>
+                            <h3>Sinus Shield</h3>
+                            <p>$50.95</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Bundle</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/bone-joint-bundle.webp" alt="Bone and Joint Bundle"></div>
+                            <h3>Bone and Joint Bundle</h3>
+                            <p>$129</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/texas-tea.webp" alt="Texas Tea"></div>
+                            <h3>Texas Tea</h3>
+                            <p>$42</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Supplement</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/hmb-muscle-guard.webp" alt="HMB Muscle Guard"></div>
+                            <h3>HMB Muscle Guard</h3>
+                            <p>$65.99</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Merch</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/cuffed-beanie.webp" alt="Cuffed Beanie"></div>
+                            <h3>Cuffed Beanie</h3>
+                            <p>$16</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Allergy</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/texas-cedar-fever-kids.webp" alt="Texas Cedar Fever KIDS"></div>
+                            <h3>Texas Cedar Fever KIDS</h3>
+                            <p>$20</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Merch</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/under-armour-backpack.webp" alt="Under Armour Backpack"></div>
+                            <h3>Under Armour Backpack</h3>
+                            <p>$96.50</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Merch</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/mens-box-hoodie.webp" alt="Men's Box Hoodie"></div>
+                            <h3>Men&rsquo;s Box Hoodie</h3>
+                            <p>From $35.50</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Merch</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/stainless-steel-tumbler.webp" alt="Stainless Steel Tumbler"></div>
+                            <h3>Stainless Steel Tumbler</h3>
+                            <p>$28</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                        <article class="catalog-card" data-product-card>
+                            <span>Merch</span>
+                            <div class="catalog-product-art"><img src="assets/provider-products/columbia-soft-shell-jacket.webp" alt="Columbia Soft Shell Jacket"></div>
+                            <h3>Columbia Soft Shell Jacket</h3>
+                            <p>From $110</p>
+                            <button type="button" class="catalog-add-cart">Add to Cart</button>
+                        </article>
+                    </div>
+                </div>
+                <div class="catalog-controls reveal">
+                    <button type="button" class="catalog-prev" aria-label="Previous catalog product">Prev</button>
+                    <span><i></i></span>
+                    <p class="catalog-count" aria-live="polite">01 / 29</p>
+                    <button type="button" class="catalog-next" aria-label="Next catalog product">Next</button>
                 </div>
             </div>
         </section>
 
-        <section class="section-shell trust-section" aria-labelledby="trust-title">
-            <div class="provider-container trust-grid">
-                <div class="trust-copy reveal">
-                    <p class="eyebrow">Quality &amp; Trust</p>
-                    <h2 id="trust-title">Built Around Quality and Consistency</h2>
-                    <p>Provider trust comes from disciplined preparation, thoughtful communication, and consistent support. Certification or compliance claims should only be added after final client documentation is approved.</p>
+        <section class="section-shell articles-section articles-testimonials-backdrop" aria-labelledby="articles-title">
+                <div class="provider-container">
+                    <div class="section-heading compact reveal">
+                        <p class="eyebrow">STAY UP TO DATE WITH</p>
+                        <h2 id="articles-title">Featured Articles</h2>
+                    </div>
+                    <div class="article-masonry reveal">
+                        <article class="article-card article-tall">
+                            <img src="assets/services-abstract-stage.png" alt="">
+                            <span>Quality</span>
+                            <h3>What providers should ask before choosing a compounding pharmacy</h3>
+                            <p>Apr 2026</p>
+                        </article>
+                        <article class="article-card">
+                            <span>Workflow</span>
+                            <h3>How faster onboarding protects clinical momentum</h3>
+                            <p>Provider Notes</p>
+                        </article>
+                        <article class="article-card">
+                            <span>Compounding</span>
+                            <h3>Sterile vs. non-sterile requests: what changes behind the scenes</h3>
+                            <p>Clinical Guide</p>
+                        </article>
+                        <article class="article-card article-wide">
+                            <img src="assets/about-lab-fill.png" alt="">
+                            <span>Patient Care</span>
+                            <h3>Why patient-specific medication support still depends on relationship</h3>
+                            <p>Apr 2026</p>
+                        </article>
+                        <article class="article-card">
+                            <span>Turnaround</span>
+                            <h3>Setting expectations for same-day and 24-48hr fulfillment</h3>
+                            <p>Operations</p>
+                        </article>
+                        <article class="article-card">
+                            <span>Portal</span>
+                            <h3>Clinic billing, patient billing, and account flexibility</h3>
+                            <p>Provider Portal</p>
+                        </article>
+                    </div>
                 </div>
-                <div class="trust-list">
-                    <article class="trust-item reveal">
-                        <span aria-hidden="true"></span>
-                        <div>
-                            <h3>Sterile and non-sterile best practices</h3>
-                            <p>Support for applicable compounding workstreams without overclaiming scope.</p>
-                        </div>
-                    </article>
-                    <article class="trust-item reveal">
-                        <span aria-hidden="true"></span>
-                        <div>
-                            <h3>Quality assurance</h3>
-                            <p>Review-oriented checkpoints help support consistency and preparation confidence.</p>
-                        </div>
-                    </article>
-                    <article class="trust-item reveal">
-                        <span aria-hidden="true"></span>
-                        <div>
-                            <h3>Provider communication</h3>
-                            <p>Clear intake, updates, and follow-up for clinics and prescribing partners.</p>
-                        </div>
-                    </article>
-                    <article class="trust-item reveal">
-                        <span aria-hidden="true"></span>
-                        <div>
-                            <h3>Patient-focused standards</h3>
-                            <p>Support shaped around patient needs and provider-directed care plans.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
         </section>
 
-        <section class="section-shell cta-section" id="consultation" aria-labelledby="cta-title">
-            <div class="provider-container cta-panel reveal">
-                <p class="eyebrow">Provider Inquiry</p>
-                <h2 id="cta-title">Ready to Partner With Cody Drug?</h2>
-                <p>Connect with the Cody Drug team to discuss provider support, custom compounding needs, and next steps.</p>
-                <div class="button-row">
-                    <a class="provider-btn provider-btn-primary" href="https://portal.codydrugrx.com/" target="_blank" rel="noreferrer">Start Provider Inquiry</a>
-                    <a class="provider-btn provider-btn-secondary" href="/pages/contact.html">Contact the Team</a>
+        <section class="section-shell testimonials-section" aria-labelledby="testimonials-title">
+                <div class="provider-container testimonials-panel reveal">
+                    <div class="testimonial-heading">
+                        <div>
+                            <p class="eyebrow">Listen to why</p>
+                            <h2 id="testimonials-title">Providers Trust Cody Drug</h2>
+                        </div>
+                    </div>
+                    <div class="testimonial-rail" aria-label="Provider testimonial carousel">
+                        <article class="testimonial-card">
+                            <span>&ldquo;</span>
+                            <p>At Rhoades Family Practice, I often say &lsquo;healthcare as it should be,&rsquo; and Cody Drug truly shares that vision. Their team always provides exceptional customer service and an unbelievably quick turnaround when it comes to my patients&rsquo; weight loss medications. As a provider, I value partners who treat my patients like family &ndash; and that&rsquo;s exactly what Will and his staff at Cody Drug do. I&rsquo;m so grateful to have such a dedicated local pharmacy; they make it easier for me to give my patients the best care possible.&rdquo;</p>
+                            <strong class="testimonial-attribution">Dusty Rhoades, MSN, APRN, FNP-C | Rhoades Family Practice</strong>
+                            <div class="testimonial-logo"><img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx"></div>
+                        </article>
+                        <article class="testimonial-card">
+                            <span>&ldquo;</span>
+                            <p>Partnering with Cody Drug has been truly transformative for our clinics in Oklahoma City and Denver. As a practice that prides itself on offering our patients the absolute best, it is essential that we establish partnerships that align with our vision of care for our patients. Cody Drug&rsquo;s unwavering commitment to quality, innovation, and exceptional customer service ensures our patients receive top tier compounded treatments in a timely manner. This collaboration has elevated our ability to provide unmatched care and achieve extraordinary results. Together, we&rsquo;re ensuring wellness remains a top priority in every aspect of our practice. We look forward to continuing this dynamic partnership with Cody Drug for years to come&rdquo;</p>
+                            <strong class="testimonial-attribution">Jason R. Henderson, Co-Founder, Restorative Injectables</strong>
+                            <div class="testimonial-logo"><img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx"></div>
+                        </article>
+                        <article class="testimonial-card">
+                            <span>&ldquo;</span>
+                            <p>As a men&rsquo;s health physician here in Tyler, I rely on Cody Drug&rsquo;s exceptional compounding services to deliver customized treatments for my patients. Their team&rsquo;s professionalism, precision, and prompt service ensure my patients receive exactly what they need safely and efficiently. Working with a knowledgeable and responsive pharmacy gives me confidence in every prescription I write. I&rsquo;m grateful to have Cody Drug as a trusted partner in our mission to optimize my patient&rsquo;s health.&rdquo;</p>
+                            <strong class="testimonial-attribution">Alonso Osorio, M.D. FAAEM / FAAFP / FACEP Medical Director / Franchise Owner | GameDay Men&rsquo;s Health | Tyler &amp; Longview, TX</strong>
+                            <div class="testimonial-logo"><img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx"></div>
+                        </article>
+                    </div>
+                    <div class="testimonial-progress" aria-hidden="true">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                    </div>
                 </div>
-            </div>
         </section>
+
+        <div class="faq-cta-backdrop">
+            <section class="section-shell faq-section" id="faq" aria-labelledby="faq-title">
+                <div class="provider-container faq-grid">
+                    <div class="faq-intro reveal">
+                        <p class="eyebrow">Provider FAQ</p>
+                        <h2 id="faq-title">Frequently Asked Questions</h2>
+                        <p>Fast answers for providers who want the practical details before they start sending scripts.</p>
+                    </div>
+                    <div class="faq-list reveal">
+                        <details>
+                            <summary>How long does it take to get onboarded?</summary>
+                            <p>Less than 5min. No, we&rsquo;re not kidding. Yes, you can send in scripts that same day. We&rsquo;re serious about efficiency because we know your practice demands it.</p>
+                        </details>
+                        <details>
+                            <summary>What if a patient needs something not in the catalog?</summary>
+                            <p>That&rsquo;s literally why compounding pharmacies exist. We have a relationship with all our providers so that when their patients need something tailored, we can make it precisely.</p>
+                        </details>
+                        <details>
+                            <summary>What are standard turnaround times?</summary>
+                            <p>If you order a sterile compound product before 4pm CST, it ships same day. For non-sterile compounds, we&rsquo;ll have it on it&rsquo;s way in 24-48hrs.</p>
+                        </details>
+                        <details>
+                            <summary>Can I split between patient and clinic billing?</summary>
+                            <p>Absolutely, our portal allows you to choose the billing method with each order, so you can determine what&rsquo;s right for your practice, patient by patient.</p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-shell cta-section" id="consultation" aria-labelledby="cta-title">
+                <div class="provider-container cta-panel reveal">
+                    <h2 id="cta-title">Ready to get started?</h2>
+                    <p>Open the provider portal or connect with account support to discuss custom compounding needs, catalog access, and next steps.</p>
+                    <div class="button-row">
+                        <a class="provider-btn provider-btn-primary" href="https://portal.codydrugrx.com/" target="_blank" rel="noreferrer">Get Started</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </main>
 
-    <footer class="provider-footer">
-        <div class="provider-container footer-grid">
+    <footer class="site-footer">
+        <div class="footer-grid">
             <div>
-                <a href="/" class="footer-logo" aria-label="Cody Drug Rx home">CODY DRUG <span>RX</span></a>
-                <p>Custom compounding support for providers, clinics, and partner care teams.</p>
+                <a class="footer-brand" href="/" aria-label="Cody Drug Rx home">
+                    <img src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx">
+                </a>
+                <p>Personalized medicine. Precision science. Patient-centered support.</p>
             </div>
-            <div class="footer-links" aria-label="Footer links">
-                <a href="/pages/providers.html">Providers</a>
-                <a href="/services/compounding">Compounding</a>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <a href="/pages/about.html">About Us</a>
                 <a href="/services/compounding">Services</a>
-                <a href="/pages/contact.html">Contact</a>
+                <a href="/pages/providers.html">Providers</a>
+            </div>
+            <div class="footer-col">
+                <h3>Actions</h3>
+                <a href="https://portal.codydrugrx.com/" target="_blank" rel="noreferrer">Provider Portal</a>
+                <a href="/#review">Refill</a>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <a href="tel:+19038852639">(903) 885-2639</a>
+                <a href="mailto:Lillian@codydrugrx.com">Lillian@codydrugrx.com</a>
+                <span>Details pending final approval.</span>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cody Drug Rx. All rights reserved.</p>
+            <a href="#top">Back to top</a>
+        </div>
     </footer>
+    <script>
+        (() => {
+            const complianceSection = document.querySelector('.provider-hero');
+            if (complianceSection) {
+                complianceSection.classList.add('compliance-motion-ready');
+
+                if ('IntersectionObserver' in window) {
+                    const complianceObserver = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            entry.target.classList.toggle('is-in-view', entry.isIntersecting);
+                        });
+                    }, { rootMargin: '-10% 0px -18% 0px', threshold: 0.2 });
+
+                    complianceObserver.observe(complianceSection);
+                } else {
+                    complianceSection.classList.add('is-in-view');
+                }
+            }
+
+            const partnershipSection = document.querySelector('.partnership-section');
+            if (partnershipSection) {
+                partnershipSection.classList.add('partnership-motion-ready');
+
+                if ('IntersectionObserver' in window) {
+                    const partnershipObserver = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            entry.target.classList.toggle('is-in-view', entry.isIntersecting);
+                        });
+                    }, { rootMargin: '-16% 0px -20% 0px', threshold: 0.24 });
+
+                    partnershipObserver.observe(partnershipSection);
+                } else {
+                    partnershipSection.classList.add('is-in-view');
+                }
+            }
+
+            const standardsSection = document.querySelector('.standards-section');
+            if (standardsSection) {
+                standardsSection.classList.add('standards-motion-ready');
+
+                if ('IntersectionObserver' in window) {
+                    const standardsObserver = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            entry.target.classList.toggle('is-in-view', entry.isIntersecting);
+                        });
+                    }, { rootMargin: '-18% 0px -22% 0px', threshold: 0.2 });
+
+                    standardsObserver.observe(standardsSection);
+                } else {
+                    standardsSection.classList.add('is-in-view');
+                }
+            }
+
+            const servicesSection = document.querySelector('.services-section');
+            if (servicesSection) {
+                servicesSection.classList.add('services-motion-ready');
+
+                if ('IntersectionObserver' in window) {
+                    const servicesObserver = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            entry.target.classList.toggle('is-in-view', entry.isIntersecting);
+                        });
+                    }, { rootMargin: '-18% 0px -22% 0px', threshold: 0.2 });
+
+                    servicesObserver.observe(servicesSection);
+                } else {
+                    servicesSection.classList.add('is-in-view');
+                }
+            }
+
+            const faqSection = document.querySelector('.faq-section');
+            if (faqSection) {
+                faqSection.classList.add('faq-motion-ready');
+
+                if ('IntersectionObserver' in window) {
+                    const faqObserver = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            entry.target.classList.toggle('is-in-view', entry.isIntersecting);
+                        });
+                    }, { rootMargin: '-14% 0px -20% 0px', threshold: 0.18 });
+
+                    faqObserver.observe(faqSection);
+                } else {
+                    faqSection.classList.add('is-in-view');
+                }
+            }
+
+            const catalogCards = Array.from(document.querySelectorAll('[data-product-card]'));
+            const compoundPages = Array.from(document.querySelectorAll('[data-compound-page]'));
+            const catalogPrev = document.querySelector('.catalog-prev');
+            const catalogNext = document.querySelector('.catalog-next');
+            const catalogCount = document.querySelector('.catalog-count');
+            const catalogProgress = document.querySelector('.catalog-controls i');
+            const providerCatalog = document.querySelector('.provider-catalog');
+            const catalogModeButtons = Array.from(document.querySelectorAll('[data-catalog-mode]'));
+            const catalogFilterButtons = Array.from(document.querySelectorAll('[data-catalog-filter]'));
+            const compoundShortcutButtons = Array.from(document.querySelectorAll('[data-compound-jump]'));
+            const compoundShortcutPanel = document.querySelector('.catalog-compound-shortcuts');
+            const catalogFilterStack = document.querySelector('.catalog-filter-stack');
+            let catalogIndex = 0;
+            let compoundIndex = 0;
+            let catalogSwipeStartX = 0;
+            let catalogSwipeStartY = 0;
+            let catalogSwipeActive = false;
+            let catalogWheelLocked = false;
+            let catalogGridOpen = false;
+            let activeCatalogMode = 'compounds';
+            let activeCatalogFilter = null;
+            let activeCatalogCards = catalogCards;
+            let compoundShortcutsOpen = false;
+            let supplementFiltersOpen = false;
+
+            const setCatalogCard = (card, className, hidden) => {
+                card.classList.toggle('is-active', className === 'is-active');
+                card.classList.toggle('is-next', className === 'is-next');
+                card.classList.toggle('is-third', className === 'is-third');
+                card.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+            };
+
+            const setCompoundPage = (page, className, hidden) => {
+                page.classList.toggle('is-active', className === 'is-active');
+                page.classList.toggle('is-next', className === 'is-next');
+                page.classList.toggle('is-third', className === 'is-third');
+                page.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+            };
+
+            const getCompoundSection = (index) => {
+                for (let i = index; i >= 0; i -= 1) {
+                    const section = compoundPages[i]?.dataset.compoundSection;
+                    if (section) return section;
+                }
+                return null;
+            };
+
+            const syncCompoundShortcuts = () => {
+                const isOpen = activeCatalogMode === 'compounds' && compoundShortcutsOpen;
+                providerCatalog?.classList.toggle('is-shortcuts-open', isOpen);
+                compoundShortcutPanel?.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                const compoundsButton = catalogModeButtons.find((button) => button.dataset.catalogMode === 'compounds');
+                compoundsButton?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            };
+
+            const syncSupplementFilters = () => {
+                const isOpen = activeCatalogMode === 'supplements' && supplementFiltersOpen;
+                providerCatalog?.classList.toggle('is-supplement-filters-open', isOpen);
+                catalogFilterStack?.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                const supplementsButton = catalogModeButtons.find((button) => button.dataset.catalogMode === 'supplements');
+                supplementsButton?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            };
+
+            const updateCatalog = () => {
+                if (activeCatalogCards.length) {
+                    const total = activeCatalogCards.length;
+                    catalogIndex = Math.min(catalogIndex, total - 1);
+                    const nextIndex = (catalogIndex + 1) % total;
+                    const thirdIndex = (catalogIndex + 2) % total;
+
+                    catalogCards.forEach((card) => {
+                        const filteredOut = !activeCatalogCards.includes(card);
+                        card.classList.toggle('is-filtered-out', filteredOut);
+
+                        if (filteredOut) {
+                            card.classList.remove('is-active', 'is-next', 'is-third');
+                            card.setAttribute('aria-hidden', 'true');
+                        }
+                    });
+
+                    activeCatalogCards.forEach((card, index) => {
+                        if (catalogGridOpen) {
+                            card.classList.remove('is-active', 'is-next', 'is-third');
+                            card.setAttribute('aria-hidden', 'false');
+                            return;
+                        }
+
+                        if (index === catalogIndex) {
+                            setCatalogCard(card, 'is-active', activeCatalogMode !== 'supplements');
+                        } else if (index === nextIndex) {
+                            setCatalogCard(card, 'is-next', activeCatalogMode !== 'supplements');
+                        } else if (index === thirdIndex) {
+                            setCatalogCard(card, 'is-third', activeCatalogMode !== 'supplements');
+                        } else {
+                            setCatalogCard(card, '', true);
+                        }
+                    });
+                }
+
+                if (compoundPages.length) {
+                    const total = compoundPages.length;
+                    compoundIndex = Math.min(compoundIndex, total - 1);
+                    const nextIndex = (compoundIndex + 1) % total;
+                    const thirdIndex = (compoundIndex + 2) % total;
+
+                    compoundPages.forEach((page, index) => {
+                        if (index === compoundIndex) {
+                            setCompoundPage(page, 'is-active', activeCatalogMode !== 'compounds');
+                        } else if (index === nextIndex) {
+                            setCompoundPage(page, 'is-next', activeCatalogMode !== 'compounds');
+                        } else if (index === thirdIndex) {
+                            setCompoundPage(page, 'is-third', activeCatalogMode !== 'compounds');
+                        } else {
+                            setCompoundPage(page, '', true);
+                        }
+                    });
+                }
+
+                const activeTotal = activeCatalogMode === 'compounds'
+                    ? compoundPages.length
+                    : activeCatalogCards.length;
+                const activeIndex = activeCatalogMode === 'compounds'
+                    ? compoundIndex
+                    : catalogIndex;
+
+                if (catalogCount && activeTotal) {
+                    catalogCount.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${activeTotal}`;
+                }
+
+                if (catalogProgress && activeTotal) {
+                    catalogProgress.style.width = `${((activeIndex + 1) / activeTotal) * 100}%`;
+                }
+
+                const activeCompoundSection = activeCatalogMode === 'compounds'
+                    ? getCompoundSection(compoundIndex)
+                    : null;
+                compoundShortcutButtons.forEach((button) => {
+                    const isActive = button.dataset.compoundJump === activeCompoundSection;
+                    button.classList.toggle('is-active', isActive);
+                    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+
+                syncCompoundShortcuts();
+                syncSupplementFilters();
+            };
+
+            const applyCatalogMode = (mode) => {
+                const modeChanged = activeCatalogMode !== mode;
+                activeCatalogMode = mode;
+                catalogGridOpen = false;
+                if (mode !== 'compounds') {
+                    compoundShortcutsOpen = false;
+                }
+                if (mode !== 'supplements') {
+                    supplementFiltersOpen = false;
+                }
+                if (modeChanged && mode === 'supplements') {
+                    catalogIndex = 0;
+                }
+                providerCatalog?.classList.toggle('is-compounds', mode === 'compounds');
+                providerCatalog?.classList.toggle('is-supplements', mode === 'supplements');
+                providerCatalog?.classList.remove('is-grid');
+
+                catalogModeButtons.forEach((button) => {
+                    const isActive = button.dataset.catalogMode === mode;
+                    button.classList.toggle('is-active', isActive);
+                    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+
+                updateCatalog();
+            };
+
+            const setCatalogMode = (mode, options = {}) => {
+                applyCatalogMode(mode);
+                if (options.openSupplementFilters) {
+                    supplementFiltersOpen = true;
+                    updateCatalog();
+                }
+            };
+
+            const moveCatalog = (direction) => {
+                if (activeCatalogMode === 'compounds') {
+                    if (!compoundPages.length) return;
+                    compoundIndex = (compoundIndex + direction + compoundPages.length) % compoundPages.length;
+                    updateCatalog();
+                    return;
+                }
+
+                if (!activeCatalogCards.length || catalogGridOpen) return;
+                catalogIndex = (catalogIndex + direction + activeCatalogCards.length) % activeCatalogCards.length;
+                updateCatalog();
+            };
+
+            catalogModeButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const nextMode = button.dataset.catalogMode || 'compounds';
+                    if (nextMode === 'compounds') {
+                        compoundShortcutsOpen = activeCatalogMode === 'compounds'
+                            ? !compoundShortcutsOpen
+                            : true;
+                    }
+                    if (nextMode === 'supplements') {
+                        if (activeCatalogMode !== 'supplements') {
+                            supplementFiltersOpen = false;
+                            setCatalogMode(nextMode, { openSupplementFilters: true });
+                            return;
+                        }
+                        supplementFiltersOpen = !supplementFiltersOpen;
+                    }
+                    setCatalogMode(nextMode);
+                });
+            });
+
+            compoundShortcutButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const targetSection = button.dataset.compoundJump;
+                    const targetIndex = compoundPages.findIndex((page) => page.dataset.compoundSection === targetSection);
+                    if (targetIndex < 0) return;
+                    compoundIndex = targetIndex;
+                    compoundShortcutsOpen = true;
+                    setCatalogMode('compounds');
+                });
+            });
+
+            catalogPrev?.addEventListener('click', () => moveCatalog(-1));
+            catalogNext?.addEventListener('click', () => moveCatalog(1));
+
+            const beginCatalogSwipe = (x, y, event) => {
+                const target = event?.target instanceof Element ? event.target : null;
+                if (catalogGridOpen || target?.closest('button')) return;
+                catalogSwipeStartX = x;
+                catalogSwipeStartY = y;
+                catalogSwipeActive = true;
+                providerCatalog?.classList.add('is-swiping');
+            };
+
+            const finishCatalogSwipe = (x, y, event) => {
+                if (!catalogSwipeActive || catalogGridOpen) return;
+
+                const deltaX = x - catalogSwipeStartX;
+                const deltaY = y - catalogSwipeStartY;
+                catalogSwipeActive = false;
+                providerCatalog?.classList.remove('is-swiping');
+
+                const isHorizontalSwipe = Math.abs(deltaX) >= 34 && Math.abs(deltaX) > Math.abs(deltaY) * 1.08;
+                if (!isHorizontalSwipe) return;
+
+                event?.preventDefault?.();
+                moveCatalog(deltaX < 0 ? 1 : -1);
+            };
+
+            providerCatalog?.addEventListener('pointerdown', (event) => {
+                if (event.pointerType === 'mouse' && event.button !== 0) return;
+                beginCatalogSwipe(event.clientX, event.clientY, event);
+                if (!catalogSwipeActive) return;
+                try {
+                    providerCatalog.setPointerCapture?.(event.pointerId);
+                } catch (error) {
+                    // Some browsers reject capture during synthetic or interrupted gestures.
+                }
+            });
+
+            providerCatalog?.addEventListener('pointerup', (event) => {
+                finishCatalogSwipe(event.clientX, event.clientY, event);
+                try {
+                    providerCatalog.releasePointerCapture?.(event.pointerId);
+                } catch (error) {
+                    // Safe to ignore when the browser has already released capture.
+                }
+            });
+
+            window.addEventListener('pointerup', (event) => {
+                finishCatalogSwipe(event.clientX, event.clientY, event);
+            });
+
+            providerCatalog?.addEventListener('pointercancel', () => {
+                catalogSwipeActive = false;
+                providerCatalog?.classList.remove('is-swiping');
+            });
+
+            providerCatalog?.addEventListener('touchstart', (event) => {
+                if (window.PointerEvent) return;
+                const touch = event.changedTouches[0];
+                if (!touch) return;
+                beginCatalogSwipe(touch.clientX, touch.clientY, event);
+            }, { passive: false });
+
+            providerCatalog?.addEventListener('touchend', (event) => {
+                if (window.PointerEvent) return;
+                const touch = event.changedTouches[0];
+                if (!touch) return;
+                finishCatalogSwipe(touch.clientX, touch.clientY, event);
+            }, { passive: false });
+
+            if (!window.PointerEvent) {
+                providerCatalog?.addEventListener('mousedown', (event) => {
+                    beginCatalogSwipe(event.clientX, event.clientY, event);
+                });
+
+                window.addEventListener('mouseup', (event) => {
+                    finishCatalogSwipe(event.clientX, event.clientY, event);
+                });
+            }
+
+            providerCatalog?.addEventListener('dragstart', (event) => {
+                event.preventDefault();
+            });
+
+            providerCatalog?.addEventListener('wheel', (event) => {
+                if (catalogGridOpen) return;
+
+                const isHorizontalWheel = Math.abs(event.deltaX) > 24 && Math.abs(event.deltaX) > Math.abs(event.deltaY) * 1.15;
+                if (!isHorizontalWheel) return;
+
+                event.preventDefault();
+                if (catalogWheelLocked) return;
+
+                catalogWheelLocked = true;
+                moveCatalog(event.deltaX > 0 ? 1 : -1);
+
+                window.setTimeout(() => {
+                    catalogWheelLocked = false;
+                }, 650);
+            }, { passive: false });
+
+            catalogCards.forEach((card) => {
+                card.addEventListener('click', (event) => {
+                    if (activeCatalogMode !== 'supplements' || catalogGridOpen || event.target.closest('button')) return;
+                    if (card.classList.contains('is-next')) moveCatalog(1);
+                    if (card.classList.contains('is-third')) moveCatalog(2);
+                });
+            });
+
+            catalogFilterButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    supplementFiltersOpen = true;
+                    setCatalogMode('supplements');
+                    const filter = button.dataset.catalogFilter;
+                    activeCatalogFilter = activeCatalogFilter === filter ? null : filter;
+                    activeCatalogCards = activeCatalogFilter
+                        ? catalogCards.filter((card) => card.querySelector('span')?.textContent.trim() === activeCatalogFilter)
+                        : catalogCards;
+                    catalogIndex = 0;
+
+                    catalogFilterButtons.forEach((filterButton) => {
+                        const isActive = filterButton.dataset.catalogFilter === activeCatalogFilter;
+                        filterButton.classList.toggle('is-active', isActive);
+                        filterButton.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                    });
+
+                    updateCatalog();
+                });
+            });
+
+            updateCatalog();
+
+            const faqList = document.querySelector('.faq-list');
+            if (!faqList) return;
+
+            const faqItems = Array.from(faqList.querySelectorAll('details'));
+
+            faqItems.forEach((item) => {
+                const summary = item.querySelector('summary');
+                if (!summary) return;
+
+                summary.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const shouldOpen = !item.open;
+
+                    faqItems.forEach((otherItem) => {
+                        otherItem.open = false;
+                    });
+
+                    item.open = shouldOpen;
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
