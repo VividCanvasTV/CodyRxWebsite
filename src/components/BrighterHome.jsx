@@ -58,8 +58,8 @@ const SERVICES_PAGE_URL = '/services/compounding'
 const COMPOUNDING_PAGE_URL = '/services/compounding'
 const CAREERS_URL = '/pages/about.html#team'
 const LICENSES_URL = '/pages/about.html#licenses'
-const EVENTS_URL = '/#resources'
-const RESOURCES_URL = '/#resources'
+const EVENTS_URL = '/pages/events.html'
+const RESOURCES_URL = '/pages/resources.html'
 const PRODUCTS_URL = '/#products'
 const CONTACT_URL = '/pages/contact.html'
 const MEGA_PANEL_WIDTH = 360
@@ -828,7 +828,7 @@ function Hero() {
               SIGN UP AS A PROVIDER
             </motion.a>
             <motion.a
-              href="#blog"
+              href={RESOURCES_URL}
               className="bh-btn bh-btn-outline"
               style={{ x: btn2X, opacity: btn2Opacity }}
             >
