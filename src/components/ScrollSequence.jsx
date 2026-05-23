@@ -40,6 +40,11 @@ export default function ScrollSequence({
   holdStart = 0,   // 0-1, portion of the scroll where frame stays on startFrame before advancing
   holdEnd = 0,     // 0-1, portion of the scroll at the END where frame stays on endFrame
   prePlay = 0,     // vh units of scroll before sticky starts where playback already advances
+  baseScale = 1,
+  baseTranslateX = '0%',
+  baseTranslateY = '0%',
+  scrollZoomAmount = 0.4,
+  postZoomAmount = 0.5,
   frameIndexForProgress,
   children,
   onProgress,
@@ -309,6 +314,7 @@ export default function ScrollSequence({
   }, [loaded, drawFrame, maxFrame, minFrame, frameRange, totalFrames, triggerMode, holdStart, holdEnd, prePlay, frameIndexForProgress, onProgress, loadFrameWindow])
 
   const { progress, zoomExtra } = visualState
+  const sequenceScale = baseScale + Math.max(0, (progress - 0.4) / 0.6) * scrollZoomAmount + zoomExtra * postZoomAmount
 
   return (
     <div
@@ -339,7 +345,7 @@ export default function ScrollSequence({
             objectFit: 'cover',
             opacity: loaded ? 1 : 0,
             transition: 'opacity 0.5s ease',
-            transform: `scale(${1 + Math.max(0, (progress - 0.4) / 0.6) * 0.4 + zoomExtra * 0.5})`,
+            transform: `translate(${baseTranslateX}, ${baseTranslateY}) scale(${sequenceScale})`,
             willChange: 'transform',
           }}
         />

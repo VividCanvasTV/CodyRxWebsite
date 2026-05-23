@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { useRef, useState, useEffect, lazy, Suspense } from 'react'
+import { lazy, Suspense, useRef, useState, useEffect } from 'react'
 import ScrollSequence from './ScrollSequence'
 import './BrighterHome.css'
 
@@ -15,34 +15,6 @@ const fadeUp = {
 
 function scrollToId(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
-
-function useNearViewport(ref, rootMargin = '1000px 0px') {
-  const [isNear, setIsNear] = useState(false)
-
-  useEffect(() => {
-    if (isNear) return undefined
-
-    const node = ref.current
-    if (!node) return undefined
-
-    if (!('IntersectionObserver' in window)) {
-      const fallbackTimer = window.setTimeout(() => setIsNear(true), 0)
-      return () => window.clearTimeout(fallbackTimer)
-    }
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return
-      setIsNear(true)
-      observer.disconnect()
-    }, { rootMargin })
-
-    observer.observe(node)
-
-    return () => observer.disconnect()
-  }, [isNear, ref, rootMargin])
-
-  return isNear
 }
 
 /* ─────────────────────────────────────────────
@@ -65,11 +37,11 @@ const CONTACT_URL = '/pages/contact.html'
 const MEGA_PANEL_WIDTH = 360
 const MEGA_PANEL_GUTTER = 28
 const HERO_SEQUENCE_FRAMES = 265
-const HERO_SEQUENCE_SPLIT_FRAME = 40
+const HERO_SEQUENCE_SPLIT_FRAME = 50
 const HERO_SEQUENCE_PATH = '/assets/holding-vial-dark/frame_'
-const HERO_SEQUENCE_EXTENSION = 'webp'
-const HERO_SEQUENCE_INTRO_HEIGHT_VH = 260
-const HERO_SEQUENCE_FULL_HEIGHT_VH = 680
+const HERO_SEQUENCE_EXTENSION = 'png'
+const HERO_SEQUENCE_INTRO_HEIGHT_VH = 220
+const HERO_SEQUENCE_FULL_HEIGHT_VH = 560
 const HERO_SEQUENCE_HEIGHT = `${HERO_SEQUENCE_FULL_HEIGHT_VH}vh`
 const HERO_SEQUENCE_INTRO_PROGRESS = (HERO_SEQUENCE_INTRO_HEIGHT_VH - 100) / (HERO_SEQUENCE_FULL_HEIGHT_VH - 100)
 
@@ -103,6 +75,34 @@ function getHeroEndCoverStyle(progress) {
     opacity: eased,
     transform: `translateY(${(1 - eased) * 110}px)`,
   }
+}
+
+function useNearViewport(ref, rootMargin = '1000px 0px') {
+  const [isNear, setIsNear] = useState(false)
+
+  useEffect(() => {
+    if (isNear) return undefined
+
+    const node = ref.current
+    if (!node) return undefined
+
+    if (!('IntersectionObserver' in window)) {
+      const fallbackTimer = window.setTimeout(() => setIsNear(true), 0)
+      return () => window.clearTimeout(fallbackTimer)
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setIsNear(true)
+      observer.disconnect()
+    }, { rootMargin })
+
+    observer.observe(node)
+
+    return () => observer.disconnect()
+  }, [isNear, ref, rootMargin])
+
+  return isNear
 }
 
 const MEGA_MENU_CONTENT = {
@@ -719,6 +719,11 @@ function HeroWithVideo() {
         triggerMode="top"
         startFrame={1}
         endFrame={HERO_SEQUENCE_FRAMES}
+        baseScale={1.14}
+        baseTranslateX="-7%"
+        baseTranslateY="5%"
+        scrollZoomAmount={0.46}
+        postZoomAmount={0.54}
         frameIndexForProgress={getHomeSequenceFrameIndex}
       >
         {(progress) => (
@@ -772,16 +777,6 @@ function Hero() {
   const reviewsX = useTransform(scrollY, [0, 400, 720, 9999], [0, 0, -300, -300])
   const reviewsOpacity = useTransform(scrollY, [0, 400, 700, 9999], [1, 1, 0, 0])
 
-  /* ── RIGHT SIDE — glass cards all slide RIGHT (staggered) ── */
-  const cardMLX = useTransform(scrollY, [0, 360, 680, 9999], [0, 0, 450, 450])
-  const cardMLOpacity = useTransform(scrollY, [0, 360, 660, 9999], [1, 1, 0, 0])
-
-  const cardMRX = useTransform(scrollY, [0, 380, 700, 9999], [0, 0, 540, 540])
-  const cardMROpacity = useTransform(scrollY, [0, 380, 680, 9999], [1, 1, 0, 0])
-
-  const cardBRX = useTransform(scrollY, [0, 400, 720, 9999], [0, 0, 600, 600])
-  const cardBROpacity = useTransform(scrollY, [0, 400, 700, 9999], [1, 1, 0, 0])
-
   return (
     <section className="bh-hero" id="top">
       <div id="providers" className="bh-section-anchor" aria-hidden="true" />
@@ -809,8 +804,9 @@ function Hero() {
                 className="bh-hero-word"
                 style={{ x: word2X, opacity: word2Opacity }}
               >
-                for{' '}
+                for
               </motion.span>
+              {' '}
               <motion.span
                 className="bh-hero-word bh-red"
                 style={{ x: word3X, opacity: word3Opacity }}
@@ -842,51 +838,6 @@ function Hero() {
             </motion.div>
           </div>
         </div>
-
-        <div className="bh-hero-visual">
-          <div className="bh-vial-wrapper bh-hero-enter-right">
-            {/* Glass cards animate out in different directions */}
-            <motion.div
-              className="bh-float-card bh-card-mid-left"
-              style={{ x: cardMLX, opacity: cardMLOpacity }}
-            >
-              <div className="bh-float-card-face">
-                <p className="bh-card-metric">95%</p>
-                <p className="bh-card-status">provider retention rate</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="bh-float-card bh-card-mid-right bh-processing-card"
-              style={{ x: cardMRX, opacity: cardMROpacity }}
-            >
-              <div className="bh-float-card-face">
-                <p className="bh-card-title">PROCESSING TIME COMPARISON</p>
-                <p className="bh-card-status">Cody Drug: 24hr avg processing</p>
-                <p className="bh-card-status">Industry Average: 10 days</p>
-                <p className="bh-card-metric bh-card-metric--large">10x faster</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="bh-float-card bh-card-bottom-right"
-              style={{ x: cardBRX, opacity: cardBROpacity }}
-            >
-              <div className="bh-float-card-face">
-                <p className="bh-card-copy bh-card-copy--standalone">Best-practice sterile and non-sterile safety standards.</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="bh-float-card bh-card-bottom-left"
-              style={{ x: cardMLX, opacity: cardMLOpacity }}
-            >
-              <div className="bh-float-card-face">
-                <p className="bh-card-copy bh-card-copy--standalone">24/7 accessible account management</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -908,7 +859,7 @@ const PILLARS = [
     eyebrow: '02',
     title: '95%',
     desc: 'provider retention rate',
-    side: 'left',
+    side: 'right',
   },
   {
     key: 'processing',
@@ -922,7 +873,7 @@ const PILLARS = [
     eyebrow: '04',
     title: 'Best-practice sterile and non-sterile safety standards.',
     desc: '',
-    side: 'left',
+    side: 'right',
   },
   {
     key: 'account-management',
@@ -934,16 +885,16 @@ const PILLARS = [
 ]
 
 /* Pillars driven by a 0..1 progress value (passed from ScrollSequence's
-   function-as-children). The cards deliberately overlap wide scroll windows so
-   they feel paced to the video rather than snapping through each segment. */
+   function-as-children). The windows slightly overlap, but outgoing cards fade
+   before the next card becomes readable so the glass text does not ghost. */
 const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
 const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4)
 const PILLAR_TIMING = [
-  { start: 0.06, end: 0.44, y: 0 },
-  { start: 0.15, end: 0.52, y: 0 },
-  { start: 0.42, end: 0.82, y: 120, exitY: 260 },
-  { start: 0.49, end: 0.9, y: 132 },
-  { start: 0.72, end: 0.98, y: 96 },
+  { start: 0.06, end: 0.32, y: 0 },
+  { start: 0.31, end: 0.54, y: 0 },
+  { start: 0.53, end: 0.72, y: -24, exitY: 120 },
+  { start: 0.7, end: 0.86, y: -18 },
+  { start: 0.84, end: 0.98, y: -52 },
 ]
 
 function computePillarStyle(progress, index, total, sideMult) {
@@ -954,12 +905,12 @@ function computePillarStyle(progress, index, total, sideMult) {
   }
   const { start, end, y, exitY = 0 } = timing
   const localProgress = (progress - start) / (end - start)
-  const enterEnd = 0.36
-  const exitStart = 0.78
+  const enterEnd = 0.34
+  const exitStart = 0.64
 
-  let opacity, x, rotate, scale, blur, exitProgress
+  let opacity, x, rotate, scale, blur, exitProgress, zIndex
   if (localProgress < 0) {
-    opacity = 0; x = 580 * sideMult; rotate = 3 * sideMult; scale = 0.97; blur = 10; exitProgress = 0
+    opacity = 0; x = 580 * sideMult; rotate = 3 * sideMult; scale = 0.97; blur = 10; exitProgress = 0; zIndex = 1
   } else if (localProgress < enterEnd) {
     const raw = localProgress / enterEnd
     const tOpacity = easeInOutCubic(raw)
@@ -970,25 +921,28 @@ function computePillarStyle(progress, index, total, sideMult) {
     scale = 0.97 + 0.03 * tMove
     blur = 10 * (1 - tOpacity)
     exitProgress = 0
+    zIndex = 3
   } else if (localProgress < exitStart) {
-    opacity = 1; x = 0; rotate = 0; scale = 1; blur = 0; exitProgress = 0
+    opacity = 1; x = 0; rotate = 0; scale = 1; blur = 0; exitProgress = 0; zIndex = 3
   } else if (localProgress < 1) {
     const raw = (localProgress - exitStart) / (1 - exitStart)
     const t = easeInOutCubic(raw)
-    opacity = 1 - t
-    x = -500 * sideMult * t
+    opacity = Math.max(0, 1 - t * 1.35)
+    x = -360 * sideMult * t
     rotate = -2 * sideMult * t
-    scale = 1 - 0.03 * t
-    blur = 10 * t
+    scale = 1 - 0.04 * t
+    blur = 12 * t
     exitProgress = t
+    zIndex = 2
   } else {
-    opacity = 0; x = -500 * sideMult; rotate = -2 * sideMult; scale = 0.97; blur = 10; exitProgress = 1
+    opacity = 0; x = -360 * sideMult; rotate = -2 * sideMult; scale = 0.96; blur = 12; exitProgress = 1; zIndex = 1
   }
 
   const yOffset = y + exitY * exitProgress
 
   return {
     opacity,
+    zIndex,
     transform: `translateY(-50%) translateY(${yOffset}px) translateX(${x}px) rotate(${rotate}deg) scale(${scale})`,
     filter: `blur(${blur}px)`,
   }
@@ -1627,18 +1581,6 @@ function Footer() {
    TESTIMONIALS
 ───────────────────────────────────────────── */
 
-function TestimonialAvatar({ tone }) {
-  return (
-    <div className={`bh-testimonial-avatar bh-testimonial-avatar--${tone}`} aria-hidden="true">
-      <svg viewBox="0 0 64 64" fill="none">
-        <circle cx="32" cy="23" r="11" fill="rgba(255,255,255,0.96)" />
-        <path d="M14 54C17 42 24 36 32 36C40 36 47 42 50 54" fill="rgba(255,255,255,0.96)" />
-        <path d="M20 18C23 12 27 9 32 9C37 9 41 12 44 18" stroke="rgba(255,255,255,0.28)" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    </div>
-  )
-}
-
 function TestimonialCard({ story, index }) {
   return (
     <div
@@ -1652,16 +1594,23 @@ function TestimonialCard({ story, index }) {
       }}
     >
     <article className="bh-testimonial-card">
+      <div className={`bh-testimonial-logo bh-testimonial-logo--${story.logoTone}`} aria-label={`${story.practice} logo`}>
+        <img
+          src={story.logo}
+          alt={`${story.practice} logo`}
+          className={`bh-testimonial-logo-img bh-testimonial-logo-img--${story.logoTone}`}
+          loading="lazy"
+        />
+        <span className="bh-testimonial-logo-text" aria-hidden="true">{story.logoLabel}</span>
+      </div>
+
       <p className="bh-testimonial-copy">{story.copy}</p>
 
       <div className="bh-testimonial-footer">
-        <div className="bh-testimonial-person">
-          <TestimonialAvatar tone={story.avatarTone} />
-          <div className="bh-testimonial-meta">
-            <h3>{story.name}</h3>
-            <p>{story.role}</p>
-            <p>{story.location}</p>
-          </div>
+        <div className="bh-testimonial-meta">
+          <h3>{story.practice}</h3>
+          <p>{story.attribution}</p>
+          <p>{story.location}</p>
         </div>
 
         <span className="bh-testimonial-quote-mark" aria-hidden="true">
@@ -1676,54 +1625,40 @@ function TestimonialCard({ story, index }) {
 function FeaturedTestimonials() {
   const testimonials = [
     {
-      name: 'Ava M.',
-      role: 'NEW PATIENT',
-      location: 'DENVER, CO',
-      copy: "What stood out most was how personal everything felt. It never felt rushed, automated, or treated like just another refill.",
-      avatarTone: 'amber',
-      width: '22rem',
-      offset: 20,
-      tilt: '-1.1deg',
-    },
-    {
-      name: 'Jordan T.',
-      role: 'ONGOING SUPPORT',
-      location: 'AUSTIN, TX',
-      copy: "We needed a pharmacy team that could communicate clearly, move quickly, and still make the process feel considered. Cody Rx handled every step with a level of calm precision that's rare.",
-      avatarTone: 'cobalt',
-      width: '31rem',
-      offset: 90,
-      tilt: '0.65deg',
-    },
-    {
-      name: 'Elena S.',
-      role: 'COMPOUNDING CARE',
-      location: 'PHOENIX, AZ',
-      copy: "I've worked with a lot of care teams over the years. This is one of the only experiences that felt both clinically sharp and genuinely human from start to finish.",
-      avatarTone: 'rose',
-      width: '30rem',
-      offset: 140,
-      tilt: '-0.55deg',
-    },
-    {
-      name: 'Lauren B.',
-      role: 'LONG-TIME PATIENT',
-      location: 'BOISE, ID',
-      copy: "Everyone promises attention to detail. What impressed me here was that they actually followed through on it. Questions were answered, next steps were clear, and the whole experience felt elevated.",
-      avatarTone: 'sage',
-      width: '31rem',
-      offset: 180,
-      tilt: '0.9deg',
-    },
-    {
-      name: 'Noah P.',
-      role: 'FAMILY REFERRAL',
-      location: 'SCOTTSDALE, AZ',
-      copy: "I was referred by someone I trust, and now I get why. The care feels deliberate, polished, and much more personal than what we've been used to.",
-      avatarTone: 'plum',
-      width: '22rem',
-      offset: 40,
+      practice: 'Rhoades Family Practice',
+      attribution: 'Dusty Rhoades, MSN, APRN, FNP-C',
+      location: 'SULPHUR SPRINGS, TX',
+      logo: '/assets/testimonials/rhoades-family-practice.png',
+      logoTone: 'rhoades',
+      logoLabel: 'Rhoades Family Practice',
+      copy: "Cody Drug shares our vision of healthcare as it should be. Their team delivers exceptional service, fast turnaround, and treats my patients like family.",
+      width: '18.5rem',
+      offset: 14,
       tilt: '-0.8deg',
+    },
+    {
+      practice: 'Restorative Injectables',
+      attribution: 'Jason R. Henderson, Co-Founder',
+      location: 'OKLAHOMA CITY, OK + DENVER, CO',
+      logo: '/assets/testimonials/restorative-injectables.png',
+      logoTone: 'restorative',
+      logoLabel: 'RESTORATIVE INJECTABLES',
+      copy: "Cody Drug has transformed our clinics' ability to provide top tier compounded treatments with quality, innovation, and exceptional service.",
+      width: '22rem',
+      offset: 62,
+      tilt: '0.45deg',
+    },
+    {
+      practice: "Gameday Men's Health",
+      attribution: 'Alonso Osorio, M.D.',
+      location: 'TYLER + LONGVIEW, TX',
+      logo: '/assets/testimonials/gameday-mens-health.svg',
+      logoTone: 'gameday',
+      logoLabel: "GAMEDAY MEN'S HEALTH",
+      copy: "Cody Drug's professionalism, precision, and prompt service ensure my patients receive exactly what they need safely and efficiently.",
+      width: '21rem',
+      offset: 28,
+      tilt: '-0.35deg',
     },
   ]
 
@@ -1731,19 +1666,17 @@ function FeaturedTestimonials() {
     <section className="bh-testimonials-section" id="peptides">
       <div className="bh-container">
         <motion.div className="bh-testimonials-header" {...fadeUp}>
-          <p className="bh-testimonials-kicker">[ Testimonials ]</p>
+          <p className="bh-testimonials-kicker">[ Provider Testimonials ]</p>
           <h2 className="bh-testimonials-title">
-            Don't take our word for it
-            <span className="bh-testimonials-asterisk">*</span>
+            Providers Trust Cody Drug
           </h2>
           <p className="bh-testimonials-subtitle">
-            <span>*</span>
-            Take theirs
+            Real feedback from clinical partners
           </p>
         </motion.div>
       </div>
 
-      <div className="bh-testimonials-stage" aria-label="Animated patient testimonials">
+      <div className="bh-testimonials-stage" aria-label="Animated provider testimonials">
         <div className="bh-testimonials-track">
           {[0, 1].map((copyIndex) => (
             <div
@@ -1761,12 +1694,6 @@ function FeaturedTestimonials() {
             </div>
           ))}
         </div>
-
-        <div className="bh-testimonials-drag" aria-hidden="true">
-          <span>&larr;</span>
-          <span>Loop</span>
-          <span>&rarr;</span>
-        </div>
       </div>
     </section>
   )
@@ -1775,12 +1702,6 @@ function FeaturedTestimonials() {
 /* ─────────────────────────────────────────────
    COVERAGE MAP — Personalized Care, Where You Are
 ───────────────────────────────────────────── */
-const SERVED_STATES = new Set([
-  'CA','TX','FL','NY','PA','IL','OH','GA','NC','MI','NJ','VA','WA','AZ','MA',
-  'TN','IN','MO','MD','WI','CO','MN','SC','AL','LA','KY','OR','OK','CT','IA',
-  'AR','NV','UT','NM','WV',
-])
-
 function MapTransitionDivider({ shellY, mistY, accentOneY, accentTwoY }) {
   return (
     <motion.div className="bh-map-divider" aria-hidden="true" style={{ y: shellY }}>
@@ -1794,11 +1715,11 @@ function MapTransitionDivider({ shellY, mistY, accentOneY, accentTwoY }) {
             <stop offset="100%" stopColor="rgba(255, 96, 122, 0)" />
           </linearGradient>
           <linearGradient id="bhMapDividerCyan" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(24, 221, 229, 0)" />
-            <stop offset="24%" stopColor="rgba(24, 221, 229, 0.22)" />
-            <stop offset="58%" stopColor="rgba(24, 221, 229, 0.76)" />
-            <stop offset="86%" stopColor="rgba(61, 120, 255, 0.24)" />
-            <stop offset="100%" stopColor="rgba(61, 120, 255, 0)" />
+            <stop offset="0%" stopColor="rgba(117, 216, 227, 0)" />
+            <stop offset="24%" stopColor="rgba(117, 216, 227, 0.22)" />
+            <stop offset="58%" stopColor="rgba(117, 216, 227, 0.76)" />
+            <stop offset="86%" stopColor="rgba(117, 216, 227, 0.24)" />
+            <stop offset="100%" stopColor="rgba(117, 216, 227, 0)" />
           </linearGradient>
           <linearGradient id="bhMapDividerMist" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="rgba(255, 244, 238, 0)" />
@@ -1864,7 +1785,6 @@ function MapTransitionDivider({ shellY, mistY, accentOneY, accentTwoY }) {
 }
 
 function CoverageMap() {
-  const servedCount = SERVED_STATES.size
   const sectionRef = useRef(null)
   const shouldLoadMap = useNearViewport(sectionRef)
   const { scrollYProgress } = useScroll({
@@ -1903,39 +1823,24 @@ function CoverageMap() {
         </motion.div>
 
         <motion.div className="bh-map-copy" {...fadeUp} style={{ y: copyY }}>
-          <div className="bh-map-copy-kicker">
-            <span className="bh-map-copy-rule" />
-            Licensed coverage
-          </div>
           <div className="bh-map-copy-main">
-            <p className="bh-overline bh-cyan bh-map-overline">NATIONAL REACH. PREMIUM SIGNAL.</p>
+            <p className="bh-overline bh-cyan bh-map-overline">National coverage. Home town care.</p>
             <h2 className="bh-section-title bh-text-white">
-              State by state,<br />
-              <span className="bh-red">built for Cody RX.</span>
+              Expanding,{' '}<br />
+              <span className="bh-red">state by state.</span>
             </h2>
             <p className="bh-map-desc">
-              Cody Rx coverage stays clear across licensed states, pending licenses, and coming-soon markets.
+              Expanding our coverage, so that no matter where your patients live, they have access to the same exceptional service.
             </p>
           </div>
 
           <div className="bh-map-support">
-            <div className="bh-map-stats" aria-label="Coverage statistics">
-              <div className="bh-map-stat bh-map-stat--primary">
-                <span className="bh-map-stat-num">{servedCount}</span>
-                <span className="bh-map-stat-label">States served</span>
-              </div>
-              <div className="bh-map-stat">
-                <span className="bh-map-stat-num">100<span className="bh-map-stat-pct">%</span></span>
-                <span className="bh-map-stat-label">Compliant & licensed</span>
-              </div>
-            </div>
-
             <div className="bh-map-legend" aria-label="Map legend">
               <span className="bh-map-legend-item">
-                <span className="bh-map-dot bh-map-dot-active" /> Served states
+                <span className="bh-map-dot bh-map-dot-active" /> Now serving
               </span>
               <span className="bh-map-legend-item">
-                <span className="bh-map-dot bh-map-dot-cyan" /> Pending licensure
+                <span className="bh-map-dot bh-map-dot-cyan" /> Pending
               </span>
               <span className="bh-map-legend-item">
                 <span className="bh-map-dot bh-map-dot-blue" /> Coming soon
@@ -1950,8 +1855,8 @@ function CoverageMap() {
               Fully licensed · state compliant · patient protected
             </div>
 
-            <a href="#review" className="bh-btn bh-btn-primary bh-map-cta">
-              CHECK ELIGIBILITY
+            <a href="/pages/contact.html#contact-form" className="bh-btn bh-btn-primary bh-map-cta">
+              EXPRESS INTEREST
             </a>
           </div>
         </motion.div>

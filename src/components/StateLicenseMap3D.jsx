@@ -29,11 +29,11 @@ const STATUS_STYLES = {
   },
   pending: {
     label: 'Pending',
-    fill: '#042322',
-    fillHover: '#064a46',
-    glow: '#22fff0',
-    flare: '#9afff6',
-    softGlow: '#80fff6',
+    fill: '#75D8E3',
+    fillHover: '#75D8E3',
+    glow: '#75D8E3',
+    flare: '#75D8E3',
+    softGlow: '#75D8E3',
   },
   comingSoon: {
     label: 'Coming Soon',
@@ -529,7 +529,7 @@ function DataField() {
         <Line
           key={`ring-${index}`}
           points={points}
-          color={index % 4 === 0 ? '#20f7ec' : '#1388b6'}
+          color="#75D8E3"
           lineWidth={index % 4 === 0 ? 0.52 : 0.34}
           transparent
           opacity={index % 4 === 0 ? 0.24 : 0.12}
@@ -538,7 +538,7 @@ function DataField() {
       ))}
       <points geometry={pointsGeometry}>
         <pointsMaterial
-          color="#18d9ff"
+          color="#75D8E3"
           size={0.035}
           transparent
           opacity={0.68}
@@ -578,7 +578,7 @@ function DynamicLighting() {
 
   return (
     <>
-      <pointLight ref={cyanLight} position={[-7.6, 3.6, 5]} intensity={32} color="#1ffff2" distance={19} />
+      <pointLight ref={cyanLight} position={[-7.6, 3.6, 5]} intensity={32} color="#75D8E3" distance={19} />
       <pointLight ref={redLight} position={[8.2, -2.1, 5]} intensity={28} color="#ff2e35" distance={19} />
       <spotLight
         ref={whiteLight}
@@ -884,12 +884,69 @@ function MapScene({ embedded = false, hoveredState, interactionRef, onClearHover
 function getTooltipPosition(event, embedded) {
   const margin = 18
   const tooltipWidth = 232
+  const tooltipHeight = 136
   const tooltipGap = 16
   const clientX = event.nativeEvent.clientX
   const clientY = event.nativeEvent.clientY
   const viewportWidth = window.innerWidth || 1280
   const viewportHeight = window.innerHeight || 800
   const frameRect = document.querySelector('.license-map-frame')?.getBoundingClientRect()
+
+  if (embedded && frameRect) {
+    const shellRect = document.querySelector('.license-map-shell--embedded')?.getBoundingClientRect() ?? frameRect
+    const localClientX = clientX - shellRect.left
+    const localClientY = clientY - shellRect.top
+    const frame = {
+      left: frameRect.left - shellRect.left,
+      right: frameRect.right - shellRect.left,
+      top: frameRect.top - shellRect.top,
+      bottom: frameRect.bottom - shellRect.top,
+      width: frameRect.width,
+      height: frameRect.height,
+    }
+    const centerInsetX = Math.min(Math.max(frame.width * 0.2, 96), 190)
+    const centerInsetY = Math.min(Math.max(frame.height * 0.16, 64), 124)
+    const safe = {
+      left: frame.left + centerInsetX,
+      right: frame.right - centerInsetX,
+      top: frame.top + centerInsetY,
+      bottom: frame.bottom - centerInsetY,
+    }
+
+    if (safe.right - safe.left < tooltipWidth + tooltipGap * 2) {
+      safe.left = frame.left + margin
+      safe.right = frame.right - margin
+    }
+
+    if (safe.bottom - safe.top < tooltipHeight + tooltipGap * 2) {
+      safe.top = frame.top + margin
+      safe.bottom = frame.bottom - margin
+    }
+
+    const shouldOpenLeft = localClientX > (safe.left + safe.right) / 2
+    const horizontalRange = shouldOpenLeft
+      ? [safe.left + tooltipWidth + tooltipGap, safe.right + tooltipGap]
+      : [safe.left - tooltipGap, safe.right - tooltipWidth - tooltipGap]
+    const x = horizontalRange[0] <= horizontalRange[1]
+      ? clamp(localClientX, horizontalRange[0], horizontalRange[1])
+      : (safe.left + safe.right) / 2
+
+    const shouldOpenBelow = localClientY < (safe.top + safe.bottom) / 2
+    const verticalRange = shouldOpenBelow
+      ? [safe.top - tooltipGap, safe.bottom - tooltipHeight - tooltipGap]
+      : [safe.top + tooltipHeight + tooltipGap, safe.bottom + tooltipGap]
+    const y = verticalRange[0] <= verticalRange[1]
+      ? clamp(localClientY, verticalRange[0], verticalRange[1])
+      : (safe.top + safe.bottom) / 2
+
+    return {
+      x,
+      y,
+      horizontal: shouldOpenLeft ? 'left' : 'right',
+      vertical: shouldOpenBelow ? 'below' : 'above',
+    }
+  }
+
   const copyRect = embedded ? document.querySelector('.bh-map-copy')?.getBoundingClientRect() : null
   const bounds = frameRect
     ? {

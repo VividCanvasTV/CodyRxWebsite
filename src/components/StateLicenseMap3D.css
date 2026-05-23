@@ -12,7 +12,7 @@
   overflow: hidden;
   color: #fff;
   background:
-    radial-gradient(circle at 18% 16%, rgba(33, 255, 239, 0.13), transparent 28rem),
+    radial-gradient(circle at 18% 16%, rgba(117, 216, 227, 0.13), transparent 28rem),
     radial-gradient(circle at 84% 74%, rgba(255, 48, 54, 0.14), transparent 30rem),
     linear-gradient(145deg, #05080b 0%, var(--map-shell-background) 44%, #030406 100%);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -42,7 +42,7 @@
   z-index: 1;
   background:
     radial-gradient(ellipse at 50% 48%, transparent 42%, rgba(0, 0, 0, 0.48) 100%),
-    linear-gradient(90deg, rgba(255, 45, 55, 0.1), transparent 22%, transparent 78%, rgba(34, 255, 241, 0.1));
+    linear-gradient(90deg, rgba(255, 45, 55, 0.1), transparent 22%, transparent 78%, rgba(117, 216, 227, 0.1));
   mix-blend-mode: screen;
   opacity: 0.62;
 }
@@ -74,7 +74,7 @@
   border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 0 32px rgba(34, 255, 241, 0.08);
+    0 0 32px rgba(117, 216, 227, 0.08);
 }
 
 .license-map-stage::after {
@@ -100,7 +100,7 @@
   border: 1px solid rgba(248, 252, 255, 0.18);
   border-radius: var(--map-frame-radius);
   background:
-    radial-gradient(circle at 50% 45%, rgba(24, 255, 239, 0.16), transparent 28%),
+    radial-gradient(circle at 50% 45%, rgba(117, 216, 227, 0.16), transparent 28%),
     radial-gradient(circle at 63% 51%, rgba(255, 43, 49, 0.16), transparent 31%),
     linear-gradient(145deg, rgba(7, 11, 15, 0.9), rgba(1, 2, 3, 0.98));
   box-shadow:
@@ -108,7 +108,7 @@
     inset 0 -42px 80px rgba(0, 0, 0, 0.44),
     0 0 0 1px rgba(255, 255, 255, 0.035),
     0 28px 90px rgba(0, 0, 0, 0.64),
-    0 0 90px rgba(34, 255, 241, 0.11),
+    0 0 90px rgba(117, 216, 227, 0.11),
     0 0 120px rgba(255, 48, 54, 0.1);
   overflow: hidden;
   isolation: isolate;
@@ -129,7 +129,7 @@
   background:
     linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent 16%, transparent 74%, rgba(255, 255, 255, 0.12)),
     radial-gradient(circle at 10% 8%, rgba(255, 255, 255, 0.24), transparent 17rem),
-    radial-gradient(circle at 87% 12%, rgba(34, 255, 241, 0.14), transparent 19rem);
+    radial-gradient(circle at 87% 12%, rgba(117, 216, 227, 0.14), transparent 19rem);
   mix-blend-mode: screen;
 }
 
@@ -242,6 +242,10 @@
     top 165ms cubic-bezier(0.16, 1, 0.3, 1),
     filter 180ms ease;
   will-change: left, top, filter;
+}
+
+.license-map-shell--embedded .license-map-tooltip {
+  position: absolute;
 }
 
 .license-map-tooltip[data-motion="enter"] {
