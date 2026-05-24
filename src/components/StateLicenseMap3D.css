@@ -594,7 +594,10 @@
   display: none;
 }
 
+.license-map-canvas canvas,
 .license-map-shell--embedded .license-map-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
   background: transparent !important;
 }
 

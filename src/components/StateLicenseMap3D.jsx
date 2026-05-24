@@ -1041,8 +1041,10 @@ export default function StateLicenseMap3D({ embedded = false }) {
           <div className="license-map-canvas">
             <Canvas
               camera={{ position: [0, -0.2, 24], fov: 42 }}
-              dpr={[1, 1.8]}
-              gl={{ antialias: true, alpha: embedded, powerPreference: 'high-performance' }}
+              dpr={embedded ? [0.75, 1.15] : [1, 1.8]}
+              frameloop={embedded ? 'demand' : 'always'}
+              gl={{ antialias: !embedded, alpha: embedded, powerPreference: 'high-performance' }}
+              style={{ width: '100%', height: '100%', display: 'block' }}
               onCreated={({ gl }) => {
                 if (embedded) gl.setClearColor(0x000000, 0)
               }}

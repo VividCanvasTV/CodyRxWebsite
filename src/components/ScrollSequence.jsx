@@ -1,7 +1,8 @@
 import { useRef, useEffect, useState, useCallback } from 'react'
 
 const SCROLL_EPSILON = 0.0015
-const IDLE_BATCH_SIZE = 6
+const FRAME_PRELOAD_RADIUS = 5
+const FRAME_CACHE_RADIUS = 22
 
 function clamp01(value) {
   return Math.max(0, Math.min(1, value))
@@ -9,23 +10,6 @@ function clamp01(value) {
 
 function isImageReady(img) {
   return Boolean(img?.complete && img.naturalWidth > 0)
-}
-
-function requestIdle(callback) {
-  if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-    return window.requestIdleCallback(callback, { timeout: 1200 })
-  }
-
-  return window.setTimeout(() => callback({ didTimeout: true, timeRemaining: () => 0 }), 80)
-}
-
-function cancelIdle(handle) {
-  if (typeof window !== 'undefined' && 'cancelIdleCallback' in window) {
-    window.cancelIdleCallback(handle)
-    return
-  }
-
-  window.clearTimeout(handle)
 }
 
 export default function ScrollSequence({
@@ -59,7 +43,6 @@ export default function ScrollSequence({
   const ctxRef = useRef(null)
   const drawRafRef = useRef(null)
   const scrollRafRef = useRef(null)
-  const idleLoadRef = useRef(null)
   const mountedRef = useRef(false)
   const [loaded, setLoaded] = useState(false)
   const [visualState, setVisualState] = useState({ progress: 0, zoomExtra: 0 })
@@ -114,11 +97,33 @@ export default function ScrollSequence({
     return promise
   }, [getFrameSrc, maxFrame, minFrame])
 
+  const releaseDistantFrames = useCallback((centerFrame) => {
+    const keepMin = Math.max(minFrame, centerFrame - FRAME_CACHE_RADIUS)
+    const keepMax = Math.min(maxFrame - 1, centerFrame + FRAME_CACHE_RADIUS)
+
+    readyFramesRef.current.forEach((frameIndex) => {
+      if (frameIndex >= keepMin && frameIndex <= keepMax) return
+      if (pendingLoadsRef.current.has(frameIndex)) return
+
+      const img = imagesRef.current[frameIndex]
+      if (img) {
+        img.onload = null
+        img.onerror = null
+        img.removeAttribute('src')
+      }
+
+      imagesRef.current[frameIndex] = undefined
+      readyFramesRef.current.delete(frameIndex)
+    })
+  }, [maxFrame, minFrame])
+
   const loadFrameWindow = useCallback((centerFrame, priority = 'low') => {
-    for (let offset = -2; offset <= 2; offset++) {
+    releaseDistantFrames(centerFrame)
+
+    for (let offset = -FRAME_PRELOAD_RADIUS; offset <= FRAME_PRELOAD_RADIUS; offset++) {
       loadFrame(centerFrame + offset, priority)
     }
-  }, [loadFrame])
+  }, [loadFrame, releaseDistantFrames])
 
   const findNearestReadyFrame = useCallback((frameIndex) => {
     if (readyFramesRef.current.has(frameIndex)) return frameIndex
@@ -165,7 +170,8 @@ export default function ScrollSequence({
     currentFrameRef.current = drawableFrame
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.drawImage(img, 0, 0)
-  }, [findNearestReadyFrame, loadFrame])
+    releaseDistantFrames(drawableFrame)
+  }, [findNearestReadyFrame, loadFrame, releaseDistantFrames])
 
   useEffect(() => {
     mountedRef.current = true
@@ -193,33 +199,9 @@ export default function ScrollSequence({
 
     primeFrames.forEach((frame) => loadFrame(frame, 'high'))
 
-    const remainingFrames = []
-    for (let frame = minFrame + 8; frame < maxFrame; frame++) {
-      remainingFrames.push(frame)
-    }
-
-    let cursor = 0
-    const scheduleIdleLoad = () => {
-      idleLoadRef.current = requestIdle(() => {
-        if (cancelled) return
-
-        for (let count = 0; count < IDLE_BATCH_SIZE && cursor < remainingFrames.length; count++) {
-          loadFrame(remainingFrames[cursor])
-          cursor++
-        }
-
-        if (cursor < remainingFrames.length) {
-          scheduleIdleLoad()
-        }
-      })
-    }
-
-    scheduleIdleLoad()
-
     return () => {
       cancelled = true
       mountedRef.current = false
-      if (idleLoadRef.current) cancelIdle(idleLoadRef.current)
       pendingLoadsRef.current.clear()
     }
   }, [drawFrame, loadFrame, maxFrame, minFrame, totalFrames])
