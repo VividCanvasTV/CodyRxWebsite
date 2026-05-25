@@ -6,7 +6,7 @@ const PORTAL_REGISTER_URL = 'https://portal.codydrugrx.com/provider/register.php
 const trustCards = [
   {
     title: 'A Real Relationship',
-    copy: 'We take the time to understand your practice, your patients, and your needs.',
+    copy: "At Cody Drug, you're not a number. We take the time to get to know your practice, the patients, and design our process around how you work.",
     icon: (
       <svg viewBox="0 0 48 48" aria-hidden="true">
         <circle cx="17" cy="17" r="6" />
@@ -18,7 +18,7 @@ const trustCards = [
   },
   {
     title: 'Speed & Reliability',
-    copy: 'Fast turnaround. Consistent delivery. Count on us, every time.',
+    copy: 'Same-day turnaround on sterile compounds. Live status tracking. Individual support, every time.',
     icon: (
       <svg viewBox="0 0 48 48" aria-hidden="true">
         <circle cx="26" cy="25" r="13" />
@@ -29,7 +29,7 @@ const trustCards = [
   },
   {
     title: 'Compliance First',
-    copy: 'Built around the highest standards of safety, quality, and compliance.',
+    copy: 'We over-test and over-deliver when it comes to safety. We never cut corners on quality ingredients, process, or compliance.',
     icon: (
       <svg viewBox="0 0 48 48" aria-hidden="true">
         <path d="M24 5l16 6v11c0 10-6.3 17-16 21C14.3 39 8 32 8 22V11l16-6Z" />
@@ -42,32 +42,32 @@ const trustCards = [
 const services = [
   {
     name: 'Weight Loss',
-    copy: 'Personalized compounding options designed to support weight management protocols with patient-specific care.',
+    copy: 'Cody Drug supports weight loss providers who need more than a vendor. From personalized GLP-1 therapies to responsive support, we help clinics deliver better patient outcomes with less friction.',
     accent: 'Metabolic support',
   },
   {
     name: "Men's Health",
-    copy: 'Provider-directed formulations that support men\'s health needs with clear communication and dependable fulfillment.',
+    copy: "Cody Drug supports men's health providers who treat the individual, not the average. Providers trust Cody Drug to deliver results.",
     accent: 'Performance care',
   },
   {
     name: "Women's Health",
-    copy: 'Compounded options for women\'s health protocols, prepared around patient needs and provider direction.',
+    copy: "Cody Drug supports women's health providers who know every patient's needs are different. From hormone therapies to personalized compounds, we help providers deliver care built around the individual.",
     accent: 'Tailored support',
   },
   {
     name: 'Wellness',
-    copy: 'Supportive wellness compounds for practices that need a reliable, patient-centered pharmacy partner.',
+    copy: 'Cody Drug partners with wellness providers who believe healthcare should feel personal. We help clinics deliver customized therapies with speed, precision, and service that patients can actually feel.',
     accent: 'Whole-body care',
   },
   {
     name: 'Peptides',
-    copy: 'Peptide therapy support with careful intake, quality-minded preparation, and provider-focused follow-through.',
+    copy: 'Cody Drug supports forward-thinking providers bringing peptide therapies into modern care plans. We combine precision compounding with real partnership to help clinics move faster and care deeper.',
     accent: 'Specialty protocols',
   },
   {
     name: 'Dermatology',
-    copy: 'Topical and dermatology-focused compounding options shaped around provider requests and patient tolerability.',
+    copy: 'Cody Drug supports dermatology providers who need treatments tailored to the patient, not pulled off a shelf. From customized compounds to responsive support, we help practices deliver care with precision, speed, and confidence.',
     accent: 'Skin-focused care',
   },
 ]
@@ -148,14 +148,6 @@ function CompoundingPage() {
 
   const selectedService = services[activeService]
 
-  const showPrev = () => {
-    setActiveService((current) => (current === 0 ? services.length - 1 : current - 1))
-  }
-
-  const showNext = () => {
-    setActiveService((current) => (current === services.length - 1 ? 0 : current + 1))
-  }
-
   return (
     <>
       <div id="top" className="bh-shell services-home-nav-shell">
@@ -167,16 +159,17 @@ function CompoundingPage() {
           <div className="hero-bg" aria-hidden="true" />
           <div className="hero-copy reveal">
             <h1 id="services-hero-title">
-              <span>Small town care,</span>
-              <span>nation&#8209;wide.</span>
+              <span>Pharmacy Services.</span>
+              <span>Designed For You.</span>
             </h1>
             <p>
-              Cody Drug Rx pairs hometown relationships with high-standard compounding,
-              provider support, and personalized care delivered across the country.
+              From serving our community to supporting the growth of medical practices,
+              our pharmacy services are designed with one purpose. To put people above
+              products.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href={PORTAL_REGISTER_URL} target="_blank" rel="noreferrer">Get Started</a>
-              <a className="btn btn-secondary" href="#our-services">Our Services</a>
+              <a className="btn btn-primary" href="/pages/providers.html">Providers</a>
+              <a className="btn btn-secondary" href="/pages/playbook.html">Patients</a>
             </div>
           </div>
 
@@ -200,11 +193,10 @@ function CompoundingPage() {
 
         <section className="quality-feature" aria-labelledby="quality-title">
           <div className="quality-copy reveal">
-            <p className="eyebrow">Quality You Can Trust</p>
+            <p className="eyebrow">Real people. Real solutions.</p>
             <h2 id="quality-title">
-              <span>Built for Precision</span>
-              <span className="quality-red-line">Backed by Compliance</span>
-              <span>Handled with Care</span>
+              <span>The Cody Drug</span>
+              <span className="quality-red-line">Difference</span>
             </h2>
             <p>
               Since 2010, Cody Drug has been more than just a pharmacy - it's a place
@@ -214,7 +206,7 @@ function CompoundingPage() {
               plus services like vaccinations, telehealth solutions, medication packaging,
               &amp; wellness supplements.
             </p>
-            <a className="btn btn-secondary" href="#certifications">Learn More</a>
+            <a className="btn btn-secondary" href="#certifications">Provider Sign-Up</a>
           </div>
 
           <div className="lab-pill-stack reveal" aria-label="Sterile Cody Drug Rx lab">
@@ -228,12 +220,12 @@ function CompoundingPage() {
           <div className="services-asset-stage-bg" aria-hidden="true" />
           <div className="provider-stage-copy">
             <h2 id="provider-stage-title">
-              <span>Prescribed with Confidence</span>
-              <em>Elevate Patient Care</em>
+              <span>Elevated Service.</span>
+              <em>Better Outcomes.</em>
             </h2>
             <p>
-              Cody Drug combines precision, speed, and care to help providers deliver
-              better patient outcomes.
+              When your pharmacy is a partner instead of a roadblock, outcomes improve,
+              practices grow, and providers stay.
             </p>
           </div>
           <div className="provider-stage-cards" aria-label="Provider trust highlights">
@@ -280,22 +272,6 @@ function CompoundingPage() {
               </div>
             </article>
           </div>
-
-          <div className="service-controls" aria-label="Service carousel controls">
-            <div className="service-progress" aria-hidden="true">
-              {services.map((service, index) => (
-                <span className={activeService === index ? 'is-active' : ''} key={service.name} />
-              ))}
-            </div>
-            <div className="service-arrows">
-              <button type="button" onClick={showPrev} aria-label="Previous service">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
-              </button>
-              <button type="button" onClick={showNext} aria-label="Next service">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
-              </button>
-            </div>
-          </div>
         </section>
 
         <section className="certifications" id="certifications" aria-labelledby="certifications-title">
@@ -304,7 +280,15 @@ function CompoundingPage() {
           <div className="cert-grid">
             {certifications.map((cert) => (
               <article className="cert-card reveal" key={cert.label}>
-                {cert.label === 'LegitScript' ? (
+                {cert.label === 'NABP*' ? (
+                  <>
+                    <img className="nabp-logo" src="/pages/assets/nabp-white.png" alt="" aria-hidden="true" />
+                    <div>
+                      <strong>{cert.label}</strong>
+                      <span>{cert.detail}</span>
+                    </div>
+                  </>
+                ) : cert.label === 'LegitScript' ? (
                   <>
                     <img className="legitscript-logo" src="/pages/assets/legitscript-certified.png" alt="" aria-hidden="true" />
                     <div>
@@ -333,7 +317,7 @@ function CompoundingPage() {
 
         <section className="services-cta" aria-labelledby="cta-title">
           <div className="cta-copy">
-            <h2 id="cta-title">Ready to partner with <em>Cody Drug Rx?</em></h2>
+            <h2 id="cta-title">Ready to partner with <em>Cody Drug?</em></h2>
             <p>Access our provider portal to self-register, manage your account, and start working with our compounding team today.</p>
           </div>
           <div className="cta-action">
