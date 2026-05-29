@@ -29,7 +29,7 @@ const ABOUT_PAGE_URL = '/pages/about.html'
 const SERVICES_PAGE_URL = '/services/compounding'
 const COMPOUNDING_PAGE_URL = '/services/compounding'
 const CAREERS_URL = '/pages/careers.html'
-const LICENSES_URL = '/pages/about.html#licenses'
+const CREDENTIALS_URL = '/pages/credentials.html'
 const EVENTS_URL = '/pages/events.html'
 const RESOURCES_URL = '/pages/resources.html'
 const PRODUCTS_URL = '/#products'
@@ -114,7 +114,7 @@ const MEGA_MENU_CONTENT = {
           { href: SERVICES_PAGE_URL, label: 'Services' },
           { href: CAREERS_URL, label: 'Careers' },
           { href: EVENTS_URL, label: 'Events' },
-          { href: LICENSES_URL, label: 'Licenses' },
+          { href: CREDENTIALS_URL, label: 'Credentials' },
         ],
       },
     ],
@@ -219,7 +219,7 @@ export function BrighterNavbar({ logoHref = '#top', logoScroll = true } = {}) {
         { href: SERVICES_PAGE_URL, label: 'Services' },
         { href: CAREERS_URL, label: 'Careers' },
         { href: EVENTS_URL, label: 'Events' },
-        { href: LICENSES_URL, label: 'Licenses' },
+        { href: CREDENTIALS_URL, label: 'Credentials' },
       ],
     },
     {

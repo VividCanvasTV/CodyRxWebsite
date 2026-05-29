@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared-nav.css">
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="contact.css?v=accent-about-blue">
 </head>
 <body>
-    <header class="cr-nav">
+    <header class="cr-nav about-nav">
         <div class="cr-nav-inner">
             <a href="/" class="cr-nav-logo" aria-label="Cody Drug Rx home"><img class="cr-nav-logo-image" src="assets/cody-drug-logo-red.png" alt="Cody Drug Rx"></a>
             <nav aria-label="Primary">
@@ -24,72 +24,43 @@
                                 <a href="/services/compounding" class="cr-nav-mlink">Services</a>
                                 <a href="/pages/careers.html" class="cr-nav-mlink">Careers</a>
                                 <a href="/pages/events.html" class="cr-nav-mlink">Events</a>
-                                <a href="/pages/about.html#licenses" class="cr-nav-mlink">Licenses</a>
+                                <a href="/pages/credentials.html" class="cr-nav-mlink">Credentials</a>
+                                <a href="/pages/about.html#quality-standards" class="cr-nav-mlink">Quality Standards</a>
                             </div>
                         </div>
                     </li>
+                    <li class="cr-nav-item"><a href="/services/compounding" class="cr-nav-link">Services</a></li>
+                    <li class="cr-nav-item"><a href="/pages/providers.html" class="cr-nav-link">Providers</a></li>
                     <li class="cr-nav-item">
-                        <a href="/services/compounding" class="cr-nav-trigger">Services<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+                        <a href="/pages/resources.html" class="cr-nav-trigger">Resources<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
                         <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
                             <div class="cr-nav-col">
-                                <p class="cr-nav-col-title">Services</p>
-                                <a href="/services/compounding" class="cr-nav-mlink">Compounding</a>
-                                <a href="/services/compounding" class="cr-nav-mlink">Vaccines</a>
-                                <a href="/services/compounding" class="cr-nav-mlink">Medicine</a>
+                                <p class="cr-nav-col-title">Resources</p>
+                                <a href="/pages/resources.html" class="cr-nav-mlink">Patient Resources</a>
+                                <a href="/pages/resources.html#compounding-news" class="cr-nav-mlink">Compounding News</a>
                             </div>
                         </div>
                     </li>
                     <li class="cr-nav-item">
-                        <a href="/pages/providers.html" class="cr-nav-trigger">Providers<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-                        <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
-                            <div class="cr-nav-col">
-                                <p class="cr-nav-col-title">Providers</p>
-                                <a href="https://portal.codydrugrx.com/" class="cr-nav-mlink" target="_blank" rel="noreferrer">Provider Portal</a>
-                                <a href="/pages/providers.html#consultation" class="cr-nav-mlink">Provider Inquiry</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="cr-nav-item"><a href="/pages/resources.html" class="cr-nav-link">Resources</a></li>
-                    <li class="cr-nav-item">
-                        <a href="/#products" class="cr-nav-trigger">Products<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+                        <a href="/pages/providers.html#pricing-catalog" class="cr-nav-trigger">Products<svg class="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
                         <div class="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
                             <div class="cr-nav-col">
                                 <p class="cr-nav-col-title">Products</p>
-                                <a href="/#products" class="cr-nav-mlink">Supplements</a>
-                                <a href="/services/compounding" class="cr-nav-mlink">Compounds</a>
+                                <a href="/pages/providers.html#pricing-catalog-compounds" class="cr-nav-mlink">Compounds</a>
+                                <a href="/pages/providers.html#pricing-catalog-supplements" class="cr-nav-mlink">Supplements</a>
                             </div>
                         </div>
                     </li>
-                    <li class="cr-nav-item"><a href="/pages/contact.html" class="cr-nav-link is-active">Contact</a></li>
+                    <li class="cr-nav-item"><a href="/pages/contact.html" class="cr-nav-link is-active" aria-current="page">Contact</a></li>
                 </ul>
             </nav>
             <div class="cr-nav-actions">
                 <a href="https://portal.codydrugrx.com/" class="cr-nav-shortcut" target="_blank" rel="noreferrer">Provider Portal</a>
                 <a href="/pages/virtual-consult.html" class="cr-nav-shortcut">Live Rx Consult</a>
-                <a href="/#review" class="cr-nav-shortcut cr-nav-shortcut--primary">Refill</a>
+                <a href="/#review" class="cr-nav-shortcut">Refill</a>
             </div>
         </div>
     </header>
-    <header class="site-header" id="top">
-        <section class="hero-shell" aria-labelledby="contact-title">
-            <div class="hero-copy">
-                <p class="eyebrow">Contact Us</p>
-                <h1 id="contact-title">Connect With<br><span>Cody Drug</span></h1>
-                <p>We're here to help with provider support, patient questions, refills, and custom compounding needs.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-red" href="/pages/contact.html#contact-form">Provider Inquiry</a>
-                    <a class="btn btn-red hero-phone-btn" href="tel:+19038852639">Office (903) 885-2639</a>
-                </div>
-            </div>
-
-            <div class="hero-visual" aria-label="Cody Drug team photo">
-                <article class="hero-photo-card">
-                    <img src="assets/contact-hero-team-photo.jpg" alt="Three smiling Cody Drug team members.">
-                </article>
-            </div>
-        </section>
-    </header>
-
     <main>
         <section class="contact-paths section-shell" id="provider-inquiry" aria-labelledby="paths-title">
             <div class="paths-layout">
@@ -237,22 +208,11 @@
         </section>
 
         <section class="direct-section section-shell" aria-labelledby="direct-title">
-            <a class="map-card" href="https://www.google.com/maps/search/?api=1&query=1505%20S%20Broadway%20St%2C%20Sulphur%20Springs%2C%20TX%2075482" target="_blank" rel="noreferrer" aria-label="Open Cody Drug Rx address in Google Maps">
+            <div class="map-card" aria-label="Cody Drug Rx location in Sulphur Springs, Texas">
                 <div class="map-frame">
                     <img class="map-art" src="assets/contact-texas-location-card.png" alt="Glowing Texas location map for Sulphur Springs, TX.">
-                    <div class="map-label">
-                        <img class="map-location-logo" src="assets/cody-drug-logo-red.png" alt="" aria-hidden="true">
-                        <div class="map-label-text">
-                            <p>Cody Drug Rx</p>
-                            <span>1505 S Broadway St<br>Sulphur Springs, TX 75482</span>
-                        </div>
-                    </div>
-                    <div class="map-open">
-                        Open in Google Maps
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/><path d="M17 17v3H4V7h3"/></svg>
-                    </div>
                 </div>
-            </a>
+            </div>
 
             <div class="direct-panel">
                 <div class="direct-copy">
@@ -299,21 +259,19 @@
                             <strong>Hours: Monday - Friday 8:30 AM to 6 PM (CST) / Saturday and Sunday: Closed.</strong>
                         </div>
                     </article>
+                    <a class="info-item info-map-link" href="https://www.google.com/maps/search/?api=1&query=1505%20S%20Broadway%20St%2C%20Sulphur%20Springs%2C%20TX%2075482" target="_blank" rel="noreferrer" aria-label="Open Cody Drug Rx address in Google Maps">
+                        <div class="info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                        </div>
+                        <div>
+                            <span>Location</span>
+                            <strong>Open in Google Maps</strong>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section class="final-cta section-shell" aria-labelledby="final-cta-title">
-            <div class="final-cta-art">
-                <img class="final-cta-photo" src="assets/contact-final-cta-doctor-photo.png" alt="Smiling female doctor in a Cody Drug lab coat taking a phone call.">
-                <div class="final-cta-content">
-                    <p class="eyebrow">Still Deciding?</p>
-                    <h2 id="final-cta-title">Not Sure Where<br>to <span>Start?</span></h2>
-                    <p>Send a message and the Cody Drug team will route your request to the right place.</p>
-                    <a class="btn btn-red" href="/pages/contact.html#contact-form">Contact Cody Drug</a>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="site-footer">

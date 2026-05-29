@@ -129,14 +129,14 @@ a {
 .events-artboard {
     position: relative;
     isolation: isolate;
-    width: min(100%, 904px);
-    min-height: clamp(1420px, 192.37vw, 1739px);
+    width: 100%;
+    min-height: clamp(1420px, 210.77vw, 1821px);
     margin: 0 auto;
     padding: clamp(177px, 20.4vw, 185px) clamp(18px, 7.08vw, 64px) clamp(104px, 12vw, 126px);
     overflow: hidden;
     background:
         linear-gradient(90deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.02) 48%, rgba(0, 0, 0, 0.08)),
-        url("assets/provider-education-events-bg.png") center top / cover no-repeat;
+        url("assets/provider-education-events-bg.png") center top / 100% 100% no-repeat;
 }
 
 .events-artboard::before,

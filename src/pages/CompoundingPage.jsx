@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { BrighterNavbar } from '../components/BrighterHome'
 
 const PORTAL_REGISTER_URL = 'https://portal.codydrugrx.com/provider/register.php'
 
@@ -70,6 +69,16 @@ const services = [
     copy: 'Cody Drug supports dermatology providers who need treatments tailored to the patient, not pulled off a shelf. From customized compounds to responsive support, we help practices deliver care with precision, speed, and confidence.',
     accent: 'Skin-focused care',
   },
+  {
+    name: 'MedSync',
+    copy: 'Cody Drug helps patients and providers simplify medication routines with synchronized refills, clearer coordination, and support that keeps care moving on schedule.',
+    accent: 'Medication coordination',
+  },
+  {
+    name: 'Vaccines',
+    copy: 'Cody Drug supports accessible vaccine care with dependable service, patient-centered guidance, and a pharmacy team focused on protecting what matters.',
+    accent: 'Preventive care',
+  },
 ]
 
 const certifications = [
@@ -125,6 +134,72 @@ const providerStageCards = [
   },
 ]
 
+function ServicesNav() {
+  return (
+    <header className="cr-nav about-nav" id="top">
+      <div className="cr-nav-inner">
+        <a href="/" className="cr-nav-logo" aria-label="Cody Drug Rx home">
+          <img className="cr-nav-logo-image" src="/pages/assets/cody-drug-logo-red.png" alt="Cody Drug Rx" />
+        </a>
+        <nav aria-label="Primary">
+          <ul className="cr-nav-menu">
+            <li className="cr-nav-item">
+              <a href="/pages/about.html" className="cr-nav-trigger">
+                About Us
+                <svg className="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
+              </a>
+              <div className="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                <div className="cr-nav-col">
+                  <p className="cr-nav-col-title">About Us</p>
+                  <a href="/services/compounding" className="cr-nav-mlink">Services</a>
+                  <a href="/pages/careers.html" className="cr-nav-mlink">Careers</a>
+                  <a href="/pages/events.html" className="cr-nav-mlink">Events</a>
+                  <a href="/pages/credentials.html" className="cr-nav-mlink">Credentials</a>
+                  <a href="/pages/about.html#quality-standards" className="cr-nav-mlink">Quality Standards</a>
+                </div>
+              </div>
+            </li>
+            <li className="cr-nav-item"><a href="/services/compounding" className="cr-nav-link is-active" aria-current="page">Services</a></li>
+            <li className="cr-nav-item"><a href="/pages/providers.html" className="cr-nav-link">Providers</a></li>
+            <li className="cr-nav-item">
+              <a href="/pages/resources.html" className="cr-nav-trigger">
+                Resources
+                <svg className="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
+              </a>
+              <div className="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                <div className="cr-nav-col">
+                  <p className="cr-nav-col-title">Resources</p>
+                  <a href="/pages/resources.html" className="cr-nav-mlink">Patient Resources</a>
+                  <a href="/pages/resources.html#compounding-news" className="cr-nav-mlink">Compounding News</a>
+                </div>
+              </div>
+            </li>
+            <li className="cr-nav-item">
+              <a href="/pages/providers.html#pricing-catalog" className="cr-nav-trigger">
+                Products
+                <svg className="cr-nav-chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
+              </a>
+              <div className="cr-nav-mega cr-nav-mega--sitemap cr-nav-mega--simple">
+                <div className="cr-nav-col">
+                  <p className="cr-nav-col-title">Products</p>
+                  <a href="/pages/providers.html#pricing-catalog-compounds" className="cr-nav-mlink">Compounds</a>
+                  <a href="/pages/providers.html#pricing-catalog-supplements" className="cr-nav-mlink">Supplements</a>
+                </div>
+              </div>
+            </li>
+            <li className="cr-nav-item"><a href="/pages/contact.html" className="cr-nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <div className="cr-nav-actions">
+          <a href="https://portal.codydrugrx.com/" className="cr-nav-shortcut" target="_blank" rel="noreferrer">Provider Portal</a>
+          <a href="/pages/virtual-consult.html" className="cr-nav-shortcut">Live Rx Consult</a>
+          <a href="/#review" className="cr-nav-shortcut">Refill</a>
+        </div>
+      </div>
+    </header>
+  )
+}
+
 function CompoundingPage() {
   const [activeService, setActiveService] = useState(0)
 
@@ -132,17 +207,23 @@ function CompoundingPage() {
     document.body.classList.add('compounding-page')
     document.title = 'Cody Drug Rx | Services'
 
+    const sharedNavHref = '/pages/shared-nav.css'
+    const sharedNavLink = document.querySelector(`link[href="${sharedNavHref}"]`) || document.createElement('link')
     const pageHref = '/services/compounding/compounding.css'
     const pageLink = document.querySelector(`link[href="${pageHref}"]`) || document.createElement('link')
 
+    sharedNavLink.rel = 'stylesheet'
+    sharedNavLink.href = sharedNavHref
     pageLink.rel = 'stylesheet'
     pageLink.href = pageHref
 
+    if (!sharedNavLink.parentNode) document.head.appendChild(sharedNavLink)
     if (!pageLink.parentNode) document.head.appendChild(pageLink)
 
     return () => {
       document.body.classList.remove('compounding-page')
       if (pageLink.parentNode) pageLink.parentNode.removeChild(pageLink)
+      if (sharedNavLink.parentNode) sharedNavLink.parentNode.removeChild(sharedNavLink)
     }
   }, [])
 
@@ -150,9 +231,7 @@ function CompoundingPage() {
 
   return (
     <>
-      <div id="top" className="bh-shell services-home-nav-shell">
-        <BrighterNavbar logoHref="/" logoScroll={false} />
-      </div>
+      <ServicesNav />
 
       <main className="services-page">
         <section className="services-hero" aria-labelledby="services-hero-title">
@@ -240,7 +319,7 @@ function CompoundingPage() {
 
         <section className="services-showcase" id="our-services" aria-labelledby="services-title">
           <div className="section-intro reveal">
-            <p className="eyebrow">Our Services</p>
+            <p className="eyebrow">Take a Look At Our</p>
             <h2 id="services-title">Our Services</h2>
             <p>Compounded care categories built around real patient needs.</p>
           </div>

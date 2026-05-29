@@ -129,14 +129,8 @@ body.resources-page::after {
     color: #fff;
 }
 
-.hero-resource-logo {
-    filter:
-        drop-shadow(0 0 16px rgba(211, 19, 38, 0.2))
-        drop-shadow(0 2px 12px rgba(0, 0, 0, 0.36));
-}
-
 .section-shell {
-    width: min(100% - 40px, 980px);
+    width: min(1180px, calc(100% - 48px));
     margin-inline: auto;
 }
 
@@ -148,7 +142,7 @@ body.resources-page::after {
 
 .resources-hero {
     display: grid;
-    justify-items: center;
+    justify-items: stretch;
 }
 
 .glass-card {
@@ -226,8 +220,7 @@ body.resources-page::after {
 }
 
 .glass-card:hover .card-glare,
-.glass-card:focus-within .card-glare,
-.hero-resource-card .card-glare {
+.glass-card:focus-within .card-glare {
     animation: resourceCardGlare 2400ms cubic-bezier(0.16, 0.72, 0.18, 1) both;
 }
 
@@ -252,66 +245,50 @@ body.resources-page::after {
 }
 
 .hero-resource-card {
-    width: min(100%, 680px);
-    min-height: clamp(270px, 23vw, 360px);
+    max-width: 760px;
+    min-height: clamp(250px, 21vw, 340px);
     display: grid;
-    justify-items: center;
-    align-content: center;
-    gap: clamp(16px, 2.4vw, 24px);
-    padding: clamp(34px, 5vw, 62px);
-    text-align: center;
-    background:
-        linear-gradient(132deg, rgba(255, 255, 255, 0.18), transparent 0 22%, rgba(255, 255, 255, 0.05) 22.4%, transparent 54%),
-        radial-gradient(circle at 8% 86%, rgba(211, 19, 38, 0.34), transparent 15rem),
-        radial-gradient(circle at 96% 16%, rgba(117, 216, 227, 0.34), transparent 15rem),
-        linear-gradient(135deg, rgba(23, 32, 37, 0.82), rgba(4, 7, 9, 0.84) 60%, rgba(13, 4, 7, 0.78));
-    box-shadow:
-        -18px 18px 56px rgba(211, 19, 38, 0.16),
-        18px -14px 58px rgba(117, 216, 227, 0.18),
-        0 38px 90px rgba(0, 0, 0, 0.46),
-        inset 0 1px 0 rgba(255, 255, 255, 0.82),
-        inset 0 -2px 0 rgba(117, 216, 227, 0.28);
-}
-
-.hero-resource-card::after {
-    inset: 9px;
-}
-
-.hero-resource-logo {
-    width: clamp(70px, 7vw, 92px);
-    height: auto;
-    object-fit: contain;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: clamp(18px, 2.4vw, 28px);
+    padding: clamp(34px, 5vw, 76px) 0 clamp(16px, 3vw, 34px);
+    text-align: left;
 }
 
 .hero-resource-card h1 {
-    max-width: 620px;
+    max-width: 440px;
     margin: 0;
-    color: #fff;
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(3.6rem, 7vw, 5.9rem);
+    font-size: clamp(4.4rem, 8vw, 7rem);
     font-weight: 600;
     line-height: 0.86;
     letter-spacing: 0;
     text-wrap: balance;
     text-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.28),
         0 18px 36px rgba(0, 0, 0, 0.48);
 }
 
-.hero-rule {
-    width: min(100%, 390px);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 22px;
-    color: var(--red);
-    font-size: 2rem;
-    font-weight: 300;
+.hero-resource-card h1 span {
+    display: block;
 }
 
-.hero-rule span {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(248, 248, 244, 0.78), transparent);
+.hero-resource-card h1 span:first-child {
+    color: #fff;
+}
+
+.hero-resource-card h1 span:last-child {
+    color: var(--red);
+    text-shadow:
+        0 0 28px rgba(211, 19, 38, 0.24),
+        0 18px 36px rgba(0, 0, 0, 0.48);
+}
+
+.hero-resource-card p {
+    max-width: 680px;
+    margin: 0;
+    color: var(--muted);
+    font-size: clamp(1rem, 1.35vw, 1.14rem);
+    line-height: 1.74;
 }
 
 .card-reflection {
@@ -337,8 +314,10 @@ body.resources-page::after {
 
 .resources-stack {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
     gap: clamp(24px, 4vw, 34px);
-    padding-top: clamp(48px, 6vw, 72px);
+    padding-top: clamp(36px, 5vw, 56px);
 }
 
 .resource-card {
@@ -353,6 +332,10 @@ body.resources-page::after {
         border-color 180ms ease,
         box-shadow 180ms ease,
         background 180ms ease;
+}
+
+.contact-card {
+    grid-column: 1 / -1;
 }
 
 .resource-card:hover,
@@ -418,11 +401,6 @@ body.resources-page::after {
     text-wrap: balance;
 }
 
-.intro-card .card-copy h2 span:first-child {
-    color: #fff;
-}
-
-.intro-card .card-copy h2 span:last-child,
 .contact-card .card-copy h2 span {
     color: var(--red);
     text-shadow: 0 0 26px rgba(211, 19, 38, 0.24);
@@ -705,7 +683,13 @@ body.resources-page::after {
     }
 
     .hero-resource-card {
-        min-height: 280px;
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 22px;
+    }
+
+    .resources-stack {
+        grid-template-columns: 1fr;
     }
 
     .resource-card {
@@ -743,16 +727,11 @@ body.resources-page::after {
     }
 
     .hero-resource-card {
-        min-height: 245px;
         padding: 30px 22px;
     }
 
     .hero-resource-card h1 {
-        font-size: clamp(3rem, 18vw, 4.3rem);
-    }
-
-    .hero-rule {
-        gap: 14px;
+        font-size: clamp(3.15rem, 17vw, 4.7rem);
     }
 
     .resource-card {
