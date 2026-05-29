@@ -17,6 +17,9 @@ const HIT_EDGE_TOLERANCE = 0.065
 const HIT_KEEP_TOLERANCE = 0.12
 const MAP_BASE_ROTATION = [-0.18, 0.04, 0]
 const POINTER_ZOOM_PULL = 0.62
+const PENDING_STATE_BLUE = '#2F7894'
+const PENDING_STATE_BLUE_HOVER = '#65BEDB'
+const PENDING_STATE_BLUE_SOFT = '#65BEDB'
 
 const STATUS_STYLES = {
   licensed: {
@@ -29,11 +32,11 @@ const STATUS_STYLES = {
   },
   pending: {
     label: 'Pending',
-    fill: '#75D8E3',
-    fillHover: '#75D8E3',
-    glow: '#75D8E3',
-    flare: '#75D8E3',
-    softGlow: '#75D8E3',
+    fill: PENDING_STATE_BLUE,
+    fillHover: PENDING_STATE_BLUE_HOVER,
+    glow: PENDING_STATE_BLUE,
+    flare: PENDING_STATE_BLUE_SOFT,
+    softGlow: PENDING_STATE_BLUE_SOFT,
   },
   comingSoon: {
     label: 'Coming Soon',

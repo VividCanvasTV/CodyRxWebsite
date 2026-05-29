@@ -848,97 +848,86 @@ function Hero() {
 ───────────────────────────────────────────── */
 const PILLARS = [
   {
-    key: 'compounding',
-    eyebrow: '01',
-    title: 'TAILORED COMPOUNDS',
+    key: 'main-tile-1',
+    eyebrow: '1',
+    title: 'Tailored Compounds',
     desc: 'Medication centered around patients, not products.',
     side: 'right',
   },
   {
-    key: 'retention',
-    eyebrow: '02',
+    key: 'main-tile-2',
+    eyebrow: '2',
     title: '95%',
-    desc: 'provider retention rate',
+    desc: 'Provider Retention Rate',
     side: 'right',
   },
   {
-    key: 'processing',
-    eyebrow: '03 — PROCESSING TIME COMPARISON',
-    title: '10x faster',
-    desc: 'Cody Drug: 24hr avg processing. Industry Average: 10 days.',
+    key: 'main-tile-3',
+    eyebrow: '3',
+    title: '10x',
+    desc: 'Faster Fulfillment Rate',
     side: 'right',
   },
   {
-    key: 'standards',
-    eyebrow: '04',
-    title: 'Best-practice sterile and non-sterile safety standards.',
-    desc: '',
-    side: 'right',
-  },
-  {
-    key: 'account-management',
-    eyebrow: '05',
-    title: '24/7 accessible account management',
+    key: 'main-tile-4',
+    eyebrow: '4',
+    title: 'Best-practice Safety Standards',
     desc: '',
     side: 'right',
   },
 ]
 
-/* Pillars driven by a 0..1 progress value (passed from ScrollSequence's
-   function-as-children). The windows slightly overlap, but outgoing cards fade
-   before the next card becomes readable so the glass text does not ghost. */
+/* Tiles wait until the person is nearly in frame, then stack and hold until
+   the end parallax cover starts taking over. */
 const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
 const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4)
+const PILLAR_EXIT_START = 0.9
 const PILLAR_TIMING = [
-  { start: 0.06, end: 0.32, y: 0 },
-  { start: 0.31, end: 0.54, y: 0 },
-  { start: 0.53, end: 0.72, y: -24, exitY: 120 },
-  { start: 0.7, end: 0.86, y: -18 },
-  { start: 0.84, end: 0.98, y: -52 },
+  { enterStart: 0.68, enterEnd: 0.74, y: -300 },
+  { enterStart: 0.71, enterEnd: 0.77, y: -194 },
+  { enterStart: 0.74, enterEnd: 0.8, y: -88 },
+  { enterStart: 0.77, enterEnd: 0.83, y: 18 },
 ]
 
 function computePillarStyle(progress, index, total, sideMult) {
   const timing = PILLAR_TIMING[index] ?? {
-    start: index / total,
-    end: (index + 1) / total,
+    enterStart: 0.68 + index * 0.03,
+    enterEnd: 0.74 + index * 0.03,
     y: 0,
   }
-  const { start, end, y, exitY = 0 } = timing
-  const localProgress = (progress - start) / (end - start)
-  const enterEnd = 0.34
-  const exitStart = 0.64
+  const { enterStart, enterEnd, y } = timing
 
   let opacity, x, rotate, scale, blur, exitProgress, zIndex
-  if (localProgress < 0) {
-    opacity = 0; x = 580 * sideMult; rotate = 3 * sideMult; scale = 0.97; blur = 10; exitProgress = 0; zIndex = 1
-  } else if (localProgress < enterEnd) {
-    const raw = localProgress / enterEnd
+  if (progress < enterStart) {
+    opacity = 0; x = 340 * sideMult; rotate = 2 * sideMult; scale = 0.98; blur = 8; exitProgress = 0; zIndex = 1
+  } else if (progress < enterEnd) {
+    const raw = (progress - enterStart) / (enterEnd - enterStart)
     const tOpacity = easeInOutCubic(raw)
     const tMove = easeOutQuart(raw)
     opacity = tOpacity
-    x = 580 * sideMult * (1 - tMove)
-    rotate = 3 * sideMult * (1 - tMove)
-    scale = 0.97 + 0.03 * tMove
-    blur = 10 * (1 - tOpacity)
+    x = 340 * sideMult * (1 - tMove)
+    rotate = 2 * sideMult * (1 - tMove)
+    scale = 0.98 + 0.02 * tMove
+    blur = 8 * (1 - tOpacity)
     exitProgress = 0
-    zIndex = 3
-  } else if (localProgress < exitStart) {
-    opacity = 1; x = 0; rotate = 0; scale = 1; blur = 0; exitProgress = 0; zIndex = 3
-  } else if (localProgress < 1) {
-    const raw = (localProgress - exitStart) / (1 - exitStart)
+    zIndex = 3 + index
+  } else if (progress < PILLAR_EXIT_START) {
+    opacity = 1; x = 0; rotate = 0; scale = 1; blur = 0; exitProgress = 0; zIndex = 3 + index
+  } else if (progress < 1) {
+    const raw = (progress - PILLAR_EXIT_START) / (1 - PILLAR_EXIT_START)
     const t = easeInOutCubic(raw)
-    opacity = Math.max(0, 1 - t * 1.35)
-    x = -360 * sideMult * t
-    rotate = -2 * sideMult * t
-    scale = 1 - 0.04 * t
-    blur = 12 * t
+    opacity = Math.max(0, 1 - t * 1.2)
+    x = 0
+    rotate = 0
+    scale = 1 - 0.03 * t
+    blur = 10 * t
     exitProgress = t
-    zIndex = 2
+    zIndex = 3 + index
   } else {
-    opacity = 0; x = -360 * sideMult; rotate = -2 * sideMult; scale = 0.96; blur = 12; exitProgress = 1; zIndex = 1
+    opacity = 0; x = 0; rotate = 0; scale = 0.97; blur = 10; exitProgress = 1; zIndex = 1
   }
 
-  const yOffset = y + exitY * exitProgress
+  const yOffset = y - 70 * exitProgress
 
   return {
     opacity,
@@ -961,6 +950,7 @@ function PillarsProgressOverlay({ progress }) {
             className={`bh-ps-card bh-ps-card--${pillar.side} bh-ps-card--${pillar.key}`}
             style={style}
           >
+            <span className="bh-ps-eyebrow">{pillar.eyebrow})</span>
             <h3 className="bh-ps-title">{pillar.title}</h3>
             {pillar.desc ? <p className="bh-ps-desc">{pillar.desc}</p> : null}
           </div>
@@ -1666,7 +1656,7 @@ function FeaturedTestimonials() {
     <section className="bh-testimonials-section" id="peptides">
       <div className="bh-container">
         <motion.div className="bh-testimonials-header" {...fadeUp}>
-          <p className="bh-testimonials-kicker">[ Provider Testimonials ]</p>
+          <p className="bh-testimonials-kicker">Provider Testimonials</p>
           <h2 className="bh-testimonials-title">
             Providers Trust Cody Drug
           </h2>
