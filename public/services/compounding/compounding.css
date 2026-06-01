@@ -1012,7 +1012,7 @@ body.compounding-page .nav-shop-row-top a::after {
   border-radius: 12px;
   background:
     radial-gradient(circle at 42% 0%, rgba(255, 255, 255, 0.2), transparent 38%),
-    radial-gradient(circle at 78% 78%, rgba(0, 200, 215, 0.11), transparent 48%),
+    radial-gradient(circle at 78% 78%, rgba(101, 190, 219, 0.11), transparent 48%),
     linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.025)),
     rgba(6, 13, 15, 0.24);
   box-shadow:
@@ -1032,15 +1032,7 @@ body.compounding-page .nav-shop-row-top a::after {
 }
 
 .provider-stage-card::before {
-  content: "";
-  position: absolute;
-  left: 44px;
-  bottom: 34px;
-  width: 46px;
-  height: 2px;
-  background: var(--service-red);
-  box-shadow: 0 0 14px rgba(226, 13, 34, 0.6);
-  z-index: 1;
+  content: none;
 }
 
 .provider-stage-card::after {
@@ -1061,16 +1053,16 @@ body.compounding-page .nav-shop-row-top a::after {
 
 .provider-stage-card:hover,
 .provider-stage-card:focus-within {
-  border-color: rgba(0, 200, 215, 0.82);
+  border-color: rgba(101, 190, 219, 0.82);
   background:
     radial-gradient(circle at 42% 0%, rgba(255, 255, 255, 0.2), transparent 38%),
-    radial-gradient(circle at 78% 78%, rgba(0, 200, 215, 0.18), transparent 48%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(0, 200, 215, 0.055) 36%, transparent 62%),
+    radial-gradient(circle at 78% 78%, rgba(101, 190, 219, 0.18), transparent 48%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(101, 190, 219, 0.055) 36%, transparent 62%),
     rgba(6, 14, 16, 0.28);
   box-shadow:
     0 30px 72px rgba(0, 0, 0, 0.42),
-    0 0 0 1px rgba(0, 200, 215, 0.22),
-    0 0 38px rgba(0, 200, 215, 0.16),
+    0 0 0 1px rgba(101, 190, 219, 0.22),
+    0 0 38px rgba(101, 190, 219, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     inset 20px 20px 46px rgba(255, 255, 255, 0.04),
     inset -22px -24px 52px rgba(0, 0, 0, 0.18);
@@ -1081,8 +1073,8 @@ body.compounding-page .nav-shop-row-top a::after {
 .provider-stage-card:focus-within::after {
   background:
     radial-gradient(circle, rgba(255, 255, 255, 0.96), transparent 8px),
-    linear-gradient(90deg, transparent, rgba(0, 200, 215, 0.98), transparent);
-  box-shadow: 0 0 24px rgba(0, 200, 215, 0.52);
+    linear-gradient(90deg, transparent, rgba(101, 190, 219, 0.98), transparent);
+  box-shadow: 0 0 24px rgba(101, 190, 219, 0.52);
 }
 
 .provider-stage-icon {
@@ -1091,7 +1083,8 @@ body.compounding-page .nav-shop-row-top a::after {
   width: 82px;
   height: 82px;
   color: var(--service-teal);
-  filter: drop-shadow(0 0 18px rgba(0, 200, 215, 0.18));
+  filter: drop-shadow(0 0 18px rgba(101, 190, 219, 0.18));
+  transform: translateY(20px);
   transition: color 240ms ease, filter 240ms ease, transform 240ms ease;
 }
 
@@ -1121,11 +1114,11 @@ body.compounding-page .nav-shop-row-top a::after {
 
 .provider-stage-card:hover .provider-stage-icon,
 .provider-stage-card:focus-within .provider-stage-icon {
-  color: #56f5f5;
+  color: var(--service-teal);
   filter:
-    drop-shadow(0 0 18px rgba(0, 200, 215, 0.36))
-    drop-shadow(0 0 34px rgba(0, 200, 215, 0.18));
-  transform: translateY(-2px);
+    drop-shadow(0 0 18px rgba(101, 190, 219, 0.36))
+    drop-shadow(0 0 34px rgba(101, 190, 219, 0.18));
+  transform: translateY(18px);
 }
 
 .services-showcase {

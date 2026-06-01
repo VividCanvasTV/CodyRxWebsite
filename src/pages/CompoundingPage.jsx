@@ -90,45 +90,47 @@ const certifications = [
 
 const providerStageCards = [
   {
-    copy: 'USP 797-certified sterile compounding',
+    copy: 'Provider resources and in-clinic education',
     icon: (
       <svg viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M32 6 51 14v16c0 13.2-7.5 22.1-19 28C20.5 52.1 13 43.2 13 30V14l19-8Z" />
-        <path d="m23 32 6 6 13-16" />
+        <path d="M10 14h20c4.4 0 8 3.6 8 8v28c0-4.4-3.6-8-8-8H10V14Z" />
+        <path d="M54 14H38v36c0-4.4 3.6-8 8-8h8V14Z" />
+        <path d="M17 24h12M17 32h12M44 24h5M44 32h5" />
       </svg>
     ),
   },
   {
-    copy: 'Trusted by 1,000+ providers',
+    copy: 'Custom provider portal',
     icon: (
       <svg viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="23" r="8" />
-        <circle cx="18" cy="27" r="6" />
-        <circle cx="46" cy="27" r="6" />
-        <path d="M18 37c-7.2 0-11 4.6-11 12v5h22" />
-        <path d="M46 37c7.2 0 11 4.6 11 12v5H35" />
-        <path d="M32 36c-8.3 0-14 5.2-14 14v4h28v-4c0-8.8-5.7-14-14-14Z" />
+        <rect x="8" y="12" width="48" height="34" rx="4" />
+        <path d="M22 56h20M28 46v10M36 46v10" />
+        <path d="M18 23h28M18 31h14M39 31h7" />
+        <path d="M18 38h7M31 38h15" />
       </svg>
     ),
   },
   {
-    copy: 'Prescriptions ship same day with 24 to 48-hour nationwide delivery',
+    copy: 'Dedicated account management',
     icon: (
       <svg viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M6 22h30v24H6z" />
-        <path d="M36 29h10l10 10v7H36z" />
-        <circle cx="19" cy="49" r="5" />
-        <circle cx="47" cy="49" r="5" />
-        <path d="M11 15h25M4 29h16M2 36h18" />
+        <circle cx="26" cy="22" r="9" />
+        <path d="M10 54c1.2-10.7 6.6-16 16-16 6.1 0 10.7 2.3 13.6 6.8" />
+        <path d="M43 18h5a8 8 0 0 1 8 8v7a8 8 0 0 1-8 8h-4" />
+        <path d="M43 41l-6 7v-7" />
+        <path d="M44 27h6M44 34h4" />
       </svg>
     ),
   },
   {
-    copy: 'Licensed in AZ, CO, DC, DE, FL, HI, IN, KS, MN, MO, OK, PA, TX, WI',
+    copy: '24hr turn-around on sterile compounds',
     icon: (
       <svg viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M11 24l6-4 6 1 5-3 8 2 5-2 6 5 6 1-2 6 4 5-5 4 1 6-8 1-6 5-7-3-7 4-5-5-8-1 2-8-4-5 3-5Z" />
-        <path d="M15 28h5M26 24h7M40 27h8M22 39h9M37 42h8" />
+        <circle cx="32" cy="32" r="22" />
+        <path d="M32 18v15l10 6" />
+        <path d="M15 14l-5 5M49 14l5 5" />
+        <path d="M16 50l-4 4M48 50l4 4" />
+        <path d="M22 7h20" />
       </svg>
     ),
   },
@@ -248,7 +250,7 @@ function CompoundingPage() {
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="/pages/providers.html">Providers</a>
-              <a className="btn btn-secondary" href="/pages/playbook.html">Patients</a>
+              <a className="btn btn-secondary" href="/pages/providers.html#pricing-catalog">Patients</a>
             </div>
           </div>
 

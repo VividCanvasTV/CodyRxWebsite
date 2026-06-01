@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared-nav.css">
-    <link rel="stylesheet" href="contact.css?v=accent-about-blue">
+    <link rel="stylesheet" href="contact.css?v=headline-eyebrow-match">
 </head>
 <body>
     <header class="cr-nav about-nav">
@@ -37,7 +37,7 @@
                             <div class="cr-nav-col">
                                 <p class="cr-nav-col-title">Resources</p>
                                 <a href="/pages/resources.html" class="cr-nav-mlink">Patient Resources</a>
-                                <a href="/pages/resources.html#compounding-news" class="cr-nav-mlink">Compounding News</a>
+                                <a href="/pages/providers.html#articles-title" class="cr-nav-mlink">Compounding News</a>
                             </div>
                         </div>
                     </li>
@@ -134,7 +134,7 @@
 
                 <div class="section-heading paths-heading">
                     <div>
-                        <p class="eyebrow">We'll take it from here.</p>
+                        <p class="eyebrow">We'll take it from here</p>
                         <h2 id="paths-title">Choose the<br><span>Right Path.</span></h2>
                     </div>
                     <p>We’ve created clear paths so your inquiry reaches the right team faster. Choose the option that best matches your needs and we’ll take it from there.</p>
@@ -223,25 +223,25 @@
 
                 <div class="info-grid">
                     <!-- Approved contact info to be confirmed by Cody Drug before launch. -->
-                    <article class="info-item">
+                    <article class="info-item contact-action-card" data-card-link>
                         <div class="info-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.69a16 16 0 0 0 6.22 6.22l1.21-1.2a2 2 0 0 1 2.11-.45c.85.3 1.74.51 2.65.63A2 2 0 0 1 22 16.92Z"/></svg>
                         </div>
                         <div>
                             <span>Phone</span>
-                            <a href="tel:+19038852639">(903) 885-2639</a>
+                            <a class="contact-action-link" href="tel:+19038852639" data-phone-number>(903) 885-2639</a>
                         </div>
                     </article>
-                    <article class="info-item">
+                    <article class="info-item contact-action-card" data-card-link>
                         <div class="info-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
                         </div>
                         <div>
                             <span>Email Address</span>
-                            <a href="mailto:Lillian@codydrugrx.com">Lillian@codydrugrx.com</a>
+                            <a class="contact-action-link" href="mailto:lillian@codydrugrx.com">lillian@codydrugrx.com</a>
                         </div>
                     </article>
-                    <article class="info-item">
+                    <a class="info-item" href="https://www.google.com/maps/search/?api=1&query=1505%20S%20Broadway%20St%2C%20Sulphur%20Springs%2C%20TX%2075482" target="_blank" rel="noreferrer" aria-label="Open Cody Drug Rx address in Google Maps">
                         <div class="info-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                         </div>
@@ -249,7 +249,7 @@
                             <span>Address</span>
                             <address>1505 S Broadway St,<br>Sulphur Springs, TX 75482</address>
                         </div>
-                    </article>
+                    </a>
                     <article class="info-item">
                         <div class="info-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
@@ -292,12 +292,12 @@
                 <h3>Actions</h3>
                 <a href="https://portal.codydrugrx.com/" target="_blank" rel="noreferrer">Provider Portal</a>
                 <a href="/#review">Refill</a>
-                <a href="/pages/providers.html#consultation">Price List</a>
+                <a href="/pages/providers.html#pricing-catalog">Price List</a>
             </div>
             <div class="footer-col">
                 <h3>Contact</h3>
-                <a href="tel:+19038852639">(903) 885-2639</a>
-                <a href="mailto:Lillian@codydrugrx.com">Lillian@codydrugrx.com</a>
+                <a href="tel:+19038852639" data-phone-number>(903) 885-2639</a>
+                <a href="mailto:lillian@codydrugrx.com">lillian@codydrugrx.com</a>
                 <span>Details pending final approval.</span>
             </div>
         </div>
@@ -306,5 +306,22 @@
             <a href="#top">Back to top</a>
         </div>
     </footer>
+    <script>
+        const phoneHref = /Macintosh|Mac OS X/i.test(navigator.userAgent) && !/iPhone|iPad|iPod/i.test(navigator.userAgent)
+            ? "facetime-audio://+19038852639"
+            : "tel:+19038852639";
+
+        document.querySelectorAll("[data-phone-number]").forEach((phoneLink) => {
+            phoneLink.setAttribute("href", phoneHref);
+        });
+
+        document.querySelectorAll("[data-card-link]").forEach((card) => {
+            card.addEventListener("click", (event) => {
+                if (event.target.closest("a")) return;
+                const cardLink = card.querySelector("a[href]");
+                if (cardLink) window.location.href = cardLink.href;
+            });
+        });
+    </script>
 </body>
 </html>
