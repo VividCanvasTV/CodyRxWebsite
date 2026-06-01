@@ -6,7 +6,12 @@ const CompoundingPage = lazy(() => import('./pages/CompoundingPage'))
 const CoverageMapPage = lazy(() => import('./pages/CoverageMapPage'))
 
 function App() {
-  if (window.location.pathname.startsWith('/coverage-map')) {
+  const params = new URLSearchParams(window.location.search)
+  const isCoverageMapView =
+    window.location.pathname.startsWith('/coverage-map') ||
+    params.get('view') === 'coverage-map'
+
+  if (isCoverageMapView) {
     return (
       <Suspense fallback={null}>
         <CoverageMapPage />

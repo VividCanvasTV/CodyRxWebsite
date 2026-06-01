@@ -797,16 +797,56 @@ a {
 .service-area {
     position: relative;
     width: 100%;
+    min-height: clamp(640px, 56vw, 860px);
     overflow: hidden;
     background: #020202;
     isolation: isolate;
 }
 
-.service-area-art {
+.service-area-map-frame {
+    position: relative;
     display: block;
     width: 100%;
-    height: auto;
-    user-select: none;
+    height: clamp(640px, 56vw, 860px);
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 74% 45%, rgba(117, 216, 227, 0.18), transparent 32%),
+        radial-gradient(circle at 56% 50%, rgba(211, 19, 38, 0.18), transparent 35%),
+        linear-gradient(180deg, #020202 0%, #050506 52%, #020202 100%);
+}
+
+.service-area-map-frame::before,
+.service-area-map-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.service-area-map-frame::before {
+    background:
+        linear-gradient(90deg, rgba(2, 2, 2, 0.94) 0%, rgba(2, 2, 2, 0.74) 24%, rgba(2, 2, 2, 0.14) 46%, rgba(2, 2, 2, 0) 72%, rgba(2, 2, 2, 0.28) 100%),
+        linear-gradient(180deg, rgba(2, 2, 2, 0.78) 0%, rgba(2, 2, 2, 0.08) 24%, rgba(2, 2, 2, 0.08) 76%, rgba(2, 2, 2, 0.9) 100%);
+}
+
+.service-area-map-frame::after {
+    background:
+        radial-gradient(ellipse at 25% 22%, rgba(2, 2, 2, 0.5), transparent 38%),
+        radial-gradient(ellipse at 80% 54%, rgba(117, 216, 227, 0.08), transparent 40%);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+}
+
+.service-area-map-frame__iframe {
+    position: absolute;
+    z-index: 1;
+    top: -6%;
+    right: -8%;
+    width: min(92rem, 80vw);
+    height: 112%;
+    border: 0;
+    background: transparent;
 }
 
 .service-area-content {
